@@ -1,0 +1,17 @@
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+
+  h2 Umati Portal Blog
+
+  - var userr = { id: user._id }
+  - if (blogs.length)
+    each posts in blogs
+        if posts.user == userr.id 
+            h2 #{posts.posttitle} 
+            p - #{posts.postdate}  
+            p - #{posts.postcat}
+            br
+            #{posts.post}
+            updated  &nbsp; &nbsp; &nbsp;  updated #{moment(posts.updatedAt).format('MMM Do h:mm:ss a')}
+            hr

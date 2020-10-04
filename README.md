@@ -1,22 +1,24 @@
-UMATI BANK self help group portal
+Umati Portal Open Source Self Help Group Network
 =======================
 
 
-## UMATICORE groupware portal for self help groups
+## Umati Portal groupware portal for self help groups
 
 
-  - Last updated: Wed Sep  9 19:46:06 EDT 2020
+  - Last updated: Wed Oct 4 19:46:06 EDT 2020
   - This document can be found online at
-  - https://github.com/SustainableCommunityDevelopmentHub/umati_hs
+  - https://github.com/SustainableCommunityDevelopmentHub/umatiportal
 
-## Latest development thread is at
+## Private resposity for security sensitive updates
   -  https://github.com/uberslackin/umatiCore 
-  -  more extensive documntationat is being maintained at
-     - https://drive.google.com/drive/folders/1uiOsozRkuzp1NiUBBC_d0IjexXxJbGpq?usp=sharing
+
+
+## Documntation is being extended at
+  - https://drive.google.com/drive/folders/1uiOsozRkuzp1NiUBBC_d0IjexXxJbGpq?usp=sharing
 
 
 
-## Please request access or notify of issue or pull request by emailing 
+# Please request access or notify of issue or pull request by emailing 
   - ecocommunity@protonmail.com
 
 This software is designed for two core use cases 1- as a teaching tool and 2- as a useful organizing tool for small social enterprise, creative, community development problem solving, ecological restoration, and other informal sustainable community development community groups that interface locally and with a greater community of vested interest partners and adversaries.

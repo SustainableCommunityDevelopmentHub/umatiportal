@@ -259,6 +259,7 @@ app.post('/account/creategroup', passportConfig.isAuthenticated, groupdataContro
 
 app.get('/account/editor', passportConfig.isAuthenticated, blogController.getEditor);
 app.get('/account/blog', passportConfig.isAuthenticated, blogController.getBlog);
+app.get('/blog', blogController.getPublicBlog);
 app.post('/account/blog', blogController.postUpdateBlog);
 app.post('/account/blogupdate', passportConfig.isAuthenticated, blogController.postUpdateBlog);
 app.get('/account/blog/:blogpost_id', passportConfig.isAuthenticated, blogController.getUpdateBlogpost);

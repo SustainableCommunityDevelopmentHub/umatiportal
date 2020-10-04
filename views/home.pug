@@ -15,56 +15,58 @@ block content
  
   .home-hero
     .feature
-      h3 Building context into educational resouces
-      p Umati portal specializes in supporing group centered activities.  Techniacal and research clinics can start as 'clinics of one', with room  for inclusion. Successful social enterprises provide oppotunities for skills development and peace making.
+      h3 Defining the commons
+      p Umati portal supports resource management groups with an inventory system as part of your free account.  Traning clinics are an outgrowth of related resource discussions. 
 
     .special
       h3  Resources
       p The human-ecological relationship is governed by how we use water. Water connects us to the land, food, and energy.
     .amazing
-      h3 Integrations
-      p SCD Hub aims to curate its video library better from this platform.
+      h4 How can community development be sustainable?
+      p SCD Hub works on this question by curating an index of sustainable solutions. It is not nearly yet exhaustive or complete.  We could use help.
     .news
-      h3 Collaboration
+      h3 Projects
+      p Umati takes your privacy and best practices in web security very seriosly. 
     .cta
-      p Umati is careful with your data. 
+      h4 Data responsibility requres awareness. 
       if (!user) 
-        a.button.btn.btn-success.spam-button(href='/signup') Get started
+        a.button.btn.btn-success.spam-button(href='/signup') find out more
       else
         a.button.btn.btn-success.spam-button(href='/account/groupsettings') Start a new group
   .row
-    .col-md-6 
+    .col-md-10 
+
+      h3 Regenerative economics principals >> long-term success
+      p Social enterprise
       hr  
-
-  h1 Rallying for sustainable social enterprise.
-  p.i because it is poised to help so many.
-
+      p
   .row
     .col-md-6 
-      h2 Context in community projects
-      p.b in community projects
-      span Every project has its own unique context.  Success depends upon carefully considering such things well in advance.  Umati's group and project emphasis draws from the African movement of 'self help groups' where members check in on a weekly basis, support one another by contributing small weekly sums to the group which form the basis for shor
+      h2 Context
+      span Every project has its own circumstances. Umati portal is working to  help people form this understanding together.
     .col-md-6
       h2 Researching options
-      p At the heart of Umati is our desire to see local businesses thrive. Members of self help groups are encouraged to meet on a regular weekly or biweekly basis, to help members to keep their business and financial goals on track.  Umati service is being designed to provide a review portal for self help group members wishing to access small zero interest loans offered from their own groups as well as the international community. 
+      p At the heart of Umati is our desire to see local businesses thrive. periodic checkins on goals keeps things on track.  Umatiportal is designed to suppot internal review within groups and expose locally maintainable technologies. 
     .col-md-6
       h2 Appropriate technology
-      p The Umati self help group system supports accounting for group savings and contributions.  We do not hold money for groups, rather, we allow group leaders to report the weekly contributions, notify their members of their savings progress, and provide methods of tracking individual member savings, loan disbursements, and loan repayments. 
-      p
-        button.btn.btn-primary(type="button", data-toggle="modal", data-target="#basicExampleModal") Get started
+      p Umati Portal's primary goal is to assist SCD Hub with the development of its knowledgebase and to assist more people in contrinuting useful information to that project, such that it may help in decision making in community projects.
     .col-md-6
       h2 Water systems
-      p One goal of Umati's online collaboration is to benefit self help groups.  As a member of an Umati self help group, you are able to maintain your own blog here, request support for your small business from the internet community visiting umatibank.com loan request portal, and learn more about opportunites that help grow your business. 
+      p As we learn more about water, we begin to see it as a living resource.  Water issues are complex and challenging.  Watershed planning begs the question.. "Can we increase watershed capacity? ie. re-foresting, erosion reduction, urban plantings, reduction of heat island effects.  Yes we can.
 
       .row
         .col-md-12
       hr
+      h2 Photo Credits
+      p Smile and water photos by Alawai at 
+      p Abacus photo by Moonlightway at 
 
-
-      h2 Photo Credit
-
-      p Photo by Alawai at Morguefile.com 
-  
+      ul
+        li
+          a(href='https://morguefile.com/creative/Alawai') Alawai
+        li
+          a(href='https://morguefile.com/creative/Moonlightway') Moonlightway
+ 
       .modal.fade#basicExampleModal(tabindex="-1", role="dialog", aria-labelledby="exampleModalLabel", aria-hidden="true")
         .modal-dialog(role="document")
           .modal-content
@@ -80,9 +82,9 @@ block content
                  a.nav-link(href='/signup') Create Account
                  p Please log in and check your group section.
               else
-                 p Hi #{user.profile.name}
-                 span Join us 
-                 a(href='https://portal.etiny.xyz/account/elevator') here
+                 p Welcome #{user.profile.name}
+                 if !user.project
+                   span Please ensure that you have a project or group defined in settings
 
           .modal-footer
             button.btn.btn-secondary(type="button", data-dismiss="modal") Close

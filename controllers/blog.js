@@ -23,6 +23,13 @@ exports.getBlogupdated = function (req, res, user) {
             res.render('account/blogupdated', { title: 'Blog updated'});
 };
 
+exports.getPublicBlog = function (req, res, user) {
+    Blog.find()
+        .exec(function (err, blog_data) {          
+            // Successful, so rendecalsr.
+            res.render('account/blogpublic', { title: 'Public Blog', blogs: blog_data });
+        })
+};
 
 exports.getBlog = function (req, res, user) {
     Blog.find()
