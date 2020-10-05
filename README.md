@@ -2,7 +2,7 @@ Umati Portal Open Source Self Help Group Network
 =======================
 
 
-## Umati Portal groupware portal for self help groups
+## Umati Group project & research portal
 
 
   - Last updated: Wed Oct 4 19:46:06 EDT 2020
