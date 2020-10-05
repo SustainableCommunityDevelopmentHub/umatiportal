@@ -157,7 +157,6 @@ app.post('/forgot', userController.postForgot);
 app.get('/reset/:token', userController.getReset);
 app.post('/reset/:token', userController.postReset);
 app.get('/signup', userController.getSignup);
-app.get('/signupzhc', userController.getZhcSignup);
 app.get('/signupmult', userController.getMultSignup);
 app.get('/account/backup', userController.getBackup);
 app.get('/account/confirmdelete', userController.getConfirmDelete);
