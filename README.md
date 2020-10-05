@@ -1,19 +1,19 @@
-Umati Portal Open Source Self Help Group Network
+Umati Project, Research and Groupware Portal
 =======================
 
 
-## Umati Portal groupware portal for self help groups
+## Umati Project, Research, and Groupware Portal
 
 
   - Last updated: Wed Oct 4 19:46:06 EDT 2020
   - This document can be found online at
   - https://github.com/SustainableCommunityDevelopmentHub/umatiportal
 
-## Private resposity for security sensitive updates
+## Private respository for security sensitive updates
   -  https://github.com/uberslackin/umatiCore 
 
 
-## Documntation is being extended at
+## Documentation is being extended at
   - https://drive.google.com/drive/folders/1uiOsozRkuzp1NiUBBC_d0IjexXxJbGpq?usp=sharing
 
 
@@ -33,18 +33,27 @@ appropriate for engineering education and small group interpersonal health and w
 
   ed: I see a few distinct breakaway teaching pathways in the Umaticore distr.  As per your suggestion, I have been updating the documentation. I am using the  readme page on this public repo.
 
-  https://github.com/SustainableCommunityDevelopmentHub/umati_hs
+  https://github.com/SustainableCommunityDevelopmentHub/umatiportal
 
   please note that the current development thread is in a private repository which i would be happy to share access to you and/or students involved in tech infra support for ECHO as well as UNM scholastic projects.
 
-  the sections that can be lead independently are
+ Branches are being establihed for workinng groups
+
+
+ The following features are important for the existing groups in relationship to SCD Hub
 
 ## Tiered role based management of solutions database
-  - feature branch I am leading
 
 ## Authentication
+ - via passport js
  - student lead
  - expressJs with passport authentication. API connector exm
+
+##  System security
+ - securely make use of multer for file uploads
+   -- can this be done safely on one server? me thinks not.
+ - blocking malicious IPs
+ - best practices in managing nginx server 
 
 ## APIs used
  - student lead
