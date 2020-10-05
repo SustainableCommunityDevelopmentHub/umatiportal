@@ -19,20 +19,17 @@ block content
       p Umati portal supports resource management groups with an inventory system as part of your free account.  Traning clinics are an outgrowth of related resource discussions. 
 
     .special
-      h3  Resources
+      h3  Resource Aware
       p The human-ecological relationship is governed by how we use water. Water connects us to the land, food, and energy.
     .amazing
       h4 How can community development be sustainable?
       p SCD Hub works on this question by curating an index of sustainable solutions. It is not nearly yet exhaustive or complete.  We could use help.
     .news
-      h3 Projects
+      h3 Learning Clinics
       p Umati takes your privacy and best practices in web security very seriosly. 
     .cta
-      h4 Data responsibility requres awareness. 
-      if (!user) 
-        a.button.btn.btn-success.spam-button(href='/signup') find out more
-      else
-        a.button.btn.btn-success.spam-button(href='/account/groupsettings') Start a new group
+      h4 Research Projects
+      p 
   .row
     .col-md-10 
 
@@ -42,8 +39,14 @@ block content
       p
   .row
     .col-md-6 
-      h2 Context
-      span Every project has its own circumstances. Umati portal is working to  help people form this understanding together.
+      h2 Thinking about taking action?
+      span Every project has its own circumstances. Umati portal is working to  help people form this understanding together. You may wish to:
+      if (!user) 
+        a.button.btn.btn-success.spam-button(href='/signup') find out more
+      else
+        a.button.btn.btn-secondary.spam-button(href='/account/signupproject') Start tracking a project
+        a.button.btn.btn-primary.spam-button(href='/account/signupresearch') Start a research clinic
+        a.button.btn.btn-danger.spam-button(href='/account/signupblog') Blog
     .col-md-6
       h2 Researching options
       p At the heart of Umati is our desire to see local businesses thrive. periodic checkins on goals keeps things on track.  Umatiportal is designed to suppot internal review within groups and expose locally maintainable technologies. 

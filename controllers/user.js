@@ -133,15 +133,29 @@ exports.getMultSignup = (req, res) => {
  * Signup page.
  */
 
-exports.getZhcSignup = (req, res) => {
+exports.getGroupSignup = (req, res) => {
   if (req.user) {
     return res.redirect('/');
   }
-  res.render('account/signupzhc', {
-    title: 'new Zip Home Chef account'
+  res.render('account/signupgroup', {
+    title: 'Group account'
   });
 };
 
+
+/**
+ * GET /signupzhc
+ * Signup page.
+ */
+
+exports.getResearchSignup = (req, res) => {
+  if (req.user) {
+    return res.redirect('/');
+  }
+  res.render('account/signupresearch', {
+    title: 'New Research Signup account'
+  });
+};
 
 
 /**
@@ -1110,6 +1124,17 @@ exports.getPossettings = (req, res) => {
  * Blog homepage content manager
  */
 exports.getBloghomepage = (req, res) => {
+  res.render('account/bloghomepage', {
+    title: 'Blog homepage manager'
+  });
+};
+
+
+/**
+ * GET /account/blog
+ * Blog homepage content manager
+ */
+exports.getBlogSignup = (req, res) => {
   res.render('account/bloghomepage', {
     title: 'Blog homepage manager'
   });

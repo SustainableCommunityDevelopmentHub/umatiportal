@@ -162,7 +162,6 @@ app.get('/signupmult', userController.getMultSignup);
 app.get('/account/backup', userController.getBackup);
 app.get('/account/confirmdelete', userController.getConfirmDelete);
 app.get('/signupgroup', userController.getGroupSignup);
-app.get('/signupproject', userController.getProjectSignup);
 app.get('/account/supportedsignup', userController.getSupportedsignup);
 app.get('/account/prioritysupport', userController.getPrioritysupport);
 app.post('/signup', userController.postSignup);
@@ -188,6 +187,10 @@ app.get('/:name', userController.getPublicUserPage);
 app.get('/business/:name', userController.getPublicBusinessPage);
 app.get('/group/:name', userController.getPublicGroupPage);
 app.get('/project/:name', userController.getPublicProjectPage);
+app.get('/signupproject', userController.getProjectSignup);
+app.get('/signupresearch', passportConfig.isAuthenticated, userController.getResearchSignup);
+app.get('/signupproject', passportConfig.isAuthenticated, userController.getProjectSignup);
+app.get('/signupblog', passportConfig.isAuthenticated, userController.getBlogSignup);
 
 app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
 app.get('/account/profileajax/:user/:item/:val', passportConfig.isAuthenticated, userController.getUpdateProfileAjax);
