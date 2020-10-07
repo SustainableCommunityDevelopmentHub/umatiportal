@@ -332,6 +332,10 @@ input:checked + .slider:before {
   flex-direction: column;
 }
 
+
+ div.cta h1 {
+  background-color: #000;
+}
 .cta {
   background-image: url(/hemcreteStrawbale.jpg); 
   color: #fff;

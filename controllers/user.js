@@ -148,13 +148,17 @@ exports.getGroupSignup = (req, res) => {
  * Signup page.
  */
 
+
 exports.getResearchSignup = (req, res) => {
   if (req.user) {
-    return res.redirect('/');
+    res.render('account/signupresearch', {
+      title: 'New Research Signup account'
+    });
+  } else {
+    res.render('/signupresearch', {
+      title: 'New Research Signup account'
+    });
   }
-  res.render('account/signupresearch', {
-    title: 'New Research Signup account'
-  });
 };
 
 
@@ -183,6 +187,30 @@ exports.getProjectSignup = (req, res) => {
     title: 'Create project form'
   });
 };
+
+
+/**
+ * GET /projectsignup
+ * Signup page.
+ */
+exports.getProjectSignupPublic = (req, res) => {
+  res.render('signupproject', {
+    title: 'Public facing project form'
+  });
+};
+
+
+
+/**
+ * GET /projectsignup
+ * Signup page.
+ */
+exports.getProjectSignup = (req, res) => {
+  res.render('signupproject', {
+    title: 'Public project signup form'
+  });
+};
+
 
 
 /**

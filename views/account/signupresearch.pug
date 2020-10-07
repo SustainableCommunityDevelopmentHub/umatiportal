@@ -4,12 +4,12 @@ block content
   .pb-2.mt-2.mb-4.border-bottom
 
 
-    h3  Start Documenting your project here
+    h3  Start documenting your research
   form(id='projectsignup-form', method='POST', action='/signup', onsubmit='if(document.getElementById(\'agree\').checked) { return true; } else { alert(\'Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy\'); return false; }')
 
     input(type='hidden', name='_csrf', value=_csrf)
     .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='project') Name of project
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='researchname') Name your research project 
       .col-md-7
         input.form-control(type='text', name='project', id='group', autofocus)
 
@@ -31,14 +31,14 @@ block content
         input.form-control(type='password', name='confirmPassword', id='confirmPassword', placeholder='Confirm Password', minlength='8', required)
 
     .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='usecase') Use case
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='usecase') Type of Research
       .col-md-7
         .form-check.form-check-inline
            input(type='radio', class='form-check-input', name='usecase', value='health', data-toggle='radio')
            label.form-check-label Health
         .form-check.form-check-inline
            input(type='radio', class='form-check-input', name='usecase', value='scd clinic', data-toggle='radio')
-           label.form-check-label Training Clinic 
+           label.form-check-label Water and Sanitation
         .form-check.form-check-inline
            input(type='radio', class='form-check-input', name='affilation', value='resinv', data-toggle='radio')
            label.form-check-label Resource inventory
@@ -54,32 +54,11 @@ block content
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right(for='usecaseother') 
       .col-md-7
-        input.form-control(type='text', name='usecaseother', id='usecaseother', placeholder='A word to describe your project now', autofocus, required)
+        input.form-control(type='text', name='usecaseother', id='usecaseother', placeholder='short statement about concept', autofocus, required)
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right(for='usecaseother') 
       .col-md-7
-        input.form-control(type='text', name='usecaseother2', id='usecaseother2', placeholder='Where you hope it to be in 6 mos.', autofocus, required)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='status') Phase of project
-      .col-md-7
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='status', id='status', value='concept')
-           label.form-check-label Concept
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='status', id='status', value='planning')
-           label.form-check-label Planning
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='status', id='status', value='outreach')
-           label.form-check-label Outreach
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='status', id='status', value='fundraising')
-           label.form-check-label Fundraising
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='status', id='status', value='testing')
-           label.form-check-label Testing
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='status', id='status', value='retrospective')
-           label.form-check-label Retrospective
+        input.form-control(type='text', name='usecaseother2', id='usecaseother2', placeholder='Please provide some tags for your research', autofocus, required)
 
       .col-md-3 
       .col-md-7
