@@ -290,7 +290,8 @@ exports.postSignup = (req, res, next) => {
         if (err) {
           return next(err);
         }
-        res.redirect('/account/welcome');
+        req.flash('success', { msg: 'welcome, thank you for talking the  time  to create an account here on Umati Portal.' });
+        res.redirect('/');
       });
     });
   });
