@@ -1,11 +1,11 @@
-extends ../layout
+extends layout
 
 block content
   .pb-2.mt-2.mb-4.border-bottom
 
 
-    h3  Start Documenting your project here
-  form(id='projectsignup-form', method='POST', action='/signup', onsubmit='if(document.getElementById(\'agree\').checked) { return true; } else { alert(\'Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy\'); return false; }')
+    h3 Research Project Starting Point
+  form(id='researchsignup-form', method='POST', action='/researchsignup', onsubmit='if(document.getElementById(\'agree\').checked) { return true; } else { alert(\'Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy\'); return false; }')
 
     input(type='hidden', name='_csrf', value=_csrf)
     .form-group.row

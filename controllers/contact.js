@@ -21,7 +21,7 @@ const randomBytesAsync = promisify(crypto.randomBytes);
 */
 
 
-// Display list of Contact activity.
+// Display contacts
 exports.getContact = function (req, res, next) {
 
     Contact.find()
@@ -29,7 +29,7 @@ exports.getContact = function (req, res, next) {
         .exec(function (err, contact_data) {
             if (err) { return next(err); }
             // Successful, so rendecalsr.
-            res.render('account/contacts', { title: 'Contacts page', memdata: conctact_data });
+            res.render('account/contacts', { title: 'Contacts page', memdata: contact_data });
         })
 };
 
@@ -43,8 +43,20 @@ exports.postContact = (req, res, next) => {
   if (validator.isEmpty(req.body.name)) validationErrors.push({ msg: 'Item name cannot be blank.' });
 };
 
+
 /**
- * GET /createpost
+ * GET /roadmap
+ * Roadmap page.
+ */
+exports.getRoadmap = (req, res) => {
+  res.render('roadmap', {
+    title: 'Roadmap'
+  });
+};
+
+
+/**
+ * GET /account/createcontact
  * Signup page.
  */
 exports.getCreatecontact = (req, res) => {
@@ -54,7 +66,7 @@ exports.getCreatecontact = (req, res) => {
 };
 
 /**
- * GET /createpost
+ * GET /privacy
  * Signup page.
  */
 exports.getPrivacy = (req, res) => {

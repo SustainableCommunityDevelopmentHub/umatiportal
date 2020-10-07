@@ -174,6 +174,7 @@ app.get('/privacypolicy', userController.getPrivacy);
 app.get('/privacy', contactController.getPrivacy);
 app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
+app.get('/roadmap', contactController.getRoadmap);
 
 app.get('/account/verify', passportConfig.isAuthenticated, userController.getVerifyEmail);
 app.get('/account/verify/:token', passportConfig.isAuthenticated, userController.getVerifyEmailToken);
@@ -186,10 +187,13 @@ app.get('/:name', userController.getPublicUserPage);
 app.get('/business/:name', userController.getPublicBusinessPage);
 app.get('/group/:name', userController.getPublicGroupPage);
 app.get('/project/:name', userController.getPublicProjectPage);
-app.get('/signupproject', userController.getProjectSignup);
+app.get('/account/signupproject', passportConfig.isAuthenticated, userController.getProjectSignup);
+app.get('/signupproject', userController.getProjectSignupPublic);
 app.get('/signupresearch', passportConfig.isAuthenticated, userController.getResearchSignup);
-app.get('/signupproject', passportConfig.isAuthenticated, userController.getProjectSignup);
-app.get('/signupblog', passportConfig.isAuthenticated, userController.getBlogSignup);
+app.get('/account/signupresearch', passportConfig.isAuthenticated, userController.getResearchSignup);
+app.get('/account/signupproject', passportConfig.isAuthenticated, userController.getProjectSignup);
+app.get('/signupblog', userController.getBlogSignup);
+app.get('/account/signupblog', passportConfig.isAuthenticated, userController.getBlogSignup);
 
 app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
 app.get('/account/profileajax/:user/:item/:val', passportConfig.isAuthenticated, userController.getUpdateProfileAjax);
