@@ -31,6 +31,9 @@ h3+p {
   margin-top: 0;
 }
 
+.hideli {
+  list-style:none;
+}
 
 .gllpMap { 
   width: 600px; 
@@ -334,11 +337,11 @@ input:checked + .slider:before {
 
 
  div.cta h1 {
-  background-color: rgba(255,255,255,0.5); border: 1px solid #FFF;
+  background-color: rgba(255,255,255,0.5); border: 1px solid #000;
 }
 .cta {
   background-image: url(/hemcreteStrawbale.jpg); 
-  color: #fff;
+  color: #000;
   font-weight: bold;
   display: flex;
   flex-direction: column;
