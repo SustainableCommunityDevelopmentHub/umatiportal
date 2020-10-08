@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+
+
+    h3 Blog startup form 
+  form(id='projectsignup-form', method='POST', action='/signup', onsubmit='if(document.getElementById(\'agree\').checked) { return true; } else { alert(\'Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy\'); return false; }')
+
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='blogtitle') Name of blog
+      .col-md-7
+        input.form-control(type='text', name='bloggtitle', id='blogtitle', autofocus)
+
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='blogdesc') 
+      .col-md-7
+        input.form-control(type='text', name='blogdesc', id='bloggdesc', placeholder='Desription of blog', autofocus, required)
+
+      .col-md-3 
+      .col-md-7
+        input#agree(type='checkbox', name='checkbox', value='check')
+        |  I have read and agree to the
+        br
+        a(href='/terms') Umati Blog Terms and Conditions
+        |  and 
+        a(href='/privacy') Privacy Policy
+
+
+
+
+    .form-group.offset-sm-3.col-md-7.pl-2
+      button.btn.btn-success(type='submit')
+        i.fas.fa-user-plus.fa-sm
+        | Signup

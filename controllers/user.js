@@ -67,7 +67,7 @@ exports.logout = (req, res) => {
  * getPublicGroupPage
  */
 exports.getPublicGroupPage = (req,res,next) => {
-  res.render('account/template_group', {
+  res.render('account/templategroup', {
     title: 'Group page'
   });
 }
@@ -77,7 +77,7 @@ exports.getPublicGroupPage = (req,res,next) => {
  * getPublicProjectPage
  */
 exports.getPublicProjectPage = (req,res,next) => {
-  res.render('account/template_project', {
+  res.render('account/templateproject', {
     title: 'Project page'
   });
 }
@@ -86,7 +86,7 @@ exports.getPublicProjectPage = (req,res,next) => {
  * getPublicBusinessPage
  */
 exports.getPublicBusinessPage = (req,res,next) => {
-  res.render('account/template_business', {
+  res.render('account/templatebusiness', {
     title: 'Business page'
   });
 }
@@ -95,7 +95,7 @@ exports.getPublicBusinessPage = (req,res,next) => {
  * getPublicUserPage
  */
 exports.getPublicUserPage = (req,res,next) => {
-  res.render('account/template_user', {
+  res.render('account/templateuser', {
     title: 'Public user page'
   });
 }
@@ -129,7 +129,7 @@ exports.getMultSignup = (req, res) => {
 
 
 /**
- * GET /signupzhc
+ * GET /account/signupgroup
  * Signup page.
  */
 
@@ -142,23 +142,25 @@ exports.getGroupSignup = (req, res) => {
   });
 };
 
-
 /**
- * GET /signupzhc
+ * GET /account/signupresearch
  * Signup page.
  */
-
-
 exports.getResearchSignup = (req, res) => {
-  if (req.user) {
     res.render('account/signupresearch', {
       title: 'New Research Signup account'
     });
-  } else {
-    res.render('/signupresearch', {
-      title: 'New Research Signup account'
+};
+
+
+/**
+ * GET /signupresearch
+ * Research Signup page. - for not logged in users
+ */
+exports.getResearchSignupPublic = (req, res) => {
+    res.render('signupresearch', {
+      title: 'Research Signup account for existing user'
     });
-  }
 };
 
 
@@ -180,9 +182,6 @@ exports.getGroupSignup = (req, res) => {
  * Signup page.
  */
 exports.getProjectSignup = (req, res) => {
-  if (req.user) {
-    return res.redirect('/');
-  }
   res.render('account/signupproject', {
     title: 'Create project form'
   });
@@ -196,18 +195,6 @@ exports.getProjectSignup = (req, res) => {
 exports.getProjectSignupPublic = (req, res) => {
   res.render('signupproject', {
     title: 'Public facing project form'
-  });
-};
-
-
-
-/**
- * GET /projectsignup
- * Signup page.
- */
-exports.getProjectSignup = (req, res) => {
-  res.render('signupproject', {
-    title: 'Public project signup form'
   });
 };
 
@@ -239,9 +226,6 @@ exports.getPrioritysupport = (req, res) => {
     title: 'Benefits of priority support'
   });
 };
-
-
-
 
 
 /**

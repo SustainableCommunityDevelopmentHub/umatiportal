@@ -183,15 +183,13 @@ app.post('/account/password', passportConfig.isAuthenticated, userController.pos
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 
-app.get('/:name', userController.getPublicUserPage);
 app.get('/business/:name', userController.getPublicBusinessPage);
 app.get('/group/:name', userController.getPublicGroupPage);
 app.get('/project/:name', userController.getPublicProjectPage);
 app.get('/account/signupproject', passportConfig.isAuthenticated, userController.getProjectSignup);
 app.get('/signupproject', userController.getProjectSignupPublic);
-app.get('/signupresearch', passportConfig.isAuthenticated, userController.getResearchSignup);
 app.get('/account/signupresearch', passportConfig.isAuthenticated, userController.getResearchSignup);
-app.get('/account/signupproject', passportConfig.isAuthenticated, userController.getProjectSignup);
+app.get('/signupresearch', userController.getResearchSignupPublic);
 app.get('/signupblog', userController.getBlogSignup);
 app.get('/account/signupblog', passportConfig.isAuthenticated, userController.getBlogSignup);
 
@@ -323,11 +321,13 @@ app.get('/account/requestpayment', passportConfig.isAuthenticated, userControlle
 
 app.post('/account/upload', passportConfig.isAuthenticated, blogController.postUpload);
 
-
-app.get('/games/pong', userController.getPong);
-app.get('/games/si', userController.getSi);
 app.get('/account/jexcel', userController.getJexcel);
 app.get('/account/avatared', userController.getAvatared);
+app.get('/games/pong', userController.getPong);
+app.get('/games/si', userController.getSi);
+
+app.get('/:name', userController.getPublicUserPage);
+
 /**
  * API examples routes.
  */
