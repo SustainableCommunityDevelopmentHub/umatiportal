@@ -316,6 +316,13 @@ input:checked + .slider:before {
   height: 280px;
 }
 
+div.news p {
+  margin: 10px;
+  color: #000;
+  font-weight: bold;
+  background-color: rgba(255,255,255,0.5);
+}
+
 .special {
   background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)),url(/landscape.jpg); 
   color: #fff;
@@ -335,8 +342,7 @@ input:checked + .slider:before {
   flex-direction: column;
 }
 
-
- div.cta h1 {
+div.cta h1 {
   background-color: rgba(255,255,255,0.5); border: 1px solid #000;
 }
 .cta {
