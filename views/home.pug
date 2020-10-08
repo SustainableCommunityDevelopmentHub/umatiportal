@@ -35,36 +35,30 @@ block content
   .row
     .col-md-10 
 
-      h3 Regenerative economics principals >> long-term success
-      p Social enterprise
-      hr  
-      p
   .row
     .col-md-6 
-      h2 Tools for 
+      p Welcome
       ul
         li 
-          a(href='/roadmap') Roadmap & vision
+          a(href='/roadmap') Umatiportal Roadmap & vision
         li 
           a(href='https://github.com/SustainableCommunityDevelopmentHub/umatiportal/archive/master.zip') Download our free software
+        li 
+          a(href='/signup') Create a free account
       if (!user) 
-        p
-          a.button.btn.btn-success.spam-button(href='/signup') Create a free account
-        p
-          a.button.btn.btn-secondary.spam-button(href='/signupproject') Track a project
-        p
+        li 
           a.button.btn.btn-primary.spam-button(href='/signupresearch') Document your research
+        li
+          a.button.btn.btn-secondary.spam-button(href='/signupproject') Track a project
       if (user) 
-        p welcome, #{user.name}
-        li
           a.button.btn.btn-secondary.spam-button(href='/account/signupproject') Start a project
-        li
           a.button.btn.btn-primary.spam-button(href='/account/signupresearch') Do research
     .col-md-6
-      h2 Researching options
-      p At the heart of Umati is our desire to see local businesses thrive. periodic checkins on goals keeps things on track.  Umatiportal is designed to suppot internal review within groups and expose locally maintainable technologies. 
+      p
+      h2 Sustainable Community Development
+      p At the heart of Umati is our desire to communites thrive.  We provide software to help participants' form goals and to keep them track.
     .col-md-6
-      h2 Appropriate technology
+      h2 Appropriate Technology
       p Umati Portal's primary goal is to assist SCD Hub with the development of its knowledgebase and to assist more people in contrinuting useful information to that project, such that it may help in decision making in community projects.
     .col-md-6
       h2 Water systems
