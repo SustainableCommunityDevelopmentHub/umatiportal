@@ -263,6 +263,8 @@ app.get('/account/creategroupnote', passportConfig.isAuthenticated, groupdataCon
 app.get('/account/creategroup', passportConfig.isAuthenticated, groupdataController.getCreategroupdata);
 app.post('/account/creategroup', passportConfig.isAuthenticated, groupdataController.postCreategroupdata);
 
+app.get('/account/research', passportConfig.isAuthenticated, blogController.getBlog);
+
 app.get('/account/editor', passportConfig.isAuthenticated, blogController.getEditor);
 app.get('/account/blog', passportConfig.isAuthenticated, blogController.getBlog);
 app.get('/blog', blogController.getPublicBlog);

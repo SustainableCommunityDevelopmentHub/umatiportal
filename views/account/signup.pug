@@ -4,10 +4,6 @@ block content
   .pb-2.mt-2.mb-4.border-bottom
 
 
-    a(href='/account/supportedsignup') Priority support option
-    span - 
-    a(href='/account/prioritysupport') Details
-
     h3 Umati account signup
   form(id='signup-form', method='POST', action='#', onsubmit='if(document.getElementById(\'agree\').checked) { return true; } else { alert(\'Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy\'); return false; }')
 
@@ -34,81 +30,12 @@ block content
       .col-md-7
         input.form-control(type='text', name='group', id='group', placeholder='Group name', autofocus)
 
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='usecase') Use case
-      .col-md-7
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='usecase', value='health', data-toggle='radio')
-           label.form-check-label Health
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='usecase', value='scd clinic', data-toggle='radio')
-           label.form-check-label SCD Clinic 
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='affilation', value='resinv', data-toggle='radio')
-           label.form-check-label Resource inventory
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='usecase', value='foodsec', data-toggle='radio')
-           label.form-check-label Food security
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='usecase', value='musicarts', data-toggle='radio')
-           label.form-check-label Creative
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='usecase', value='unknown', data-toggle='radio')
-           label.form-check-label Other
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='usecaseother') 
-      .col-md-7
-        input.form-control(type='text', name='usecaseother', id='usecaseother', placeholder='A word to describe your project now', autofocus, required)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='usecaseother') 
-      .col-md-7
-        input.form-control(type='text', name='usecaseother2', id='usecaseother2', placeholder='Where you hope it to be in 6 mos.', autofocus, required)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='status') Phase of project
-      .col-md-7
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='status', id='status', value='concept')
-           label.form-check-label Concept
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='status', id='status', value='planning')
-           label.form-check-label Planning / research
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='status', id='status', value='outreach')
-           label.form-check-label Outreach & promotion
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='status', id='status', value='fundraising')
-           label.form-check-label Fundraising
-        .form-check.form-check-inline
-           input(type='radio', class='form-check-input', name='status', id='status', value='testing')
-           label.form-check-label Testing
 
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='grouplead') Contact person
-      .col-md-7
-        input.form-control(type='text', name='grouplead', id='grouplead', placeholder='name or email', autofocus)
-
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='status_det1') Promote my project to the Umati community
-      ul.nav.nav-pills
-        li.nav-item
-            a.nav-link.notifyall(data-toggle="tab") yes
-            a.nav-link.notifygroup(data-toggle="tab") just my group
-            a.nav-link.notifyusecase(data-toggle="tab") just to users with same use case
-            a.nav-link.notifytag(data-toggle="tab") everyone in same project phase
-
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='promotionassistance') Support my promotion strategy with periodic advice
-      ul.nav.nav-pills.success
-        li.nav-item
-            a.nav-link.notifygroup(data-toggle="tab") sounds good.
-
-
-    input#agree(type='checkbox', name='checkbox', value='check')
-    |  I have read and agree to the 
-    |  a(href='/terms') Terms and Conditions 
-    |  and 
-    |  a(href='/privacy') Privacy Policy
-
+    input#agree(type='checkbox', name='checkbox', value='check') 
+    | I have read and agree to the 
+    a(href='/terms') Terms and Conditions 
+    |  span and 
+    a(href='/privacy') Privacy Policy
 
 
     .form-group.offset-sm-3.col-md-7.pl-2
