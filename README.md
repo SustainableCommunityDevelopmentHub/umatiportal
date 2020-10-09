@@ -1,16 +1,16 @@
-Umati Project, Research and Groupware Portal
+Ati Portal - Project, Research and Group Portal Web App System
 =======================
 
 
-## Umati Project, Research, and Groupware Portal
+## Ati Portal Project, Research, and Groupware Portal
 
 
   - Last updated: Wed Oct 4 19:46:06 EDT 2020
   - This document can be found online at
-  - https://github.com/SustainableCommunityDevelopmentHub/umatiportal
+  - https://github.com/SustainableCommunityDevelopmentHub/atiportal
 
 ## Private respository for security sensitive updates
-  -  https://github.com/uberslackin/umatiCore 
+  -  https://github.com/uberslackin/atiportal 
 
 
 ## Documentation is being extended at
