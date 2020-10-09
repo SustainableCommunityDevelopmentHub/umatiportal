@@ -2,7 +2,7 @@ Ati Portal - Project, Research and Group Portal Web App System
 =======================
 
 
-## Ati Portal Project, Research, and Groupware Portal
+## Ati is a shortening of the original project name 'umati' which means 'community' in swahili.  'Ati' means 'and' in swahili and 'you' in Romanian.  In Yoruba, Ati means 'we had'. In turkish, ati means 'horse', in sudanese, it means 'liver'. in Urdu, 'ati' means 'there'. in hungarian 'your', in Serbian, Ati means - 'and you'.  So 'Ati' it is, these words describe many aspects of what this project has become. The metaphor holds.
 
 
   - Last updated: Wed Oct 4 19:46:06 EDT 2020
