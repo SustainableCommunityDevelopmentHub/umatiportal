@@ -1,16 +1,16 @@
-Ahto Peaceware - Project, Research and Group Data Portal
+Ahti Portal is a 'Peaceware' Project, Research and Group Data Portal
 =======================
 
 
-## Ahto is a mod. of the original project name 'umati' which means 'community' in swahili.
+## Ahti is a mod. of the original project name 'umati' which means 'community' in swahili.
  
  
   - Last updated: Wed Oct 4 19:46:06 EDT 2020
   - This document can be found online at
-  - https://github.com/SustainableCommunityDevelopmentHub/ahto
+  - https://github.com/SustainableCommunityDevelopmentHub/ahti
 
 ## Private respository for security sensitive updates
-  -  https://github.com/uberslackin/ahto
+  -  https://github.com/uberslackin/ahti
 
 
 ## Documentation is being extended at
