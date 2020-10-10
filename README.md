@@ -1,16 +1,16 @@
-Ati Portal - Project, Research and Group Portal Web App System
+Ahto Peaceware - Project, Research and Group Data Portal
 =======================
 
 
-## Ati is a shortening of the original project name 'umati' which means 'community' in swahili.  'Ati' means 'and' in swahili and 'you' in Romanian.  In Yoruba, Ati means 'we had'. In turkish, ati means 'horse', in sudanese, it means 'liver'. in Urdu, 'ati' means 'there'. in hungarian 'your', in Serbian, Ati means - 'and you'.  So 'Ati' it is, these words describe many aspects of what this project has become. The metaphor holds.
-
-
+## Ahto is a mod. of the original project name 'umati' which means 'community' in swahili.
+ 
+ 
   - Last updated: Wed Oct 4 19:46:06 EDT 2020
   - This document can be found online at
-  - https://github.com/SustainableCommunityDevelopmentHub/atiportal
+  - https://github.com/SustainableCommunityDevelopmentHub/ahto-peaceware
 
 ## Private respository for security sensitive updates
-  -  https://github.com/uberslackin/atiportal 
+  -  https://github.com/uberslackin/ahto-peaceware 
 
 
 ## Documentation is being extended at
@@ -33,11 +33,11 @@ appropriate for engineering education and small group interpersonal health and w
 
   ed: I see a few distinct breakaway teaching pathways in the Umaticore distr.  As per your suggestion, I have been updating the documentation. I am using the  readme page on this public repo.
 
-  https://github.com/SustainableCommunityDevelopmentHub/umatiportal
+  https://github.com/SustainableCommunityDevelopmentHub/ahto-peaceware
 
   please note that the current development thread is in a private repository which i would be happy to share access to you and/or students involved in tech infra support for ECHO as well as UNM scholastic projects.
 
- Branches are being establihed for workinng groups
+ Branches are being establihed for working groups
 
 
  The following features are important for the existing groups in relationship to SCD Hub
@@ -68,20 +68,16 @@ appropriate for engineering education and small group interpersonal health and w
 
 
 
-##  UMATICORE groupware portal for self help groups
+##  AHTO peaceware
 
-  as a teaching tool
-
-
-  appropriate for engineering education and small group interpersonal health and wellness support
+  useful as a teaching tool & appropriate for engineering education and small group interpersonal health and wellness support
 
 
 ## Areas of work
 
   possible student workgroup session areas of focus
 
-
-  Umaticore allows a unique learning perspective; Working on software that you use.
+  Ahto peaceware allows a unique learning perspective; Working on software that you use.
 
 ## SOFTWARE PROJECT FEATURES
 
