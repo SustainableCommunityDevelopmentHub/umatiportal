@@ -7,10 +7,10 @@ Ahto Peaceware - Project, Research and Group Data Portal
  
   - Last updated: Wed Oct 4 19:46:06 EDT 2020
   - This document can be found online at
-  - https://github.com/SustainableCommunityDevelopmentHub/ahto-peaceware
+  - https://github.com/SustainableCommunityDevelopmentHub/ahto
 
 ## Private respository for security sensitive updates
-  -  https://github.com/uberslackin/ahto-peaceware 
+  -  https://github.com/uberslackin/ahto
 
 
 ## Documentation is being extended at
@@ -33,7 +33,7 @@ appropriate for engineering education and small group interpersonal health and w
 
   ed: I see a few distinct breakaway teaching pathways in the Umaticore distr.  As per your suggestion, I have been updating the documentation. I am using the  readme page on this public repo.
 
-  https://github.com/SustainableCommunityDevelopmentHub/ahto-peaceware
+  https://github.com/SustainableCommunityDevelopmentHub/ahto
 
   please note that the current development thread is in a private repository which i would be happy to share access to you and/or students involved in tech infra support for ECHO as well as UNM scholastic projects.
 
