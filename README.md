@@ -2,22 +2,23 @@ Ahti Portal is a 'Peaceware' Project, Research and Community Group Data Portal
 =======================
 
 
-## Ahti is a mod. of the original project name 'umati' which means 'community' in swahili.
  
- 
-  - Last updated: Wed Oct 4 19:46:06 EDT 2020
-  - This document can be found online at
-  - https://github.com/SustainableCommunityDevelopmentHub/ahti
+## About our name.. 
 
-## Private respository for security sensitive updates
-  -  https://github.com/uberslackin/ahti
+-  I had originally considered Ati. Ati is a very interesting word linquistically.  'Ati' means 'and' in swahili and 'you' in Romanian.  In Yoruba, Ati means 'we had'. In turkish, ati means 'horse', in sudanese, it means 'liver'. in Urdu, 'ati' means 'there'. in hungarian 'your', in Serbian, Ati means - 'and you'.  So 'Ati' it is, these words describe many aspects of what this project has become. The metaphor holds.
+
+- Ahti is a mod. to the original project name 'umati' which means 'community' in swahili.
+  
+  
+##  Project notes- this README file.
+  - https://github.com/SustainableCommunityDevelopmentHub/ahti
 
 
 ## Documentation is being extended at
   - https://drive.google.com/drive/folders/1uiOsozRkuzp1NiUBBC_d0IjexXxJbGpq?usp=sharing
 
 
-This software is designed for two core use cases 1- as a teaching tool and 2- as a useful organizing tool for small social enterprise, creative, community development problem solving, ecological restoration, and other informal sustainable community development community groups that interface locally and with a greater community of vested interest partners and adversaries.
+  -- This software is designed for two core use cases 1- as a teaching tool and 2- as a useful organizing tool for small social enterprise, creative, community development problem solving, ecological restoration, and other informal sustainable community development community groups that interface locally and with a greater community of vested interest partners and adversaries.
 appropriate for engineering education and small group interpersonal health and wellness support
 
 ## AUTOMATED TESTING 
