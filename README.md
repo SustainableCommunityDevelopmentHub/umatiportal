@@ -17,10 +17,6 @@ Ahti Portal is a 'Peaceware' Project, Research and Community Group Data Portal
   - https://drive.google.com/drive/folders/1uiOsozRkuzp1NiUBBC_d0IjexXxJbGpq?usp=sharing
 
 
-
-# Please request access or notify of issue or pull request by emailing 
-  - ecocommunity@protonmail.com
-
 This software is designed for two core use cases 1- as a teaching tool and 2- as a useful organizing tool for small social enterprise, creative, community development problem solving, ecological restoration, and other informal sustainable community development community groups that interface locally and with a greater community of vested interest partners and adversaries.
 appropriate for engineering education and small group interpersonal health and wellness support
 
