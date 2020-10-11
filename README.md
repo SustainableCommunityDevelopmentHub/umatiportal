@@ -1,4 +1,4 @@
-Ahti Portal is a 'Peaceware' Project, Research and Group Data Portal
+Ahti Portal is a 'Peaceware' Project, Research and Community Group Data Portal
 =======================
 
 
