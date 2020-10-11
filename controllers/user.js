@@ -73,6 +73,16 @@ exports.getPublicGroupPage = (req,res,next) => {
 }
 
 
+/** getDisplayPublicProfile
+ * getDisplayPublicProfile
+ */
+exports.getDisplayPublicProfile = (req,res,next) => {
+  res.render('/publicprofile', {
+    title: 'Public profile'
+  });
+}
+
+
 /**
  * getPublicProjectPage
  */

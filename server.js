@@ -269,8 +269,8 @@ app.get('/blog', blogController.getPublicBlog);
 app.post('/account/blog', blogController.postUpdateBlog);
 app.post('/account/blogupdate', passportConfig.isAuthenticated, blogController.postUpdateBlog);
 app.get('/account/blog/:blogpost_id', passportConfig.isAuthenticated, blogController.getUpdateBlogpost);
-app.get('/blog/:blogpost_id', blogController.getDisplayBlogpost);
-app.get('/profile/:username', userController.getDisplayPublicProfile);
+app.get('/blog/:name', blogController.getDisplayBlogpost);
+app.get('/profile/:name', userController.getDisplayPublicProfile);
 app.get('/account/createloc', passportConfig.isAuthenticated, locController.getCreateloc);
 app.post('/account/createloc', passportConfig.isAuthenticated, locController.postCreateloc);
 
