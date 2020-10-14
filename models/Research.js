@@ -19,6 +19,6 @@ const researchdataSchema = new mongoose.Schema({
   comment: String
  }, { timestamps: true });
 
-const Researchdata = mongoose.model('Researchdata', researchdataSchema);
+const Research = mongoose.model('Research', researchdataSchema);
 
-module.exports = Researchdata;
+module.exports = Research;

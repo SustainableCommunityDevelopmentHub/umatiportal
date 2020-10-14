@@ -1,0 +1,55 @@
+extends ../layout
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+
+  a(href='/account/project') project -
+  a(href='/account/projectsettings') Settings
+
+  hr
+
+  h3.caps NEW #{user.project} RESEARCH NOTE
+
+
+  //-  const projectdataSchema = new mongoose.Schema({
+    * user: String,
+    * role: String,
+    * project: String,
+    * date: Date,
+    * participants: String,
+    * contactperson: String,
+    * group: String,
+    * sourcename: String,
+    * sourcetype: String,
+    * refulr1: String,
+    * refurl2: String,
+    * refurl3: String,
+    * secret: String,
+    * comment: String
+    **/
+
+  form(action='/account/createresearchnote', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    input(type='hidden', name='user', value=user.id)
+    input(type='hidden', name='project', value=user.project)
+    .form-project.row
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='name') Name
+      .col-md-7
+        input.form-control(type='text', name='name', id='name')
+    .form-project.row
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='comment') Comment
+      .col-md-7
+        textarea.form-control( name="comment", rows="6", cols="66", autocomplete='comment' )
+    .form-project.row
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='secret') Secret
+      .col-md-7
+        input.form-control(type='text', name='secret', id='secret')
+    .form-project.row
+    .form-project
+      .offset-sm-3.col-md-7.pl-2
+        button.btn.btn.btn-primary(type='submit')
+          i.fas.fa-pencil-alt.fa-sm
+          | Create Entry
+
+
+  include ../partials/profilehead.pug

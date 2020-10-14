@@ -7,7 +7,7 @@ const passport = require('passport');
 const _ = require('lodash');
 const validator = require('validator');
 const mailChecker = require('mailchecker');
-const Researchdata = require('../models/Research');
+const Research = require('../models/Research');
 const User = require('../models/User');
 
 
@@ -51,7 +51,7 @@ exports.getResearchs = function (req, res, next) {
 // Display list of Research info
 exports.getResearchdata = function (req, res, next) {
 
-    Researchdata.find()
+    Research.find()
         .sort([['name', 'ascending']])
         .exec(function (err, research_data) {
             if (err) { return next(err); }
@@ -135,7 +135,7 @@ exports.postCreateresearchnote = (req, res, next) => {
     return res.redirect('/account/createresearchnote');
   }
 
-  const researchdata = new Researchdata({
+  const Research = new Research({
     name: req.body.name,
     admin: req.body.admin,
     research: req.body.research,
@@ -150,7 +150,7 @@ exports.postCreateresearchnote = (req, res, next) => {
     comment: req.body.comment
   });
 
-  Researchdata.findOne({ name: req.body.name }, (err, existingPos) => {
+  Research.findOne({ name: req.body.name }, (err, existingPos) => {
     if (err) { return next(err); }
     if (existingPos) {
       req.flash('errors', { msg: 'Research entry with that title already exists.' });
@@ -184,7 +184,7 @@ exports.postCreateresearchdata = (req, res, next) => {
     return res.redirect('/account/createresearch');
   }
 
-  const researchdata = new Researchdata({
+  const Research = new Research({
     name: req.body.name,
     admin: req.body.admin,
     research: req.body.research,
@@ -199,7 +199,7 @@ exports.postCreateresearchdata = (req, res, next) => {
     comment: req.body.comment
   });
 
-  Researchdata.findOne({ name: req.body.name }, (err, existingPos) => {
+  Research.findOne({ name: req.body.name }, (err, existingPos) => {
     if (err) { return next(err); }
     if (existingPos) {
       req.flash('errors', { msg: 'Research entry with that title already exists.' });
@@ -232,7 +232,7 @@ exports.postUpdateResearchdata = (req, res, next) => {
     return res.redirect('/account/research');
   }
 
-  Researchdata.findById(req.researchdata.id, (err, user) => {
+  Research.findById(req.researchdata.id, (err, user) => {
     if (err) { return next(err); }
     researchdata.name = req.body.name || '';
     researchdata.admin = req.body.admin || '';

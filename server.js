@@ -33,6 +33,7 @@ dotenv.config({ path: '.env.example' });
 const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const blogController = require('./controllers/blog');
+const researchController = require('./controllers/research');
 const groupdataController = require('./controllers/groupdata');
 const projectController = require('./controllers/project');
 const inventoryController = require('./controllers/inventory');
@@ -261,7 +262,9 @@ app.get('/account/creategroupnote', passportConfig.isAuthenticated, groupdataCon
 app.get('/account/creategroup', passportConfig.isAuthenticated, groupdataController.getCreategroupdata);
 app.post('/account/creategroup', passportConfig.isAuthenticated, groupdataController.postCreategroupdata);
 
-app.get('/account/research', passportConfig.isAuthenticated, blogController.getBlog);
+app.get('/account/research', passportConfig.isAuthenticated, researchController.getResearch);
+app.get('/account/createresearchnote', passportConfig.isAuthenticated, researchController.getCreateresearchnote);
+app.post('/account/createresearchnote', passportConfig.isAuthenticated, researchController.postCreateresearchnote);
 
 app.get('/account/editor', passportConfig.isAuthenticated, blogController.getEditor);
 app.get('/account/blog', passportConfig.isAuthenticated, blogController.getBlog);

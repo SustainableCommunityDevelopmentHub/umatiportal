@@ -1,8 +1,9 @@
-Ahti Portal is a 'Peaceware' Project, Research and Community Group Data Portal
+Ahti Portal Sustainable Community Development App
 =======================
-
-
+## Ahti Portal is a 'Peaceware' Project, Research and Community Group Data Portal
  
+
+
 ## About our name.. 
 
 -  I had originally considered Ati. Ati is a very interesting word linquistically.  'Ati' means 'and' in swahili and 'you' in Romanian.  In Yoruba, Ati means 'we had'. In turkish, ati means 'horse', in sudanese, it means 'liver'. in Urdu, 'ati' means 'there'. in hungarian 'your', in Serbian, Ati means - 'and you'.  So 'Ati' it is, these words describe many aspects of what this project has become. The metaphor holds.
