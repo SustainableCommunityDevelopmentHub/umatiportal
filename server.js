@@ -232,6 +232,8 @@ app.get('/account/bloghomepage', passportConfig.isAuthenticated, userController.
 app.post('/account/blogsettings', passportConfig.isAuthenticated, userController.postUpdateBlogsettings);
 app.get('/account/projectsettings', passportConfig.isAuthenticated, userController.getProjectsettings);
 app.post('/account/projectsettings', passportConfig.isAuthenticated, userController.postUpdateProjectsettings);
+app.get('/account/researchsettings', passportConfig.isAuthenticated, userController.getResearchsettings);
+app.post('/account/researchsettings', passportConfig.isAuthenticated, userController.postUpdateResearchsettings);
 app.get('/account/groupsettings', passportConfig.isAuthenticated, userController.getGroupsettings);
 app.post('/account/groupsettings', passportConfig.isAuthenticated, userController.postUpdateGroupsettings);
 app.get('/account/inventorysettings', passportConfig.isAuthenticated, userController.getInventorysettings);

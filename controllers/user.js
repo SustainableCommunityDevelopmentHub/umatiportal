@@ -260,6 +260,8 @@ exports.postSignup = (req, res, next) => {
     personal: req.body.personal,
     group: req.body.group,
     academicinst: req.body.academicinst,
+    research: req.body.research,
+    project: req.body.project,
     business: req.body.business,
     tags: req.body.tags,
     nicname: req.body.nicname,
@@ -568,10 +570,6 @@ exports.getMessageCompose = (req, res, next) => {
   if (!req.user) {
     return res.redirect('/');
   }
-
-
-
-
   var mysort = { createdAt: -1,  };
   User.find()
       .sort(mysort)
@@ -1013,16 +1011,6 @@ exports.getLocsettings = (req, res) => {
   });
 };
 
-/**
- * GET /account/elevsettings
- * Profile page.
- */
-exports.getElevsettings = (req, res) => {
-  res.render('account/elevsettings', {
-    title: 'Elevator Settings'
-  });
-};
-
 
 /**
  * POST /account/calsettings
@@ -1092,35 +1080,6 @@ exports.postUpdateLocsettings = (req, res, next) => {
   });
 };
 
-exports.postUpdateElevsettings = (req, res, next) => {
-  const validationErrors = [];
-
-  if (validationErrors.length) {
-    req.flash('errors', validationErrors);
-    return res.redirect('/account/elevsettings');
-  }
-
-  User.findById(req.user.id, (err, user) => {
-    if (err) { return next(err); }
-    user.elevsettings.user = req.body.user || '';
-    user.elevsettings.elevtitle = req.body.elevtitle || '';
-    user.elevsettings.elevdesc = req.body.elevdesc || '';
-    user.elevsettings.shortdesc = req.body.shortdesc || '';
-    user.elevsettings.elevtags = req.body.elevtags || '';
-    user.elevsettings.visibility = req.body.visibility || '';
-    user.save((err) => {
-      if (err) {
-        if (err.code === 11000) {
-          req.flash('errors', { msg: 'There was an error in your elevator settings update.' });
-          return res.redirect('/account/elevsettings');
-        }
-        return next(err);
-      }
-      req.flash('success', { msg: 'Elevator setings has been updated.' });
-      res.redirect('/account/elevsettings');
-    });
-  });
-};
 
 /**
  * GET /account/possettings
@@ -1142,8 +1101,11 @@ exports.getPossettings = (req, res) => {
   });
 };
 
+
+
 /**
  * GET /account/bloghomepage
+ *  Specific to blog components 
  * Blog homepage content manager
  */
 exports.getBloghomepage = (req, res) => {
@@ -1456,7 +1418,6 @@ exports.getProjectsettings = (req, res) => {
   });
 };
 
-
 /**
  * POST /account/projectsettings 
  * Update project settings.
@@ -1491,6 +1452,54 @@ exports.postUpdateProjectsettings = (req, res, next) => {
     });
   });
 };
+
+
+
+exports.getResearchsettings = (req, res) => {
+  res.render('account/researchsettings', {
+    title: 'Research Settings'
+  });
+};
+
+
+
+/**
+ * POST /account/researchsettings 
+ * Update research settings.
+ */
+exports.postUpdateResearchsettings = (req, res, next) => {
+  const validationErrors = [];
+
+  if (validationErrors.length) {
+    req.flash('errors', validationErrors);
+    return res.redirect('/account/researchsettings');
+  }
+
+  User.findById(req.user.id, (err, user) => {
+    if (err) { return next(err); }
+    user.researchsettings.groupname = req.body.groupname || '';
+    user.researchsettings.adminperson = req.body.adminperson || '';
+    user.researchsettings.location = req.body.location || '';
+    user.researchsettings.description = req.body.description || '';
+    user.researchsettings.shortdesc = req.body.shortdesc || '';
+    user.researchsettings.memberlist = req.body.memberlist || '';
+    user.researchsettings.visibility = req.body.visibility || '';
+    user.save((err) => {
+      if (err) {
+        if (err.code === 11000) {
+          req.flash('errors', { msg: 'There was an error in your research settings update.' });
+          return res.redirect('/account/researchsettings');
+        }
+        return next(err);
+      }
+      req.flash('success', { msg: 'Your research settings have been updated.' });
+      res.redirect('/account/researchsettings');
+    });
+  });
+};
+
+
+
 
 /**
  * GET /account
@@ -1529,8 +1538,8 @@ exports.postUpdateProfile = (req, res, next) => {
     user.donations_avail = req.body.donations_avail || '';
     user.item_offered = req.body.item_offered || '';
     user.item_requested = req.body.item_requested || '';
-    user.project = req.project || '';
-    user.group = req.group || '';
+    user.project = req.body.project || '';
+    user.group = req.body.group || '';
     user.profile.story = req.body.story || '';
     user.profile.location = req.body.location || '';
     user.profile.business = req.body.business || '';

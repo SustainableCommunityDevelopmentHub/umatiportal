@@ -1,0 +1,57 @@
+extends ../layout
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+ 
+  
+  a(href='/account/research') RESEARCH - 
+  a(href='/account/createresearchnote') Add a note
+
+
+  hr
+
+  h3.caps research settings
+
+  form(action='/account/researchsettings', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='researchname') name of the research
+      .col-md-7
+        input.form-control(type='text', name='researchname', id='researchname', value=user.researchsettings.researchname, autocomplete='researchname')
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='adminperson') web link
+      .col-md-7
+        input.form-control(type='text', name='adminperson', id='adminperson', value=user.researchsettings.adminperson, autocomplete)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='location') web link
+      .col-md-7
+        input.form-control(type='text', name='location', id='location', value=user.researchsettings.location, autocomplete)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='shortdesc') web link
+      .col-md-7
+        input.form-control(type='text', name='shortdesc', id='shortdesc', value=user.researchsettings.shortdesc, autocomplete='shortdesc')
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='description') some thoughts
+      .col-md-7
+        textarea.form-control( name="description", rows="6", cols="66", autocomplete='description' ) #{user.researchsettings.description}        
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='visibility') Your visibility
+      .col-md-1.form-check.form-check-inline
+        input(type='radio', class='form-check-input' checked=user.researchsettings.visibility == 'visible', name='visibility', value='visible', data-toggle='radio')
+        label.form-check-label Visible
+      .col-md-2.form-check.form-check-inline
+        input(type='radio', class='form-check-input' checked=user.researchsettings.visibility == 'group', name='visibility', value='group', data-toggle='radio')
+        label.form-check-label My Group Only
+      .col-md-2.form-check.form-check-inline
+        input(type='radio', class='form-check-input' checked=user.researchsettings.visibility == 'subgroup', name='visibility', value='subgroup', data-toggle='radio')
+        label.form-check-label Sub Group Only
+      .col-md-1.form-check.form-check-inline
+        input(type='radio', class='form-check-input' checked=user.researchsettings.visibility == 'invisible', name='visibility', value='invisible', data-toggle='radio')
+        label.form-check-label Invisible
+    .form-group
+      .offset-sm-3.col-md-7.pl-2
+        button.btn.btn.btn-primary(type='submit')
+          i.fas.fa-pencil-alt.fa-sm
+          | Update Research Settings
+
+  include ../partials/profilehead.pug

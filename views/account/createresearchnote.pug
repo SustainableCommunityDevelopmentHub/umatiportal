@@ -3,8 +3,8 @@ extends ../layout
 block content
   .pb-2.mt-2.mb-4.border-bottom
 
-  a(href='/account/project') project -
-  a(href='/account/projectsettings') Settings
+  a(href='/account/research') research -
+  a(href='/account/researchsettings') settings
 
   hr
 
@@ -31,7 +31,7 @@ block content
   form(action='/account/createresearchnote', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
     input(type='hidden', name='user', value=user.id)
-    input(type='hidden', name='project', value=user.project)
+    input(type='hidden', name='research', value=user.research)
     .form-project.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='name') Name
       .col-md-7

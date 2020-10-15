@@ -1,7 +1,6 @@
 Ahti Portal Sustainable Community Development App
 =======================
 ## Ahti Portal is a 'Peaceware' Project, Research and Community Group Data Portal
- 
 
 
 ## About our name.. 

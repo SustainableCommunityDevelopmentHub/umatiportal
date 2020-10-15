@@ -8,6 +8,8 @@ const userSchema = new mongoose.Schema({
   personal: String,
   story: String,
   location: String,
+  project: String,
+  research: String,
   business: String,
   group: String,
   grouplead: String,
@@ -87,6 +89,15 @@ const userSchema = new mongoose.Schema({
     visibility: String
   },
   projectsettings: {
+    groupname: String,
+    adminperson: String,
+    location: String,
+    description: String,
+    shortdesc: String,
+    memberlist: String,
+    visibility: String
+  },
+  researchsettings: {
     groupname: String,
     adminperson: String,
     location: String,

@@ -15,7 +15,7 @@ block content
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right(for='need') What are your needs?
       .col-md-7
-
+        .btn-group(data-toggle="buttons")
           label.btn.btn-outline-success
             if (user.need_buildingsupplies === "checked")
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_buildingsupplies/" checked)
@@ -115,7 +115,7 @@ block content
       .col-md-7
         input.form-control(type='text', name='project', id='project', value=user.project, autocomplete='user.project')
     .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='group') Your proup
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='group') Your group
       .col-md-7
         input.form-control(type='text', name='group', id='group', value=user.group, autocomplete='user.group')
     .form-group.row

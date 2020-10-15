@@ -135,7 +135,7 @@ exports.postCreateresearchnote = (req, res, next) => {
     return res.redirect('/account/createresearchnote');
   }
 
-  const Research = new Research({
+  const research = new Research({
     name: req.body.name,
     admin: req.body.admin,
     research: req.body.research,
@@ -156,7 +156,7 @@ exports.postCreateresearchnote = (req, res, next) => {
       req.flash('errors', { msg: 'Research entry with that title already exists.' });
       return res.redirect('/account/createresearch');
     }
-    researchdata.save((err) => {
+    research.save((err) => {
       if (err) { 
         if (err.code === 11000) {
           req.flash('errors', { msg: 'There was an error in your update.' });
