@@ -1478,6 +1478,7 @@ exports.postUpdateResearchsettings = (req, res, next) => {
   User.findById(req.user.id, (err, user) => {
     if (err) { return next(err); }
     user.researchsettings.groupname = req.body.groupname || '';
+    user.researchsettings.researchname = req.body.researchname || '';
     user.researchsettings.adminperson = req.body.adminperson || '';
     user.researchsettings.location = req.body.location || '';
     user.researchsettings.description = req.body.description || '';
@@ -1573,6 +1574,12 @@ exports.getUpdateProfileAjax = function (req, res, next) {
     var val = req.params.val;
 
     if (item === "need_buildingsupplies") var data = { need_buildingsupplies: val };
+    if (item === "need_foodbox") var data = { need_foodbox: val };
+    if (item === "need_foodbox") var data = { need_foodbox: val };
+    if (item === "need_foodbox1") var data = { need_foodbox1: val };
+    if (item === "need_foodbox2to3") var data = { need_foodbox2to3: val };
+    if (item === "need_foodbox4to5") var data = { need_foodbox4to5: val };
+    if (item === "need_foodbox6to8") var data = { need_foodbox6to8: val };
     if (item === "need_compost") var data = { need_compost: val };
     if (item === "need_compostpickup") var data = { need_compostpickup: val };
     if (item === "need_householditems") var data = { need_householditems: val };
@@ -1590,7 +1597,7 @@ exports.getUpdateProfileAjax = function (req, res, next) {
     if (item === "panelrequests") var data = { panelrequests: val };
     if (item === "panelwarehouse") var data = { panelwarehouse: val };
     if (item === "panelresearch") var data = { panelresearch: val };
-    console.log("hello there. Item id is: " + item + " val: " + val + "user: " + user );
+    console.log("hello there. Item id is: " + item + " val: " + val + " user: " + user );
 
     User.findByIdAndUpdate(user, data, function(err, result) {
     if (err){

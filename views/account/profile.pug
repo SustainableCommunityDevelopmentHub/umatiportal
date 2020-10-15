@@ -151,7 +151,7 @@ block content
       .col-md-7
         input.form-control(type='text', name='website', id='website', value=user.profile.website, autocomplete='user.profile.website')
     .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='vocation') Vocation
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='vocation') Type of work you do
       .col-md-7
         input.form-control(type='text', name='vocation', id='vocation', value=user.profile.vocation, autocomplete='user.profile.vocation')
     .form-group
@@ -351,18 +351,41 @@ block content
         .modal-body
 
             .form-group.row
+              label.col-md-3.col-form-label.font-weight-bold.text-right(for='need_foodbox') A food box would serve 
+              ul.nav.nav-pills
+                li.nav-item
+                  if (user.need_foodbox === "n")
+                    a.nav-link.need_foodbox.active(data-toggle="tab", href="/account/profileajax/" + user._id + "/need_foodbox/y/") no need right now
+                  else
+                    a.nav-link.need_foodbox(data-toggle="tab", href="/account/profileajax/" + user._id + "/need_foodbox/n/") no need right now
+
+                li.nav-item
+                  if (user.need_foodbox1 === "y")
+                    a.nav-link.surplus.need_foodbox1(data-toggle="tab", href="/account/profileajax/" + user._id + "/need_foodbox1/n/") 1 
+                  else
+                    a.nav-link.need_foodbox1(data-toggle="tab", href="/account/profileajax/" + user._id + "/need_foodbox1/y/") 1
+
+                li.nav-item
+                  if (user.need_foodbox2to3 === "y")
+                    a.nav-link.need_foodbox2to3.active(data-toggle="tab", href="/account/profileajax/" + user._id + "/need_foodbox2to3/n/") 2-3
+                  else
+                    a.nav-link.need_foodbox2to3(data-toggle="tab", href="/account/profileajax/" + user._id + "/need_foodbox2to3/y/") 2-3
+
+                li.nav-item
+                  if (user.need_foodbox4to5 === "y")
+                    a.nav-link.need_foodbox4to5.active(data-toggle="tab", href="/account/profileajax/" + user._id + "/need_foodbox4to5/n/") 4-5
+                  else
+                    a.nav-link.need_foodbox4to5(data-toggle="tab", href="/account/profileajax/" + user._id + "/need_foodbox4to5/y/") 4-5
+
+                li.nav-item
+                  if (user.need_foodbox6to8 === "y")
+                    a.nav-link.need_foodbox6to8.active(data-toggle="tab", href="/account/profileajax/" + user._id + "/need_foodbox6to8/n/") 6-8
+                  else
+                    a.nav-link.need_foodbox6to8(data-toggle="tab", href="/account/profileajax/" + user._id + "/need_foodbox6to8/y/") 6-8
+
+
+            .form-group.row
               label.col-md-3.col-form-label.font-weight-bold.text-right(for='pickupneed')
-            .form-group.row
-              label.col-md-3.col-form-label.font-weight-bold.text-right(for='item_requested') Request(s):
-              .col-md-7
-                input.form-control(type='text', name='item_requested', id='item_requested', placeholder='Whatever you may need', value=user.item_requested, autofocus, autocomplete='user.item_requested')
-
-            .form-group.row
-              label.col-md-3.col-form-label.font-weight-bold.text-right(for='item_requested') Offered:
-              .col-md-7
-                input.form-control(type='text', name='item_offered', id='item_offered', placeholder='Whatever you have to share', value=user.item_offered, autofocus, autocomplete='user.item_offered')
-
-
               ul.nav.nav-pills
                 li.nav-item
                   if (user.surplus === "have_surplus")
@@ -376,30 +399,40 @@ block content
                     a.nav-link.surplus(data-toggle="tab", href="/account/profileajax/" + user._id + "/surplus/schedule_pickup/") schedule a time to pick it up
                 li.nav-item
                   if (user.surplus === "no")
-                    a.nav-link.surplus.active(data-toggle="tab", href="/account/profileajax/" + user._id + "/surplus/no/") not available
+                    a.nav-link.surplus.active(data-toggle="tab", href="/account/profileajax/" + user._id + "/surplus/no/") no surplus at this time
                   else
-                    a.nav-link.surplus(data-toggle="tab", href="/account/profileajax/" + user._id + "/surplus/no/") not available
+                    a.nav-link.surplus(data-toggle="tab", href="/account/profileajax/" + user._id + "/surplus/no/") no surplus at this time
 
 
 
             .form-group.row
-              label.col-md-3.col-form-label.font-weight-bold.text-right(for='interest_pickup_deliver')
+              label.col-md-3.col-form-label.font-weight-bold.text-right(for='warehuse_vol') I can help with 
               ul.nav.nav-pills
                 li.nav-item
-                  if (user.pickup_deliver === "yes")
-                    a.nav-link.pickup_deliver.active(data-toggle="tab", href="/account/profileajax/" + user._id + "/pickup_deliver/yes/") I can help deliver
+                  if (user.warehouse_vol === "food_box")
+                    a.nav-link.warehouse_vol.active(data-toggle="tab", href="/account/profileajax/" + user._id + "/warehouse_vol/food_box/") box prep
                   else
-                    a.nav-link.pickup_deliver(data-toggle="tab", id="yes_pickup_deliver", href="/account/profileajax/" + user._id + "/pickup_deliver/yes/") I can help deliver
+                    a.nav-link.warehouse_vol(data-toggle="tab", id="yes_pickup_deliver", href="/account/profileajax/" + user._id + "/warehouse_vol/food_box/") box prep
+
                 li.nav-item
-                  if (user.pickup_deliver === "schedule_something")
-                    a.nav-link.pickup_deliver.active(data-toggle="tab", id="schedule_something", href="/account/profileajax/" + user._id + "/pickup_deliver/schedule_something/") Let's schedule something
+                  if (user.warehouse_vol === "delivery")
+                    a.nav-link.warehouse_vol.active(data-toggle="tab", href="/account/profileajax/" + user._id + "/warehouse_vol/delivery/") delivery
                   else
-                    a.nav-link.pickup_deliver(data-toggle="tab", id="schedule_something", href="/account/profileajax/" + user._id + "/pickup_deliver/schedule_something/") Let's schedule something
+                    a.nav-link.warehouse_vol(data-toggle="tab", id="warehouse_vol_delivery", href="/account/profileajax/" + user._id + "/warehouse_vol/delivery/") delivery
+
                 li.nav-item
-                  if (user.pickup_deliver === "no")
-                    a.nav-link.pickup_deliver.active(data-toggle="tab", id="yes_pickup_deliver", href="/account/profileajax/" + user._id + "/pickup_deliver/no/") not at this time
+                  if (user.warehouse_vol === "pickup")
+                    a.nav-link.warehouse_vol.active(data-toggle="tab", href="/account/profileajax/" + user._id + "/warehouse_vol/pickup/") pickup
                   else
-                    a.nav-link.pickup_deliver(data-toggle="tab", id="yes_pickup_deliver", href="/account/profileajax/" + user._id + "/pickup_deliver/no/") not at this time
+                    a.nav-link.warehouse_vol(data-toggle="tab", id="yes_pickup_deliver", href="/account/profileajax/" + user._id + "/warehouse_vol/pickup/") pickup
+
+                li.nav-item
+                  if (user.warehouse_vol === "comm")
+                    a.nav-link.warehouse_vol.active(data-toggle="tab", href="/account/profileajax/" + user._id + "/warehouse_vol/comm/") communication
+                  else
+                    a.nav-link.warehouse_vol(data-toggle="tab", id="warehouse_vol_comm", href="/account/profileajax/" + user._id + "/warehouse_vol/comm/") communication
+
+
 
         .modal-footer
           button.btn.btn-secondary(type="button", data-dismiss="modal") Close

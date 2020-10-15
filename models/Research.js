@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const researchdataSchema = new mongoose.Schema({
   user: String,
   role: String,
+  researchname: String,
   project: String,
   date: Date,
   participants: String,

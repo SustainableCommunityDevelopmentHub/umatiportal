@@ -15,9 +15,13 @@ block content
   form(action='/account/researchsettings', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
     .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='researchname') name of the research
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='researchname') Title of your current research
       .col-md-7
         input.form-control(type='text', name='researchname', id='researchname', value=user.researchsettings.researchname, autocomplete='researchname')
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='groupname') Name of group
+      .col-md-7
+        input.form-control(type='text', name='groupname', id='groupname', value=user.researchsettings.groupname, autocomplete='groupname')
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='adminperson') web link
       .col-md-7
