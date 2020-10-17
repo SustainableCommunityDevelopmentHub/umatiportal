@@ -9,10 +9,11 @@ html
     title Umati Portal Open Source Self Help Group Network - #{title} page
     link(rel='manifest', href='/manifest.webmanifest')
     link(rel='shortcut icon', href='/favicon.png')
-    link(rel='stylesheet', href='/css/tabsinput.css')
     link(rel='stylesheet', href='/css/main.css')
     if (title === 'Settings') 
         link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css')
+    if (title === 'Create post' || title === 'Edit blog entry' ) 
+        link(rel='stylesheet', href='/css/tabsinput.css')
     if (title === 'Pong') 
         link(rel='stylesheet', href='/css/pong.css')
     if (title === 'Cal4') 
