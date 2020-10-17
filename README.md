@@ -1,17 +1,14 @@
-Ahti Portal Sustainable Community Development App
+Umati Portal Community Organizing App
 =======================
-## Ahti Portal is a 'Peaceware' Project, Research and Community Group Data Portal
-
+## Umati Portal supports projects, research, and collaborative information management
 
 ## About our name.. 
 
--  I had originally considered Ati. Ati is a very interesting word linquistically.  'Ati' means 'and' in swahili and 'you' in Romanian.  In Yoruba, Ati means 'we had'. In turkish, ati means 'horse', in sudanese, it means 'liver'. in Urdu, 'ati' means 'there'. in hungarian 'your', in Serbian, Ati means - 'and you'.  So 'Ati' it is, these words describe many aspects of what this project has become. The metaphor holds.
-
-- Ahti is a mod. to the original project name 'umati' which means 'community' in swahili.
+- project name 'umati' which means 'community' in swahili.
   
   
 ##  Project notes- this README file.
-  - https://github.com/SustainableCommunityDevelopmentHub/ahti
+  - https://github.com/SustainableCommunityDevelopmentHub/umatiportal
 
 
 ## Documentation is being extended at
