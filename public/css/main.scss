@@ -347,6 +347,13 @@ div.news p {
   flex-direction: column;
 }
 
+.cta p, .cta h1 {
+    margin: 10px;
+    color: #000;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 .move-left {
   width: 15px;
   box-shadow: none;
