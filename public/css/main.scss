@@ -284,7 +284,10 @@ input:checked + .slider:before {
   background-position: bottom left;
   color: #fff;
 }
-
+.feature p {
+  margin: auto auto 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .navtoggler {
   background-color: rgba(0, 123, 255, 100);
 }
@@ -348,10 +351,10 @@ div.news p {
 }
 
 .cta p, .cta h1 {
-    margin: 10px;
-    color: #000;
-    font-weight: bold;
-    background-color: rgba(255, 255, 255, 0.5);
+  margin: 10px;
+  color: #000;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .move-left {
