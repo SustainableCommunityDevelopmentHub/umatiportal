@@ -4,7 +4,7 @@ block content
   .pb-2.mt-2.mb-4.border-bottom
 
 
-    h3  Start Documenting your project here
+    h3  Project signup
   form(id='projectsignup-form', method='POST', action='/signup', onsubmit='if(document.getElementById(\'agree\').checked) { return true; } else { alert(\'Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy\'); return false; }')
 
     input(type='hidden', name='_csrf', value=_csrf)
@@ -35,16 +35,16 @@ block content
       .col-md-7
         .form-check.form-check-inline
            input(type='radio', class='form-check-input', name='usecase', value='health', data-toggle='radio')
-           label.form-check-label Health
+           label.form-check-label Water
         .form-check.form-check-inline
            input(type='radio', class='form-check-input', name='usecase', value='scd clinic', data-toggle='radio')
-           label.form-check-label Training Clinic 
+           label.form-check-label Documentation
         .form-check.form-check-inline
            input(type='radio', class='form-check-input', name='affilation', value='resinv', data-toggle='radio')
-           label.form-check-label Resource inventory
+           label.form-check-label Resource
         .form-check.form-check-inline
            input(type='radio', class='form-check-input', name='usecase', value='foodsec', data-toggle='radio')
-           label.form-check-label Food security
+           label.form-check-label Food Security
         .form-check.form-check-inline
            input(type='radio', class='form-check-input', name='usecase', value='musicarts', data-toggle='radio')
            label.form-check-label Creative
