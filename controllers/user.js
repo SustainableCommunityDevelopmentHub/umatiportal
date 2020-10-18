@@ -20,6 +20,12 @@ exports.getLogin = (req, res) => {
   });
 };
 
+exports.getContactpage = (req, res) => {
+  res.render('contact', {
+    title: 'Contact page'
+  });
+};
+
 /**
  * POST /login
  * Sign in using email and password.

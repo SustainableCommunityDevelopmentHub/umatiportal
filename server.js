@@ -173,7 +173,8 @@ app.post('/wardsignup', userController.postWardsignup);
 app.get('/account/createsubgroup', groupdataController.getCreatesubgroupdata);
 app.get('/privacypolicy', userController.getPrivacy);
 app.get('/privacy', contactController.getPrivacy);
-app.get('/contact', contactController.getContact);
+app.get('/contact', userController.getContactpage);
+app.get('/addcontact', contactController.getContact);
 app.post('/contact', contactController.postContact);
 app.get('/roadmap', contactController.getRoadmap);
 
