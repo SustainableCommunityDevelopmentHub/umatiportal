@@ -4,14 +4,14 @@ block content
   .pb-2.mt-2.mb-4.border-bottom
 
 
-    h3 Public Project Signup Space
-  form(id='projectsignup-form', method='POST', action='/signup', onsubmit='if(document.getElementById(\'agree\').checked) { return true; } else { alert(\'Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy\'); return false; }')
+    h3 Proposal Writing Starting Point
+  form(id='proposalsignup-form', method='POST', action='/signup', onsubmit='if(document.getElementById(\'agree\').checked) { return true; } else { alert(\'Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy\'); return false; }')
 
     input(type='hidden', name='_csrf', value=_csrf)
     .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='project') Name of project
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='proposal') Title of Proposal
       .col-md-7
-        input.form-control(type='text', name='project', id='group', autofocus)
+        input.form-control(type='text', name='project', id='proposal', autofocus)
 
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right(for='name') Your name
@@ -30,14 +30,20 @@ block content
       .col-md-7
         input.form-control(type='password', name='confirmPassword', id='confirmPassword', placeholder='Confirm Password', minlength='8', required)
 
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='usecaseother') 
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='status') Phase of proposal
       .col-md-7
-        input.form-control(type='text', name='usecaseother', id='usecaseother', placeholder='A word to describe your project now', autofocus, required)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='usecaseother') 
-      .col-md-7
-        input.form-control(type='text', name='usecaseother2', id='usecaseother2', placeholder='Where you hope it to be in 6 mos.', autofocus, required)
+        .form-check.form-check-inline
+           input(type='radio', class='form-check-input', name='status', id='status', value='concept')
+           label.form-check-label Initiation
+        .form-check.form-check-inline
+           input(type='radio', class='form-check-input', name='status', id='status', value='planning')
+           label.form-check-label Research
+        .form-check.form-check-inline
+           input(type='radio', class='form-check-input', name='status', id='status', value='outreach')
+           label.form-check-label Review
+        .form-check.form-check-inline
+           input(type='radio', class='form-check-input', name='status', id='status', value='fundraising')
+           label.form-check-label Fundraising
 
       .col-md-3 
       .col-md-7

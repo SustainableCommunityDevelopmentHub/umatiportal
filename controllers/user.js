@@ -162,6 +162,16 @@ exports.getResearchSignup = (req, res) => {
     });
 };
 
+/**
+ * GET /account/signupproposal
+ * Signup page.
+ */
+exports.getProposalSignup = (req, res) => {
+    res.render('account/signupproposal', {
+      title: 'New Proposal Signup'
+    });
+};
+
 
 /**
  * GET /signupresearch
@@ -262,6 +272,7 @@ exports.postSignup = (req, res, next) => {
     academicinst: req.body.academicinst,
     research: req.body.research,
     project: req.body.project,
+    proposal: req.body.proposal,
     business: req.body.business,
     tags: req.body.tags,
     nicname: req.body.nicname,

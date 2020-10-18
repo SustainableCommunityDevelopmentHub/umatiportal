@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
   story: String,
   location: String,
   project: String,
+  proposal: String,
   research: String,
   business: String,
   group: String,
