@@ -1,7 +1,7 @@
 {
-  "name": "ati-peaceware-app",
-  "version": "0.9.10",
-  "description": "Networking App",
+  "name": "umatiportal-app",
+  "version": "0.9.10a",
+  "description": "Community Networking App",
   "repository": {
     "type": "git",
     "url": "https://github.com/sustainablecommunitydevelopmenthub/umaticore.git"
