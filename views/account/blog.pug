@@ -22,10 +22,13 @@ block content
     each posts in blogs
         if posts.username == userr.id 
             strong #{posts.posttitle}
+            br
             span #{moment(posts.postdate).format("Do MMMM gggg")}
-            span #{posts.postcat}
+            br
+            span Category: #{posts.postcat}
             br
             #{posts.post}
+            br
             a(href='/account/blog/'+posts._id).icon-edit Edit 
             updated  &nbsp; &nbsp; &nbsp;  updated #{moment(posts.updatedAt).format('MMM Do h:mm:ss a')}
             hr
