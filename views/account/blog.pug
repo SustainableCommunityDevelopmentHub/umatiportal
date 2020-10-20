@@ -20,7 +20,7 @@ block content
   - var userr = { id: user._id }
   - if (blogs.length)
     each posts in blogs
-        if posts.user == userr.id 
+        if posts.username == userr.id 
             strong #{posts.posttitle} - #{posts.postdate}  - #{posts.postcat}
             br
             #{posts.post}
