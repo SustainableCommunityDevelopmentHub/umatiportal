@@ -28,11 +28,6 @@ block content
         input.form-control(type='text', name='authorname', value=blogdata.authorname, id='authorname')
 
     .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left.hidden(for='story') Blog Post
-      .col-md-7.hidden
-        textarea.form-control.hidden(type='text', name="story", rows="3", cols="46", autocomplete='blodata.post') #{blogdata.post}
-
-    .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='post') Post Content
       .col-md-7
         input.form-control(type='text', name="post", value=blogdata.post, id='post')

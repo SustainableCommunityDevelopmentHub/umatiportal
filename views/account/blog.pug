@@ -21,7 +21,9 @@ block content
   - if (blogs.length)
     each posts in blogs
         if posts.username == userr.id 
-            strong #{posts.posttitle} - #{posts.postdate}  - #{posts.postcat}
+            strong #{posts.posttitle}
+            span #{moment(posts.postdate).format("Do MMMM gggg")}
+            span #{posts.postcat}
             br
             #{posts.post}
             a(href='/account/blog/'+posts._id).icon-edit Edit 
