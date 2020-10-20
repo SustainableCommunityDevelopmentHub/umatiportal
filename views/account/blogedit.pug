@@ -16,6 +16,7 @@ block content
   form(action='/account/blog', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
     input(type='hidden', name='user', value=user.id)
+    input(type='hidden', name='username', value=blogdata.username)
     input(type='hidden', name='blogpost_id', value=blogdata._id)
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='posttitle') Post Title
