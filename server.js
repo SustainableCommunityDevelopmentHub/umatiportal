@@ -270,7 +270,6 @@ app.get('/account/research', passportConfig.isAuthenticated, researchController.
 app.get('/account/createresearchnote', passportConfig.isAuthenticated, researchController.getCreateresearchnote);
 app.post('/account/createresearchnote', passportConfig.isAuthenticated, researchController.postCreateresearchnote);
 
-app.get('/account/editor', passportConfig.isAuthenticated, blogController.getEditor);
 app.get('/account/blog', passportConfig.isAuthenticated, blogController.getBlog);
 app.get('/blog', blogController.getPublicBlog);
 app.post('/account/blog', blogController.postUpdateBlog);

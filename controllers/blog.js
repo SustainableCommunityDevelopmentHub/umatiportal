@@ -39,14 +39,6 @@ exports.getBlog = function (req, res, user) {
         })
 };
 
-exports.getEditor = function (req, res, user) {
-    Blog.find()
-        .exec(function (err, blog_data) {          
-            // Successful, so rendecalsr.
-            res.render('account/editor', { title: 'Markdown editor', blogs: blog_data });
-        })
-};
-
 
 /** 
 exports.getBlog = (req, res) => {

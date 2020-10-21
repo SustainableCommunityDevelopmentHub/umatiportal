@@ -22,15 +22,11 @@ block content
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='posttitle') Post Title
       .col-md-7
         input.form-control(type='text', name='posttitle', value=blogdata.posttitle, id='posttitle')
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='authorname') Author name
-      .col-md-7
-        input.form-control(type='text', name='authorname', value=blogdata.authorname, id='authorname')
 
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='post') Post Content
       .col-md-7
-        input.form-control(type='text', name="post", value=blogdata.post, id='post')
+        textarea.form-control( name="editor", id="editor", rows="6", cols="66", autocomplete='post' ) #{blogdata.post}
 
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='postcat') Category
