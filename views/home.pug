@@ -37,31 +37,20 @@ block content
     .col-md-10 
 
   .row
-    .col-md-6 
-      p Welcome
-      ul
-        li.hideli
-          a(href='/roadmap') Umatiportal Roadmap & vision
-        li.hideli 
-          a(href='https://github.com/SustainableCommunityDevelopmentHub/umatiportal/archive/master.zip') Download our free software
-        li.hideli 
-          a(href='/signup') Create a free account
-      if (!user) 
-        li.hideli
-          a.button.btn.btn-primary.spam-button(href='/signupresearch') Document your research
-        li.hideli
-          a.button.btn.btn-secondary.spam-button(href='/signupproject') Track a project
-      if (user) 
-          a.button.btn.btn-secondary.spam-button(href='/account/signupproject') Start a project
-          a.button.btn.btn-primary.spam-button(href='/account/signupresearch') Do research
     .col-md-6
       p
-      h2 Learning and Mentoring Events
-      p Research is at the core of every good deciion, hence this platform is designed to facilitate better research practices.  Umati Portal is a playform to help participants form goals and mainain focus. Small groups or individuals interested in working on specific community development issues are encouraged to contribute to and review information to our 
-        a(href='/roadmap') SCD library.  By definition, umati is inlusive, transparent, efficient, locally relevant, and bridges many aspects of culture, prescedent, and appropriateness.  Our current research emphasis is the assessment of drinking water, wastewater, and municipal solid waste technologies.
+      h2 Research
+      p Researching projects together helps groups form goals and develop focus. Community development issues are organized in 
+        a(href='/roadmap') SCD Hub's educational video library database.
+
+      p By definition, umati is inlusive, transparent, efficient, locally relevant, and bridges many aspects of culture, prescedent, and appropriateness.  Our current research emphasis is the assessment of drinking water, wastewater, and municipal solid waste technologies.
     .col-md-6
       h2 Appropriate Technology
       p Umati Portal's primary goal is to assist SCD Hub with the development of its knowledgebase and to assist more people in contrinuting useful information to that project, such that it may help in decision making in community projects.
+      p
+      if (!user) 
+        li.hideli
+          a.button.btn.btn-primary.spam-button(href='/signup') Get Started
     .col-md-6
       h2 Water systems
       p As we learn more about water, we begin to see it as a living resource.  Water issues are complex and challenging.  Watershed planning begs the question.. "Can we increase watershed capacity? ie. re-foresting, erosion reduction, urban plantings, reduction of heat island effects.  Yes we can.

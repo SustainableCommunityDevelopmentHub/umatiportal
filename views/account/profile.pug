@@ -20,29 +20,29 @@ block content
             if (user.need_buildingsupplies === "checked")
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_buildingsupplies/" checked)
             else
-              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_buildingsupplies/")
-            | Building supplies
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_buildingsupplies/") 
+            |  Building supplies
 
           label.btn.btn-outline-success
             if (user.need_compost === "checked")
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_compost/" checked)
             else
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_compost/")
-            | Compost
+            |  Compost
 
           label.btn.btn-outline-success
             if (user.need_compostpickup === "checked")
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_compostpickup/" checked)
             else
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_compostpickup/")
-            | Compost pickup
+            |  Compost pickup
 
           label.btn.btn-outline-success
             if (user.need_householditems === "checked")
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_householditems/" checked)
             else
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_householditems/")
-            | Household Items
+            |  Household Items
 
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right(for='need2')
@@ -53,21 +53,21 @@ block content
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_tools/" checked)
             else
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_tools/")
-            | Tools
+            |  Tools
 
           label.btn.btn-outline-success
             if (user.need_clothing === "checked")
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_clothing/" checked)
             else
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_clothing/")
-            | Clothing
+            |  Clothing
 
           label.btn.btn-outline-success
             if (user.need_plants === "checked")
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_plants/" checked)
             else
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_plants/")
-            | Plants
+            |  Plants
 
           label.btn.btn-outline-success
             if (user.need_books === "checked")
@@ -75,7 +75,7 @@ block content
             else
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_books/")
 
-            | Books
+            |  Books
 
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right(for='specificitem')
@@ -86,13 +86,13 @@ block content
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_catfood/" checked)
             else
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_catfood/")
-            | Cat Food
+            |  Cat Food
           label.btn.btn-outline-success
             if (user.need_dogfood === "checked")
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_dogfood/" checked)
             else
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_dogfood/")
-            | Dog Food
+            |  Dog Food
 
 
 
@@ -101,7 +101,7 @@ block content
   form(action='/account/profile', method='POST', id="profile")
     input(type='hidden', name='_csrf', value=_csrf)
     hr
-    h3 #{user.name} Profile
+    h3 #{user.profile.name} Profile
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right(for='name') Name
       .col-md-7

@@ -271,6 +271,7 @@ exports.postSignup = (req, res, next) => {
   req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false });
 
   const user = new User({
+    name: req.body.name,
     email: req.body.email,
     password: req.body.password,
     personal: req.body.personal,
@@ -282,7 +283,6 @@ exports.postSignup = (req, res, next) => {
     business: req.body.business,
     tags: req.body.tags,
     nicname: req.body.nicname,
-    name: req.body.name,
     usecase: req.body.usecase,
     usecaseother: req.body.usecaseother,
     usecaseother2: req.body.usecaseother2,
@@ -654,8 +654,8 @@ exports.getWardsignup2 = (req, res) => {
 };
 
 /**
- * POST /wardwelcome
- * Create a new resource logistics account.
+ * GET /wardwelcome
+ * Display welcome page
  */
 exports.getWardwelcome = (req, res) => {
   if (req.user) {
