@@ -78,6 +78,7 @@
     "popper.js": "^1.16.0",
     "pug": "^2.0.4",
     "request": "^2.88.0",
+    "svg-captcha": "^1.4.0",
     "tumblr.js": "^2.0.2",
     "twilio": "^3.39.3",
     "twit": "^2.2.11",

@@ -8,14 +8,3 @@ exports.index = (req, res) => {
   });
 };
 
-
-
-/**
- * GET /home-automated
- * Database driven homepage.
- */
-exports.homeautomated = (req, res) => {
-  res.render('homeautomated', {
-    title: 'Home Automated'
-  });
-};

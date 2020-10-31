@@ -21,6 +21,9 @@ const sass = require('node-sass-middleware');
 const cloudinary = require('cloudinary');
 //const multer = require('multer');
 //const upload = multer({ dest: path.join(__dirname, 'uploads') });
+var svgCaptcha = require('svg-captcha');
+
+
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -143,13 +146,18 @@ app.use('/account/avatars', express.static(path.join(__dirname, 'node_modules/no
  * Import routes
  */
 
+app.get('/captcha', function (req, res) {
+	var captcha = svgCaptcha.create();
+	req.session.captcha = captcha.text;
+	res.type('svg');
+	res.status(200).send(captcha.data);
+});
 
 
 /**
  * Primary app routes.
  */
 app.get('/', homeController.index);
-app.get('/homeautomated', homeController.homeautomated);
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
 app.get('/logout', userController.logout);
