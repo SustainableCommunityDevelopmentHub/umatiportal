@@ -6,31 +6,23 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(name='theme-color' content='#4DA5F4')
     meta(name='csrf-token', content=_csrf)
-    title Umati Portal Open Source Self Help Group Network - #{title} page
+    title Umati Portal - #{title} page
     link(rel='manifest', href='/manifest.webmanifest')
     link(rel='shortcut icon', href='/favicon.png')
     link(rel='stylesheet', href='/css/main.css')
+    if (title === 'Public blog' || title === 'Public blog page' ) 
+        link(rel='stylesheet', href='/api/css?' + user._id )
+    if (title === 'Edit site page' ) 
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css')
+        link(rel='stylesheet', href='https://uicdn.toast.com/editor/latest/toastui-editor.min.css')
     if (title === 'Settings') 
         link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css')
     if (title === 'Create post' || title === 'Edit blog entry' ) 
-        link(rel='stylesheet', href='/css/tagsinput.css')
-        link(rel='stylesheet', href='/css/trumbowyg.min.css')
+        link(rel='stylesheet', href='/css/richtext.css')
     if (title === 'Pong') 
         link(rel='stylesheet', href='/css/pong.css')
-    if (title === 'Cal4') 
-        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
-        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
-        link(rel='stylesheet', href='/css/cal4.css')
     if (title === "Messages Business" || title === "Messages Trash Removed" || title === "Messages Trash List" || title === "Messages Important" || title === "Messages Tags" || title=== "Messages Totrash" || title === "Messages Trash" || title === "Messages Drafts" || title === 'Messages' || title === 'Messages Sent' || title === 'Compose Message' || title === 'Messages of Inspiration' || title === 'Messages shared for group Inspiration')
         link(rel='stylesheet', href='/css/read-email.css')
-    if (title === 'Personal Calendar')
-        link(rel='stylesheet', href='/css/fullcalendarcore4.3.1.main.min.css')
-        link(rel='stylesheet', href='/css/fullcalendar.daygrid.4.3.0.main.min.css')
-        link(rel='stylesheet', href='/css/fullcalendar.timegrid.4.3.0.main.min.css')
-    if (title === 'Test Calendar')
-        link(rel="stylesheet", type="text/css", href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css")
-        link(rel="stylesheet", type="text/css", href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css")
-        link(rel="stylesheet", type="text/css", href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css")
     if (title === 'Dataview1')
         link(rel="stylesheet", type="text/css", href="https://bossanova.uk/jexcel/v4/jexcel.css")
         link(rel="stylesheet", type="text/css", href="https://bossanova.uk/jexcel/v4/jsuites.css")
@@ -48,53 +40,35 @@ html
     include partials/footer
 
     if (title !== 'Podcast Manager')
-        //script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.0/cjs/popper.min.js')
         script(src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
         script window.jQuery || document.write('<script src="js/vendor/jquery-3.5.1.min.js"><\/script>')
-
-        script(src='/js/trumbowyg.min.js')
-        //script(src='https://cdnjs.cloudflare.com/ajax/libs/jcarousel/0.3.9/jquery.jcarousel.js')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js')
-        //script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/bootstrap-slider.js')
     script(src='/js/ihavecookies.options.js')
     script(src='/js/jquery.ihavecookies.min.js')
-    if (title === 'gimme 3 steps' || title === 'new Zip Home Chef account' )
-      script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
     if (title === 'Account Ledger')
          script(src='/js/lib/bootstrap-table.min.js')
     //script(src='/js/lib/bootstrap.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
-    if (title === 'Personal Calendar') 
-         script(src='/js/fullcalendar/core.js')
-         script(src='/js/fullcalendar/daygrid.js')
-         script(src='/js/fullcalendar/timegrid.js')
-         script(src='/js/cal.js')
 
-    if (title === 'Edit blog entry') 
-         script(src="https://cdn.quilljs.com/1.3.6/quill.js")
+    if (title === 'Create post' || title === 'Edit blog entry' )
+         script(src="/js/jquery.richtext.js")
          script.
+           $('#post').richText();
 
-           var quill = new Quill('#editor', {
-             theme: 'snow'
-           });
+    if (title === 'Edit site page' ) 
+        script(src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js")
 
     if (title === 'Dataview1') 
        script(src="https://bossanova.uk/jexcel/v4/jexcel.js")
        script.
-  
          var options = {
             minDimensions:[10,10],
             tableOverflow:true,
          }
          $('#spreadsheet').jexcel(options);)
 
-    if (title === 'Test Calendar') 
-        script(src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js")
-        script(src="https://uicdn.toast.com/tui.dom/v3.0.0/tui-dom.js")
-        script(src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js")
-        script(src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js")
-        script(src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js")
     if (title === 'Location')
+        // this is not being used.  Goal here is to use open streetmap
         link(rel="stylesheet", href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css")
         script(src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js")
 
@@ -102,6 +76,7 @@ html
         script(src='/js/bcp.min.js')
         script(src='/js/bcp.en.min.js')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.0/chroma.min.js')
+
     if (title === 'Pong') 
          script(src='/js/pong.js')
 

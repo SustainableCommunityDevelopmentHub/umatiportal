@@ -1,6 +1,7 @@
 .navbar.navbar-light.fixed-top.navbar-expand-lg.bg-light
   .container
-    img(src="/lion.png",border="0")
+    img(src="/lion.png",border="0")  
+    h2 #{user.profile.name}'s Blog
     a.navbar-brand(href='/')
       | &nbsp; #{user.blogsettings.blogtitle}
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='.navbar-collapse')

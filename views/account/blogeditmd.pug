@@ -28,7 +28,8 @@ block content
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='post') Post Content
       .col-md-7
-        textarea.form-control( name="post", id="post", rows="6", cols="66", autocomplete='post' ) #{blogdata.post}
+        div#editor
+        //  textarea.form-control( name="post", id="editor", rows="6", cols="66", autocomplete='post' ) #{blogdata.post}
 
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='postcat') Category

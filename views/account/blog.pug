@@ -2,16 +2,15 @@ extends ../layout
 
 block content
   .pb-2.mt-2.mb-4.border-bottom
+
+
   
   if user._id == "5f6cf09b9a806936329128ed"
     h2 MANAGE UMATI PORTAL CONTENT
-  else if user._id == "5f6cf09b9a806936329128fe"
-    h2 ZipHomeChef 
   else 
     h2 BLOG MANAGER
-  a(href='/account/bloghomepage') homepage - 
   a(href='/account/blogsettings') settings - 
-  a(href='/account/createpost') create a new post
+  a(href='/account/createpost') new post
 
   hr
 
@@ -20,21 +19,19 @@ block content
   - var userr = { id: user._id }
   - if (blogs.length)
     each posts in blogs
-        if posts.username == userr.id 
-            strong #{posts.posttitle}
+        if posts.userid == userr.id 
+            a(href='/account/blog/'+posts._id).icon-edit
+              strong #{posts.posttitle}
             br
-            span #{moment(posts.postdate).format("Do MMMM gggg")}
+            span Subtext: #{posts.subtext}
             br
             span Category: #{posts.postcat}
             br
-            #{posts.post}
+            span Tags: #{posts.posttags}
             br
-            a(href='/account/blog/'+posts._id).icon-edit Edit 
-            updated  &nbsp; &nbsp; &nbsp;  updated #{moment(posts.updatedAt).format('MMM Do h:mm:ss a')}
+            span &nbsp; &nbsp; &nbsp; created #{moment(posts.createdAt).format('MMM Do h:mm:ss a')}
             hr
-  br
-  br
-  br
+            br
   br
   br
   br

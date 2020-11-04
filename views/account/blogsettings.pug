@@ -27,10 +27,6 @@ block content
         textarea.form-control.hidden(type='text', name="blogdesc", rows="3", cols="46", autocomplete='user.blogsettings.blogdesc') #{user.blogsettings.blogdesc}
 
     .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='blogtags') Tags
-      .col-md-7
-        input.form-control(type='text', name='blogtags', data-role='tagsinput', id='blogtags', value=user.blogsettings.blogtags, autocomplete='blogtags')
-    .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='visibility') Visibility
       .col-md-1.form-check.form-check-inline
         input(type='radio', class='form-check-input' checked=user.blogsettings.visibility == 'visible', name='visibility', id='visibility', value='visible', data-toggle='radio')

@@ -310,6 +310,16 @@ exports.postSignup = (req, res, next) => {
   });
 };
 
+
+/**
+ */
+exports.getConfirmDelete = (req, res) => {
+  res.render('account/deleteconfirm', {
+    title: 'Confirm Delete'
+  });
+};
+
+
 /**
  * GET /groupsignup
  * Signup page.
@@ -350,184 +360,6 @@ exports.getBackup = (req, res) => {
   });
 };
 
-/**
- * GET /account/messages
- * Internal Messages
- */
-exports.getMessages = function (req, res, next) {
-    var mysort = { createdAt: -1,  };
-    Messages.find()
-        .sort(mysort)
-        .exec(function (err, message_list) {
-            if (err) { return next(err); }
-            // Successful, so render.
-            res.render('account/messages', { title: 'Messages', message_list: message_list });
-        })
-};
-
-/**
- * GET /account/messagesbusiness
- * Internal Messages Business Descriptor
- */
-exports.getMessagesBusiness = function (req, res, next) {
-    var mysort = { createdAt: -1,  };
-    Messages.find()
-        .sort(mysort)
-        .exec(function (err, message_list) {
-            if (err) { return next(err); }
-            // Successful, so render.
-            res.render('account/messagesbusiness', { title: 'Messages Business', message_list: message_list });
-        })
-};
-
-exports.getMessagesGroupBusiness = function (req, res, next) {
-    var mysort = { createdAt: -1,  };
-    Messages.find()
-        .sort(mysort)
-        .exec(function (err, message_list) {
-            if (err) { return next(err); }
-            // Successful, so render.
-            res.render('account/messagesgroupbusiness', { title: 'Messages Business', message_list: message_list });
-        })
-};
-
-/**
- * GET /account/messagessent
- * Internal Messages
- */
-exports.getMessagesSent = function (req, res, next) {
-    var mysort = { createdAt: -1,  };
-    Messages.find()
-        .sort(mysort)
-        .exec(function (err, message_list) {
-            if (err) { return next(err); }
-            // Successful, so render.
-            res.render('account/messagessent', { title: 'Messages Sent', message_list: message_list });
-        })
-};
-
-
-/**
- * GET /account/messagesdrafts
- * Internal Messages
- */
-exports.getMessagesDrafts = function (req, res, next) {
-    var mysort = { createdAt: -1,  };
-    Messages.find()
-        .sort(mysort)
-        .exec(function (err, message_list) {
-            if (err) { return next(err); }
-            // Successful, so render.
-            res.render('account/messagesdrafts', { title: 'Messages Drafts', message_list: message_list });
-        })
-};
-
-
-/**
- * GET /account/messagesdrafts
- * Internal Messages
- */
-exports.getMessagesInspiration = function (req, res, next) {
-    var mysort = { createdAt: -1,  };
-    Messages.find()
-        .sort(mysort)
-        .exec(function (err, message_list) {
-            if (err) { return next(err); }
-            // Successful, so render.
-            res.render('account/messagesinspiration', { title: 'Messages of Inspiration', message_list: message_list });
-        })
-};
-
-exports.getMessagesGroupInspiration = function (req, res, next) {
-    var mysort = { createdAt: -1,  };
-    Messages.find()
-        .sort(mysort)
-        .exec(function (err, message_list) {
-            if (err) { return next(err); }
-            // Successful, so render.
-            res.render('account/messagesgroupinspiration', { title: 'Messages shared for group Inspiration', message_list: message_list });
-        })
-};
-
-
-/**
- * GET /account/messagestags
- * Internal Messages
- */
-exports.getMessagesTags = function (req, res, next) {
-    var mysort = { createdAt: -1,  };
-Messages.find()
-        .sort(mysort)
-        .exec(function (err, message_list) {
-            if (err) { return next(err); }
-            // Successful, so render.
-            res.render('account/messagestags', { title: 'Messages Tags', message_list: message_list });
-        })
-};
-
-
-/**
- * GET /account/messagestrashlist
- * Internal Messages Trash
- */
-exports.getMessagesTrashlist = function (req, res, next) {
-/**    var mysort = { createdAt: -1,  };
-  *      .sort(mysort)
- */
-    Messages.find()
-        .exec(function (err, message_list) {
-            if (err) { return next(err); }
-            // Successful, so render.
-            res.render('account/messagestrash', { title: 'Messages Trash List', message_list: message_list });
-        })
-};
-
-
-/**
- * GET /account/messagestrash
- * Internal Messages Trash
- */
-
-function getTrashlist(req, res) {
-  var query =  Messages.where({ _id: req.params.messageid });
-
-  query.findOne(function (err, messages) {
-      if (err)
-          return res.send(err)
-      res.render('account/messagestrash', { title: 'Messages Trash', message_list: messages });
-  });
-};
-
-exports.getMessagesTrash = function (req, res) {
-      getTrashlist(req,res);
-};
-
-
-
-/**
- * GET /account/messagestrashmoveajax
- * Update status of entry to 'trash' or whatever needed
- */
-exports.getMessagesTrashMoveAjax = function (req, res) {
-
-    var itemid = req.params.itemid;
-    var status = req.params.status;
-
-    var data = {
-      status: status
-    };
- /*  console.log("Itemid: " + itemid + " status: " + status );*/
-    Messages.findByIdAndUpdate(itemid, data, function(err, result) {
-    if (err){
-         res.send(err);
-    }
-    else{
-         res.status(200);
- /*        console.log("RESULT: " + result);*/
-    };
-
-  });
-};
 
 
 exports.getLink = function (req, res, next) {
@@ -536,135 +368,6 @@ exports.getLink = function (req, res, next) {
   };
 
 
-/**
- * GET /account/messagesimportant
- * Internal Messages Important
- */
-exports.getMessagesImportant = function (req, res, next) {
-    var mysort = { createdAt: -1,  };
-    Messages.find()
-        .sort(mysort)
-        .exec(function (err, message_list) {
-            if (err) { return next(err); }
-            // Successful, so render.
-            res.render('account/messagesimportant', { title: 'Messages Important', message_list: message_list });
-        })
-};
-
-exports.getMessagesGroupImportant = function (req, res, next) {
-    var mysort = { createdAt: -1,  };
-    Messages.find()
-        .sort(mysort)
-        .exec(function (err, message_list) {
-            if (err) { return next(err); }
-            // Successful, so render.
-            res.render('account/messagesgroupimportant', { title: 'Messages Important', message_list: message_list });
-        })
-};
-
-
-
-/**
- * GET /account/messagesTrashRemove
- * Internal Messages Trash Remove
- */
-exports.getMessagesTrashRemove = function (req, res, next) {
-    Messages.findByIdAndRemove(req.params.itemid, function(err, result) {
-    if (err){
-         res.send(err);
-     }
-     else {
-         res.status(200);
-     };
-     })
-};
-
-/**
- * GET /account/messagecompose
- * Internal Messages
- */
-exports.getMessageCompose = (req, res, next) => {
-  if (!req.user) {
-    return res.redirect('/');
-  }
-  var mysort = { createdAt: -1,  };
-  User.find()
-      .sort(mysort)
-      .exec(function (err, user_list) {
-            if (err) { return next(err); }
-            // Successful, so render.
-            res.render('account/messagecompose', { title: 'Compose Message', user_list: user_list });
-      });
-};
-
-
-exports.postMessageCreate = (req, res, next) => {
-  const validationErrors = [];
-
-        var db = new Messages();
-        var response = {};
-        db.username = req.body.user;
-        db.user = req.body.user;
-        db.name = req.body.name;
-        db.subject = req.body.subject;
-        db.sentfrom = req.body.sentfrom;
-        db.sentto = req.body.sentto;
-        db.group = req.body.group;
-        db.message = req.body.message;
-        db.date = req.body.date;
-        db.status = req.body.status;
-        db.tag = req.body.tag;
-
-        db.save((err) => {
-          if (err) {
-            if (err.code === 11000) {
-              req.flash('errors', { msg: 'There was an error in your update.' });
-              return res.redirect('/account/messagecompose');
-          }
-          return next(err);
-          }
-          req.flash('success', { msg: 'Your message has been sent.' });
-          res.redirect('/account/messages');
-          });
-
-};
-
-
-/**
- * GET /wardsignup
- * Food Group Signup page.
- */
-exports.getWardsignup = (req, res) => {
-  if (req.user) {
-    return res.redirect('/account/elevatormanage?status=signedin');
-  } 
-  res.render('account/wardsignup', {
-    title: 'Create Food Logistics Account'
-  });
-};
-
-/**
- * GET /wardsignup
- * Food Group Signup page.
- */
-exports.getWardsignup2 = (req, res) => {
-  res.render('account/wardsignup2', {
-    title: 'forWard'
-  });
-};
-
-/**
- * GET /wardwelcome
- * Display welcome page
- */
-exports.getWardwelcome = (req, res) => {
-  if (req.user) {
-    return res.redirect('/account/messages');
-  } 
-  res.render('account/wardwelcome', {
-    title: 'Create Food Logistics Account'
-  });
-};
 
 /**
  * GET /avatared
@@ -676,95 +379,6 @@ exports.getAvatared = (req, res) => {
   let svg = avatars.create('custom-seed');
     res.render('account/avatared', {
     title: 'Create Avatars'
-  });
-};
-
-
-/**
- * POST /wardwelcome
- * Create a new local account.
- */
-exports.postWardwelcome = (req, res, next) => {
-  const validationErrors = [];
-  if (validationErrors.length) {
-    req.flash('errors', validationErrors);
-  }
-  if (validationErrors.length) {
-    req.flash('errors', validationErrors);
-    return res.redirect('/wardsignup');
-  }
-  if (req.body.invite === "art") var thisgroup = "for Ward";
-  req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false });
-  const user = new User({
-    email: req.body.email,
-    password: req.body.password,
-    group: thisgroup,
-    paneldriver: req.body.paneldriver,
-    panelsurplus: req.body.panelsurplus,
-    panelrequests: req.body.panelrequests,
-    panelwarehouse: req.body.panelwarehouse,
-    panelresearch: req.body.panelresearch,
-    nicname: req.body.nicname,
-    invitecode: req.body.invite,
-    invited: req.body.invited,
-    inviter: req.body.inviter
-  });
-  User.findOne({ email: req.body.email }, (err, existingUser) => {
-    if (err) { return next(err); }
-    if (existingUser) {
-      req.flash('errors', { msg: 'Account with that nicname or email address already exists.' });
-      return res.redirect('/wardsignup');
-    }
-    user.save((err) => {
-      if (err) { return next(err); }
-      req.logIn(user, (err) => {
-        if (err) {
-          return next(err);
-        }
-        res.redirect('/account/messages/');
-      });
-    });
-  });
-};
-
-
-
-/**
- * POST /wardsignup
- * Create a new local account.
- */
-exports.postWardsignup = (req, res, next) => {
-  const validationErrors = [];
-  if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' });
-  if (!validator.isLength(req.body.password, { min: 8 })) validationErrors.push({ msg: 'Password must be at least 8 characters long' });
-  if (req.body.password !== req.body.confirmPassword) validationErrors.push({ msg: 'Passwords do not match' });
-
-  if (validationErrors.length) {
-    req.flash('errors', validationErrors);
-    return res.redirect('/wardsignup');
-  }
-  req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false });
-
-  const user = new User({
-    email: req.body.email,
-    password: req.body.password
-  });
-
-  User.findOne({ email: req.body.email }, (err, existingUser) => {
-    if (err) { return next(err); }
-    if (existingUser) {
-      req.flash('errors', { msg: 'Account with that email address already exists.' });
-      return res.redirect('/wardsignup');
-    }
-    user.save((err) => {
-      if (err) { return next(err); }
-      req.logIn(user, (err) => {
-        if (err) {
-          return next(err);
-        }
-        res.redirect('/account/elevatormanage/');
-      });
-    });
   });
 };
 
@@ -1099,28 +713,6 @@ exports.postUpdateLocsettings = (req, res, next) => {
 
 
 /**
- * GET /account/possettings
- * Profile page.
- */
-exports.getConfirmDelete = (req, res) => {
-  res.render('account/deleteconfirm', {
-    title: 'Confirm Delete'
-  });
-};
-
-/**
- * GET /account/possettings
- * Profile page.
- */
-exports.getPossettings = (req, res) => {
-  res.render('account/possettings', {
-    title: 'POS Settings'
-  });
-};
-
-
-
-/**
  * GET /account/bloghomepage
  *  Specific to blog components 
  * Blog homepage content manager
@@ -1188,45 +780,10 @@ exports.postBloghomepage = (req, res, next) => {
 
 
 
-/**
- * POST /account/blogsettings
- * Update blog settings.
- */
-exports.postUpdatePossettings = (req, res, next) => {
-  const validationErrors = [];
-
-  if (validationErrors.length) {
-    req.flash('errors', validationErrors);
-    return res.redirect('/account/possettings');
-  }
-
-  User.findById(req.user.id, (err, user) => {
-    if (err) { return next(err); }
-    user.possettings.user = req.body.user || '';
-    user.possettings.postitle = req.body.postitle || '';
-    user.possettings.posdesc = req.body.posdesc || '';
-    user.possettings.shortdesc = req.body.shortdesc || '';
-    user.possettings.template = req.body.template || '';
-    user.possettings.postags = req.body.postags || '';
-    user.possettings.visibility = req.body.visibility || '';
-    user.save((err) => {
-      if (err) {
-        if (err.code === 11000) {
-          req.flash('errors', { msg: 'There was an error in your point of sale settings update.' });
-          return res.redirect('/account/possettings');
-        }
-        return next(err);
-      }
-      req.flash('success', { msg: 'POS setings has been updated.' });
-      res.redirect('/account/possettings');
-    });
-  });
-};
-
 
 
 /**
- * GET /account/blogsettings
+ * GET /account/bizsettings
  * Profile page.
  */
 exports.getBizsettings = (req, res) => {
@@ -1235,8 +792,9 @@ exports.getBizsettings = (req, res) => {
   });
 };
 
+
 /**
- * POST /account/blogsettings
+ * POST /account/bizsettings
  * Update blog settings.
  */
 exports.postUpdateBizsettings = (req, res, next) => {

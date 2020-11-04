@@ -1,7 +1,6 @@
 /* eslint-env jquery, browser */
 $(document).ready(() => {
 
-
     $('#media').on('click', function () {
         $.ajax({
             url: '/account/mediaupdate',

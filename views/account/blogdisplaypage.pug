@@ -3,13 +3,15 @@ extends ../publiclayout
 block content
   .pb-2.mt-2.mb-4.border-bottom
 
+    h3 
+      a(href='/blog/' + user.profile.name ) #{user.profile.name}'s blog
+
 
     each post in blogs
 
       .col
         .row
-          h2   
-            a(href='/blog/' + user.profile.name + '/' + post.posttitle) #{post.posttitle}
+          h2 #{post.posttitle}
    
         .row
 
@@ -17,7 +19,7 @@ block content
       p Tags: #{post.posttags} 
 
       blockquote #{post.subtext} 
-      p #{post.post}
+      div(escaped="#{post.post}")
       p #{moment(post.createdAt).format('LT, MMM D, YYYY')}
 
       hr

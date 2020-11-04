@@ -23,16 +23,37 @@ exports.getBlogupdated = function (req, res, user) {
             res.render('account/blogupdated', { title: 'Blog updated'});
 };
 
-exports.getPublicBlog = function (req, res, user) {
-    Blog.find()
-        .exec(function (err, blog_data) {          
-            // Successful, so rendecalsr.
-            res.render('account/blogpublic', { title: 'Public Blog', blogs: blog_data });
-        })
+
+// display blog index page with list
+exports.getDisplayPublicBlog = (req, res, next) => {
+
+  let blogname = req.params.name
+  Blog.find( { username: blogname } , function(err, blog) {  
+
+    return res.render('account/blogdisplay', {
+      title: 'Public blog',
+      blogs: blog
+    });
+  });
 };
+ 
+// display individual page
+exports.getDisplayPublicBlogPage = (req, res, next) => {
+
+  let posttitle = req.params.posttitle
+  Blog.find( {posttitle: posttitle } , function(err, blog) {  
+    return res.render('account/blogdisplaypage', {
+      title: 'Public blog page',
+      blogs: blog
+    });
+  });
+};
+ 
 
 exports.getBlog = function (req, res, user) {
-    Blog.find()
+    Blog.find().sort({updatedAt:-1})
+
+
         .exec(function (err, blog_data) {          
             // Successful, so rendecalsr.
             res.render('account/blog', { title: 'Personal Blog', blogs: blog_data });
@@ -41,17 +62,10 @@ exports.getBlog = function (req, res, user) {
 
 
 /** 
-exports.getBlog = (req, res) => {
-
-  const blogs = Blog.list;
-  res.render('account/blog', {
-    title: 'Blog manager'
-  });
-};
-
  * POST /blog
  * Sign in using email and password.
  */
+
 exports.postBlog = (req, res, next) => {
   const validationErrors = [];
   if (validator.isEmpty(req.body.blogpost)) validationErrors.push({ msg: 'Blog post cannot be blank.' });
@@ -68,8 +82,6 @@ exports.postUpload = (req, res, next) => {
 };
 
 
-
-
 /**
  * GET /createpost
  * Signup page.
@@ -79,6 +91,8 @@ exports.getCreatepost = (req, res) => {
     title: 'Create post'
   });
 };
+
+
 
 /**
  * POST /createpost
@@ -94,15 +108,26 @@ exports.postCreatepost = (req, res, next) => {
     return res.redirect('/account/blog');
   }
 
+  var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+
   const blog = new Blog({
+    userid: req.body.user, 
+    username: req.body.username, 
+    blogexists: req.body.blogexists,
     posttitle: req.body.posttitle,
-    post: req.body.post, 
-    username: req.body.user, 
+    subtext: req.body.subtext,
+    blogtitle: req.body.blogtitle,
+    blogdesc: req.body.blogdesc,
+    authorname: req.body.authorname,
+    post: req.body.post,
     location: req.body.location, 
     postcat: req.body.postcat,
     posttags: req.body.posttags,
     postdate: req.body.postdate,
-    template: req.body.template
+    iphash: ip,
+    template: req.body.template,
+    group: req.body.group,
+    visibility: req.body.visibility
   });
 
   Blog.findOne({ posttitle: req.body.posttitle }, (err, existingBlog) => {
@@ -119,28 +144,11 @@ exports.postCreatepost = (req, res, next) => {
 };
 
 
-// display blog post
-exports.getDisplayBlogpost = (req, res, next) => {
-  Blog.findById(req.params.blogpost_id, function(err, blog) {
-    if (blog.username != req.user._id){
-      req.flash('danger', 'Not Authorized');
-      return res.redirect('/');
-    }
-
-    return res.render('account/blogdisplay', {
-      title: 'display blog entry',
-      blogdata: blog
-    });
-  });
-};
- 
-
-
 
 // get a blog post
 exports.getUpdateBlogpost = (req, res, next) => {
   Blog.findById(req.params.blogpost_id, function(err, blog) {
-    if (blog.username != req.user._id){
+    if (blog.userid != req.user._id){
       req.flash('danger', 'Not Authorized');
       return res.redirect('/');
     }
@@ -152,33 +160,24 @@ exports.getUpdateBlogpost = (req, res, next) => {
   });
 };
  
+// get site page to edit
+exports.getUpdateSite = (req, res, next) => {
+  Blog.findById(req.params.blogpost_id, function(err, blog) {
+    if (blog.userid != req.user._id){
+      req.flash('danger', 'Not Authorized');
+      return res.redirect('/');
+    }
 
-
-exports.postUpdateBlogpost = (req, res, next) => {
-
-// create employee and send back all employees after creation
-  // create mongose method to update a existing record into collection
-  let id = req.params.blogpost_id;
-  var data = {
-    user : req.body.user,
-    username : req.body.user,
-    posttitle : req.body.posttitle,
-    authorname : req.body.authorname,
-    post : req.body.post,
-    location : req.body.location,
-    postcat : req.body.postcat,
-    posttags : req.body.posttags,
-    postdate : req.body.postdate,
-    sharedwith : req.body.sharedwith
-  }
- 
-  // save the user
-  Blog.findByIdAndUpdate(id, data, function(err, blogpost) {
-  if (err) throw err;
- 
-  res.send('Successfully! Blog updated - '+blogpost.name);
+    return res.render('account/blogeditmd', {
+      title: 'Edit site page',
+      blogdata: blog
+    });
   });
 };
+ 
+
+
+ 
 
 
 exports.postUpdateBlog = (req, res) => {
@@ -191,6 +190,7 @@ exports.postUpdateBlog = (req, res) => {
     user : req.body.user,
     username : req.body.username,
     posttitle : req.body.posttitle,
+    subtext : req.body.subtext,
     authorname : req.body.authorname,
     post : req.body.post,
     location : req.body.location,
@@ -204,10 +204,10 @@ exports.postUpdateBlog = (req, res) => {
   }
 
   // save the update
-  Blog.findByIdAndUpdate(blogid, data, function(err, pos) {
+  Blog.findByIdAndUpdate(blogid, data, function(err, blogpost) {
   if (err) throw err;
 
-  req.flash('success', { msg: 'Your blog post has been updated.' });
+  req.flash('success', { msg: 'Your post, "'+blogpost.posttitle+'" has been updated.' });
   res.redirect('/account/blog');
   });
 };

@@ -1,27 +1,27 @@
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
-const Schema = mongoose.userSchema;
 
 const blogSchema = new mongoose.Schema({
     id: Number,
-    user: String,
+    userid: String,
     username: String,
+    blogexists: String,
     posttitle: String,
+    subtext: String,
+    blogtitle: String,
     authorname: String,
     post: String,
-    postfiles: Object,
     location: String,
     postcat: String,
     posttags: String,
     postdate: Date,
     iphash: String,
+    template: String,
     group: String,
-    transhash: String,
     visibility: String
 }, { timestamps: true });
 
- 
 const Blog = mongoose.model('Blog', blogSchema);
 
 module.exports = Blog;

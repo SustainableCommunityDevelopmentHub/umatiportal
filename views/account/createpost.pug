@@ -9,8 +9,10 @@ block content
     hr
     a(href='/account/blog') Blog -
     a(href='/account/blogsettings') Settings - 
-    a(href='#', type="button", data-toggle="modal", data-target="#myModal") Add media
-  
+    // -
+      a(href='#', type="button", data-toggle="modal", data-target="#myModal") Add media 
+    //
+    
     .modal#myModal
       .modal-dialog
         .modal-content.content
@@ -51,22 +53,19 @@ block content
   form(action="/account/createpost", method="POST")
     input(type='hidden', name='_csrf', value=_csrf)
     input(type='hidden', name='user', value=user.id)
+    input(type='hidden', name='username', value=user.profile.name)
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='posttitle') Post Title
       .col-md-7
         input.form-control(type='text', name='posttitle', id='posttitle')
     .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='authorname') Author name
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='subtext') Subtext
       .col-md-7
-        input.form-control(type='text', name='authorname', value=user.profile.name, id='authorname')
+        input.form-control(type='text', name='subtext', id='subtext')
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='post') Post Content
       .col-md-7
-        textarea.form-control( name="post", rows="6", cols="66", autocomplete='post' ) #{user.business.post}
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='location') Location
-      .col-md-7
-        input.form-control(type='text', name='location', id='location')
+        textarea.form-control( name="post", id="post", rows="6", cols="66", autocomplete='post' ) 
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='postcat') Category
       .col-md-7

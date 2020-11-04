@@ -44,7 +44,6 @@ const calController = require('./controllers/cal');
 const mediaController = require('./controllers/media');
 const memberController = require('./controllers/member');
 const locController = require('./controllers/loc');
-const posController = require('./controllers/pos');
 const donationController = require('./controllers/donation');
 const contactController = require('./controllers/contact');
 const apiController = require('./controllers/api');
@@ -173,11 +172,6 @@ app.get('/signupgroup', userController.getGroupSignup);
 app.get('/account/supportedsignup', userController.getSupportedsignup);
 app.get('/account/prioritysupport', userController.getPrioritysupport);
 app.post('/signup', userController.postSignup);
-app.get('/wardwelcome', userController.getWardwelcome);
-app.post('/groupwelcome', userController.postWardwelcome);
-app.get('/wardsignup', userController.getWardsignup);
-app.get('/wardsignup2', userController.getWardsignup2);
-app.post('/wardsignup', userController.postWardsignup);
 app.get('/account/createsubgroup', groupdataController.getCreatesubgroupdata);
 app.get('/privacypolicy', userController.getPrivacy);
 app.get('/privacy', contactController.getPrivacy);
@@ -212,24 +206,7 @@ app.get('/account/activity-print', passportConfig.isAuthenticated, userControlle
 app.post('/account/activity', passportConfig.isAuthenticated, userController.postUpdateActivity);
 app.get('/account/setup', passportConfig.isAuthenticated, userController.getSetup);
 app.post('/account/setup', passportConfig.isAuthenticated, userController.postUpdateSetup);
-app.get('/account/messages', passportConfig.isAuthenticated, userController.getMessages);
-app.get('/account/messagessent', passportConfig.isAuthenticated, userController.getMessagesSent);
-app.get('/account/messagesdrafts', passportConfig.isAuthenticated, userController.getMessagesDrafts);
-app.get('/account/messagesinspiration', passportConfig.isAuthenticated, userController.getMessagesInspiration);
-app.get('/account/messagesbusiness', passportConfig.isAuthenticated, userController.getMessagesBusiness);
-app.get('/account/messagestags', passportConfig.isAuthenticated, userController.getMessagesTags);
-app.get('/account/messagesimportant', passportConfig.isAuthenticated, userController.getMessagesImportant);
-app.get('/account/messagesgroupinspiration', passportConfig.isAuthenticated, userController.getMessagesGroupInspiration);
-app.get('/account/messagesgroupbusiness', passportConfig.isAuthenticated, userController.getMessagesGroupBusiness);
-app.get('/account/messagesgroupimportant', passportConfig.isAuthenticated, userController.getMessagesGroupImportant);
 
-app.get('/account/messagestrashremove/:itemid', passportConfig.isAuthenticated, userController.getMessagesTrashRemove);
-app.get('/account/messagestrashmoveajax/:itemid/:status/', passportConfig.isAuthenticated, userController.getMessagesTrashMoveAjax);
-//app.get('/account/messagestrashmove/:messageid', passportConfig.isAuthenticated, userController.getMessagesTrashMove);
-app.get('/account/messagestrash/:messageid', passportConfig.isAuthenticated, userController.getMessagesTrash);
-app.get('/account/messagestrash', passportConfig.isAuthenticated, userController.getMessagesTrashlist);
-app.get('/account/messagecompose', passportConfig.isAuthenticated, userController.getMessageCompose);
-app.post('/account/messagecreate', passportConfig.isAuthenticated, userController.postMessageCreate);
 app.get('/account/business', passportConfig.isAuthenticated, userController.getBusiness);
 app.post('/account/business', passportConfig.isAuthenticated, userController.postUpdateBusiness);
 app.get('/account/bizsettings', passportConfig.isAuthenticated, userController.getBizsettings);
@@ -250,8 +227,6 @@ app.get('/account/inventorysettings', passportConfig.isAuthenticated, userContro
 app.post('/account/inventorysettings', passportConfig.isAuthenticated, userController.postUpdateInventorysettings);
 app.get('/account/calsettings', passportConfig.isAuthenticated, userController.getCalsettings);
 app.post('/account/calsettings', passportConfig.isAuthenticated, userController.postUpdateCalsettings);
-app.get('/account/possettings', passportConfig.isAuthenticated, userController.getPossettings);
-app.post('/account/possettings', passportConfig.isAuthenticated, userController.postUpdatePossettings);
 
 app.get('/projects', userController.getProjects);
 app.get('/account/projectdata', passportConfig.isAuthenticated, projectController.getProjectdata);
@@ -279,11 +254,12 @@ app.get('/account/createresearchnote', passportConfig.isAuthenticated, researchC
 app.post('/account/createresearchnote', passportConfig.isAuthenticated, researchController.postCreateresearchnote);
 
 app.get('/account/blog', passportConfig.isAuthenticated, blogController.getBlog);
-app.get('/blog', blogController.getPublicBlog);
 app.post('/account/blog', blogController.postUpdateBlog);
 app.post('/account/blogupdate', passportConfig.isAuthenticated, blogController.postUpdateBlog);
 app.get('/account/blog/:blogpost_id', passportConfig.isAuthenticated, blogController.getUpdateBlogpost);
-app.get('/blog/:name', blogController.getDisplayBlogpost);
+app.get('/account/site/:blogpost_id', passportConfig.isAuthenticated, blogController.getUpdateSite);
+app.get('/blog/:name', blogController.getDisplayPublicBlog);
+app.get('/blog/:name/:posttitle', blogController.getDisplayPublicBlogPage);
 app.get('/profile/:name', userController.getDisplayPublicProfile);
 app.get('/account/createloc', passportConfig.isAuthenticated, locController.getCreateloc);
 app.post('/account/createloc', passportConfig.isAuthenticated, locController.postCreateloc);
@@ -321,12 +297,6 @@ app.post('/account/calentryupdate', passportConfig.isAuthenticated, calControlle
 app.get('/account/calentrycreate', passportConfig.isAuthenticated, calController.getCalEntry);
 app.post('/account/calentrycreate', passportConfig.isAuthenticated, calController.postCreateCalEntry);
 
-app.post('/account/pos', passportConfig.isAuthenticated, posController.postUpdatePosEntry);
-app.get('/account/pos', passportConfig.isAuthenticated, posController.getPos);
-app.get('/account/pos/:posid', passportConfig.isAuthenticated, posController.getUpdatePosEntry);
-app.get('/account/posentrycreate', passportConfig.isAuthenticated, posController.getPosEntry);
-app.post('/account/posentrycreate', passportConfig.isAuthenticated, posController.postCreatePosEntry);
-app.post('/account/posentryedit', passportConfig.isAuthenticated, posController.postUpdatePosEntry);
 
 // add bigchaindb api connections here for verification relay
 app.get('/account/createmember', passportConfig.isAuthenticated, memberController.getCreatemember);
