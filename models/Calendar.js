@@ -11,9 +11,12 @@ const calSchema = new mongoose.Schema({
     location: String,
     calcat: String,
     caltags: String,
-    caldate: Date,
-    time: String,
+    date: Date,
+    duration: String,
     group: String,
+    project: String,
+    inventory: String,
+    research: String,
     visibility: String,
 }, { timestamps: true });
 

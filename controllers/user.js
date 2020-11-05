@@ -352,12 +352,10 @@ exports.getGroupSignup = (req, res) => {
  */
 exports.getBackup = (req, res) => {
   if (req.user) {
-    return res.redirect('/backup');
-    title: 'Public data backup policy info page'
+    res.render('account/backup', {
+      title: 'Private account data backup request form page'
+    });
   }
-  res.render('account/backup', {
-    title: 'Private account data backup request form page'
-  });
 };
 
 

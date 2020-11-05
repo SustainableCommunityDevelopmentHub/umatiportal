@@ -4,8 +4,7 @@ block content
   .pb-2.mt-2.mb-4.border-bottom
 
     h3 
-      a(href='/blog/' + user.profile.name ) #{user.profile.name}'s blog
-
+      #{blogtitle}     
 
     each post in blogs
 
@@ -20,6 +19,7 @@ block content
 
       blockquote #{post.subtext} 
       div(escaped="#{post.post}")
+      p.unescaped #{post.post}
       p #{moment(post.createdAt).format('LT, MMM D, YYYY')}
 
       hr

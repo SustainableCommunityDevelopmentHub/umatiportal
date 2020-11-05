@@ -9,8 +9,6 @@
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         if user
-          li.nav-item(class=(title === 'Messages') ? 'active' : undefined)
-            a.nav-link(href='/account/messages') Messages
         if (user && user.group == "For Ward")  
           li.nav-item.dropdown 
             a.nav-link.dropdown-toggle#navbarDropdown(href="#", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") Food security
