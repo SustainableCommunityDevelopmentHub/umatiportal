@@ -19,16 +19,20 @@ const passport = require('passport');
 const expressStatusMonitor = require('express-status-monitor');
 const sass = require('node-sass-middleware');
 const cloudinary = require('cloudinary');
-//const multer = require('multer');
-//const upload = multer({ dest: path.join(__dirname, 'uploads') });
+const multer = require('multer');
+// const multerS3 = require('multer-s3');
 var svgCaptcha = require('svg-captcha');
+
+const upload = multer({ dest: path.join(__dirname, 'uploads') });
 
 
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  */
-dotenv.config({ path: '.env.example' });
+
+dotenv.config({ path: '.env.production' });
+
 
 /**
  * Controllers (route handlers).
@@ -36,6 +40,7 @@ dotenv.config({ path: '.env.example' });
 const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const blogController = require('./controllers/blog');
+const fileController = require('./controllers/file');
 const researchController = require('./controllers/research');
 const groupdataController = require('./controllers/groupdata');
 const projectController = require('./controllers/project');
@@ -104,12 +109,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use((req, res, next) => {
-//  if (req.path === '/api/upload') {
-//    // Multer multipart/form-data handling needs to occur before the Lusca CSRF check.
-//    next();
-//  } else {
+  if (req.path === '/api/upload') {
+    // Multer multipart/form-data handling needs to occur before the Lusca CSRF check.
+    next();
+  } else {
     lusca.csrf()(req, res, next);
- // }
+  }
 });
 app.use(lusca.xframe('SAMEORIGIN'));
 app.use(lusca.xssProtection(true));
@@ -142,7 +147,7 @@ app.use('/account/avatars', express.static(path.join(__dirname, 'node_modules/no
 
 
 /**
- * Import routes
+ * Primary app routes.
  */
 
 app.get('/captcha', function (req, res) {
@@ -152,10 +157,6 @@ app.get('/captcha', function (req, res) {
 	res.status(200).send(captcha.data);
 });
 
-
-/**
- * Primary app routes.
- */
 app.get('/', homeController.index);
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
@@ -179,6 +180,9 @@ app.get('/contactpage', userController.getContactpage);
 app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
 app.get('/roadmap', contactController.getRoadmap);
+app.get('/upload', apiController.getUpload);
+//app.get('/files', apiController.getListFiles);
+//app.get('/files/:name', apiController.getDownload);
 
 app.get('/account/verify', passportConfig.isAuthenticated, userController.getVerifyEmail);
 app.get('/account/verify/:token', passportConfig.isAuthenticated, userController.getVerifyEmailToken);
@@ -318,8 +322,8 @@ app.get('/games/si', userController.getSi);
 app.get('/api/umaticast', apiController.getUmaticast);
 //app.get('/api', apiController.getApi);
 app.get('/api/lob', apiController.getLob);
-//app.get('/api/upload', lusca({ csrf: true }), apiController.getFileUpload);
-//app.post('/api/upload', upload.single('myFile'), lusca({ csrf: true }), apiController.postFileUpload);
+app.get('/api/upload', lusca({ csrf: true }), apiController.getFileUpload);
+app.post('/api/upload', upload.single('myFile'), lusca({ csrf: true }), apiController.postFileUpload);
 app.get('/api/pinterest', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getPinterest);
 app.post('/api/pinterest', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.postPinterest);
 app.get('/api/google/drive', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getGoogleDrive);

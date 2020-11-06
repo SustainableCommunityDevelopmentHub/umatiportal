@@ -1,6 +1,5 @@
 const { promisify } = require('util');
 const cheerio = require('cheerio');
-const graph = require('fbgraph');
 const { LastFmNode } = require('lastfm');
 const tumblr = require('tumblr.js');
 const GitHub = require('@octokit/rest');
@@ -8,6 +7,7 @@ const Twit = require('twit');
 const twilio = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 const clockwork = require('clockwork')({ key: process.env.CLOCKWORK_KEY });
 const lob = require('lob')(process.env.LOB_KEY);
+const ig = require('instagram-node').instagram();
 const axios = require('axios');
 const validator = require('validator');
 
@@ -51,10 +51,6 @@ exports.getUmaticast = (req, res) => {
         "embedcode":"embedcode3"
     }]);
 };
-
-
-
-
 
 /**
  * GET /api/foursquare
@@ -114,15 +110,20 @@ exports.getTumblr = (req, res, next) => {
  */
 exports.getFacebook = (req, res, next) => {
   const token = req.user.tokens.find((token) => token.kind === 'facebook');
-  graph.setAccessToken(token.accessToken);
-  graph.get(`${req.user.facebook}?fields=id,name,email,first_name,last_name,gender,link,locale,timezone`, (err, profile) => {
-    if (err) { return next(err); }
-    res.render('api/facebook', {
-      title: 'Facebook API',
-      profile
-    });
-  });
+  const secret = process.env.FACEBOOK_SECRET;
+  const appsecretProof = crypto.createHmac('sha256', secret).update(token.accessToken).digest('hex');
+  axios.get(`https://graph.facebook.com/${req.user.facebook}?fields=id,name,email,first_name,last_name,gender,link,locale,timezone&access_token=${token.accessToken}&appsecret_proof=${appsecretProof}`)
+    .then((response) => {
+      res.render('api/facebook', {
+        title: 'Facebook API',
+        profile: response.data
+      });
+    })
+    .catch((error) => next(error.response));
 };
+
+
+
 
 /**
  * GET /api/scraping
@@ -151,7 +152,7 @@ exports.getScraping = (req, res, next) => {
 exports.getGithub = async (req, res, next) => {
   const github = new GitHub();
   try {
-    const { data: repo } = await github.repos.get({ owner: 'sahat', repo: 'hackathon-starter' });
+    const { data: repo } = await github.repos.get({ owner: 'sustainablecommunitydevelopmenthub', repo: 'umatiportal' });
     res.render('api/github', {
       title: 'GitHub API',
       repo
@@ -492,6 +493,39 @@ exports.postClockwork = (req, res, next) => {
   });
 };
 
+/**
+ * Get /api/twitch
+ */
+exports.getTwitch = async (req, res, next) => {
+  const token = req.user.tokens.find((token) => token.kind === 'twitch');
+  const twitchID = req.user.twitch;
+  const twitchClientID = process.env.TWITCH_CLIENT_ID;
+
+  const getUser = (userID) =>
+    axios.get(`https://api.twitch.tv/helix/users?id=${userID}`, { headers: { Authorization: `Bearer ${token.accessToken}`, 'Client-ID': twitchClientID } })
+      .then(({ data }) => data)
+      .catch((err) => Promise.reject(new Error(`There was an error while getting user data ${err}`)));
+  const getFollowers = () =>
+    axios.get(`https://api.twitch.tv/helix/users/follows?to_id=${twitchID}`, { headers: { Authorization: `Bearer ${token.accessToken}`, 'Client-ID': twitchClientID } })
+      .then(({ data }) => data)
+      .catch((err) => Promise.reject(new Error(`There was an error while getting followers ${err}`)));
+
+  try {
+    const yourTwitchUser = await getUser(twitchID);
+    const otherTwitchUser = await getUser(44322889);
+    const twitchFollowers = await getFollowers();
+    res.render('api/twitch', {
+      title: 'Twitch API',
+      yourTwitchUserData: yourTwitchUser.data[0],
+      otherTwitchUserData: otherTwitchUser.data[0],
+      twitchFollowers,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+
 
 /**
  * GET /api/chart
@@ -673,6 +707,67 @@ exports.getLob = async (req, res, next) => {
  * GET /api/upload
  * File Upload API example.
  */
+exports.getUpload = (req, res) => {
+
+const uploadFile = require("../middleware/upload");
+const upload = async (req, res) => {
+  try {
+    await uploadFile(req, res);
+
+    if (req.file == undefined) {
+      return res.status(400).send({ message: "Please upload a file!" });
+    }
+
+    res.status(200).send({
+      message: "Uploaded the file successfully: " + req.file.originalname,
+ 
+
+   });
+  } catch (err) {
+    res.status(500).send({
+      message: `Could not upload the file: ${req.file.originalname}. ${err}`,
+    });
+  }
+};
+
+
+exports.getListFiles = (req, res) => {
+
+  const directoryPath = __basedir + "/resources/static/assets/uploads/";
+
+  fs.readdir(directoryPath, function (err, files) {
+    if (err) {
+      res.status(500).send({
+        message: "Unable to scan files!",
+      });
+    }
+
+    let fileInfos = [];
+
+    files.forEach((file) => {
+      fileInfos.push({
+        name: file,
+        url: baseUrl + file,
+      });
+    });
+
+    res.status(200).send(fileInfos);
+  });
+};
+};
+
+exports.getDownload = (req, res) => {
+  const fileName = req.params.name;
+  const directoryPath = __basedir + "/resources/static/assets/uploads/";
+
+  res.download(directoryPath + fileName, fileName, (err) => {
+    if (err) {
+      res.status(500).send({
+        message: "Could not download the file. " + err,
+      });
+    }
+  });
+};
 
 exports.getFileUpload = (req, res) => {
   res.render('api/upload', {
@@ -684,6 +779,7 @@ exports.postFileUpload = (req, res) => {
   req.flash('success', { msg: 'File was uploaded successfully.' });
   res.redirect('/api/upload');
 };
+
 
 /**
  * GET /api/pinterest
