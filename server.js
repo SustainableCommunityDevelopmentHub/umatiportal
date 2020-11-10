@@ -174,6 +174,8 @@ app.get('/reset/:token', userController.getReset);
 app.post('/reset/:token', userController.postReset);
 app.get('/signup', userController.getSignup);
 app.get('/signupmult', userController.getMultSignup);
+
+// Iam- this is the backup stuff i was working on -g
 app.get('/account/backup', userController.getBackup);
 app.get('/account/backup/csv/:options', userController.getBackupCsv);
 app.get('/account/backup/json/:options', userController.getBackupJson);
