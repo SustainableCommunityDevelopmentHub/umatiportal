@@ -13,13 +13,6 @@ const User = require('../models/User');
 
 const randomBytesAsync = promisify(crypto.randomBytes);
 
-/**
- * GET /account/calendar
- * Contacts manager.
- *
- * Display contacts page.
-*/
-
 
 // Display contacts
 exports.getContact = function (req, res, next) {
@@ -34,14 +27,19 @@ exports.getContact = function (req, res, next) {
 };
 
 
+
  /*
- * POST /contact
- * Sign in using email and password.
+ * POST /clinic/get-started
+ *  SCD Clinic - get started page
  */
-exports.postContact = (req, res, next) => {
-  const validationErrors = [];
-  if (validator.isEmpty(req.body.name)) validationErrors.push({ msg: 'Item name cannot be blank.' });
+exports.getClinicGetStarted = (req, res, next) => {
+            res.render('startaclinic', { title: 'Start a clinic page' });
 };
+exports.getClinicGetStarted2 = (req, res, next) => {
+            res.render('clinic/get-started2', { title: 'Start a clinic page 2' });
+};
+
+
 
 
 /**

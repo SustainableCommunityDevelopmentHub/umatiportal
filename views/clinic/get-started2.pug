@@ -1,20 +1,21 @@
-extends layout
+extends ../layout
 
 block content
   .pb-2.mt-2.mb-4.border-bottom
 
 
-    h3 Public Project Signup Space
-  form(id='projectsignup-form', method='POST', action='/signup', onsubmit='if(document.getElementById(\'agree\').checked) { return true; } else { alert(\'Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy\'); return false; }')
+    h3 Propose an SCD Clinic
+    p Community is inherently diverse.  An SCD Hub clinic need not be formally organized. Simply by expressing your own unique perspective on a design, planning, or cultural issue in your community, your words and reseach can influence entire project outcomes.
+
+    p Please use this service to help others to gain important information to 
+    p SCD Clinics are like design charettes in that we aim to open up dialogue in the context of an informed design discussion.  SCD Hub is a 501c3 non profit, so reach out if you would a letter of support, helpful when requesting free public meeting space, etc.
+
+
+    form(id='cinicsignup-form', method='POST', action='/signup', onsubmit='if(document.getElementById(\'agree\').checked) { return true; } else { alert(\'Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy\'); return false; }')
 
     input(type='hidden', name='_csrf', value=_csrf)
     .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='blogname') Link name for Umati blog
-      .col-md-7
-        input.form-control(type='text', name='blogname', id='blogname', autofocus)
-
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='project') Name of project
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='project') Subject your clinic
       .col-md-7
         input.form-control(type='text', name='project', id='group', autofocus)
 

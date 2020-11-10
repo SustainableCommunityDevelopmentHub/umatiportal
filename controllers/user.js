@@ -6,7 +6,14 @@ const _ = require('lodash');
 const validator = require('validator');
 const cloudinary = require('cloudinary');
 const mailChecker = require('mailchecker');
+const fs = require('fs');
+const moment = require('moment');
+const json2csv = require('json2csv').parse;
+const csv = require('csv-express');
+const path = require('path');
 const User = require('../models/User');
+const Blog = require('../models/Blog');
+const fields = ['_id','userid','username','posttitle','subtext','post','postcat','posttags','iphash','createdAt','updatedAt'];
 const Member = require('../models/Member');
 const Messages = require('../models/Messages');
 const randomBytesAsync = promisify(crypto.randomBytes);
@@ -19,6 +26,20 @@ exports.getLogin = (req, res) => {
     title: 'Login'
   });
 };
+
+exports.getExportToCsv = (req, res, next) => {
+    var filename   = "umati_blogdata.csv";
+    var dataArray;
+    Blog.find().lean().exec({}, function(err, blogdata) {
+        if (err) res.send(err);
+        
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename='+filename);
+        res.csv(blogdata, true);
+    });
+ };
+
 
 exports.getContactpage = (req, res) => {
   res.render('contact', {
@@ -276,6 +297,7 @@ exports.postSignup = (req, res, next) => {
     password: req.body.password,
     personal: req.body.personal,
     group: req.body.group,
+    blogname: req.body.blogname,
     academicinst: req.body.academicinst,
     research: req.body.research,
     project: req.body.project,
@@ -333,22 +355,67 @@ exports.getGroupSignup = (req, res) => {
   });
 };
 
+
 /**
- * POST /account/backup
- *  csv data download url
- *
- *   Response from backup page generated link
-   
- *   Form data payload with a loop searching through the db for this user.
- *   organize the data in a succinct csv file
- *   allow file to be downloaded directly when this controller is used.
- * 
+ * get /account/backup/csv/:option
+ *  csv data export
 **/
+exports.getBackupCsv = (req, res) => {
+
+  if (req.user) {
+    return res.redirect('/');
+  }
+
+};
+
+/**
+ * get /account/backup/json/:option
+ *  json data export
+**/
+exports.getBackupJson = (req, res) => {
+  // userparam = req.params.user;
+  // user._id
+  console.log('user id hope: ' + userparam + ' boom!');
+  if (req.user) {
+    return res.redirect('/');
+  }
+
+
+  Blog.file({userid: "5fa296e34428b663aa96668d"}, function (err, blog) {
+      if (err) {
+      return res.status(500).json({ err });
+    }
+    else {
+      let csv
+      try {
+        csv = json2csv(blog, { fields });
+      } catch (err) {
+        return res.status(500).json({ err });
+      }
+      const dateTime = moment().format('YYYYMMDDhhmmss');
+      const filePath = path.join(__dirname, "..", "public", "exports", "csv-" + dateTime + ".csv")
+      fs.writeFile(filePath, csv, function (err) {
+        if (err) {
+          return res.json(err).status(500);
+        }
+        else {
+          setTimeout(function () {
+            fs.unlinkSync(filePath); // delete this file after 30 seconds
+          }, 30000)
+          return res.json("/exports/csv" + userparam + "-" + dateTime + ".csv");
+        }
+      });
+
+    } 
+
+ 
+  
+  });
+};
 
 
 /**
  * GET /account/backup
- *  csv data download url
  */
 exports.getBackup = (req, res) => {
   if (req.user) {
@@ -357,8 +424,6 @@ exports.getBackup = (req, res) => {
     });
   }
 };
-
-
 
 exports.getLink = function (req, res, next) {
   usernameparam = req.params.username;
@@ -620,15 +685,6 @@ exports.postUpdateActivity = (req, res, next) => {
   });
 };
 
-/**
- * GET /account/calsettings
- * Calendar settings page.
- */
-exports.getCalsettings = (req, res) => {
-  res.render('account/calsettings', {
-    title: 'Calendar Settings'
-  });
-};
 
 /**
  * GET /account/locsettings
@@ -637,41 +693,6 @@ exports.getCalsettings = (req, res) => {
 exports.getLocsettings = (req, res) => {
   res.render('account/locsettings', {
     title: 'Loc Settings'
-  });
-};
-
-
-/**
- * POST /account/calsettings
- * Update cal settings.
- */
-exports.postUpdateCalsettings = (req, res, next) => {
-  const validationErrors = [];
-
-  if (validationErrors.length) {
-    req.flash('errors', validationErrors);
-    return res.redirect('/account/calsettings');
-  }
-
-  User.findById(req.user.id, (err, user) => {
-    if (err) { return next(err); }
-    user.calsettings.user = req.body.user || '';
-    user.calsettings.caltitle = req.body.caltitle || '';
-    user.calsettings.caldesc = req.body.caldesc || '';
-    user.calsettings.shortdesc = req.body.shortdesc || '';
-    user.calsettings.caltags = req.body.caltags || '';
-    user.calsettings.visibility = req.body.visibility || '';
-    user.save((err) => {
-      if (err) {
-        if (err.code === 11000) {
-          req.flash('errors', { msg: 'There was an error in your calendar settings update.' });
-          return res.redirect('/account/calsettings');
-        }
-        return next(err);
-      }
-      req.flash('success', { msg: 'Calendar setings has been updated.' });
-      res.redirect('/account/calsettings');
-    });
   });
 };
 
@@ -716,17 +737,6 @@ exports.postUpdateLocsettings = (req, res, next) => {
  * Blog homepage content manager
  */
 exports.getBloghomepage = (req, res) => {
-  res.render('account/bloghomepage', {
-    title: 'Blog homepage manager'
-  });
-};
-
-
-/**
- * GET /account/blog
- * Blog homepage content manager
- */
-exports.getBlogSignup = (req, res) => {
   res.render('account/bloghomepage', {
     title: 'Blog homepage manager'
   });
@@ -1113,6 +1123,7 @@ exports.postUpdateProfile = (req, res, next) => {
     user.item_offered = req.body.item_offered || '';
     user.item_requested = req.body.item_requested || '';
     user.project = req.body.project || '';
+    user.blogname = req.body.blogname || '';
     user.group = req.body.group || '';
     user.profile.story = req.body.story || '';
     user.profile.location = req.body.location || '';
@@ -1170,6 +1181,9 @@ exports.getUpdateProfileAjax = function (req, res, next) {
     if (item === "panelrequests") var data = { panelrequests: val };
     if (item === "panelwarehouse") var data = { panelwarehouse: val };
     if (item === "panelresearch") var data = { panelresearch: val };
+    if (item === "usecase_techinventory") var data = { usecase_techinventory: val };
+    if (item === "usecase_foodsecurity") var data = { usecase_foodsecurity: val };
+    if (item === "usecase_scdclinic") var data = { usecase_scdclinic: val };
     console.log("hello there. Item id is: " + item + " val: " + val + " user: " + user );
 
     User.findByIdAndUpdate(user, data, function(err, result) {

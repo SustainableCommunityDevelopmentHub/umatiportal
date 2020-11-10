@@ -16,6 +16,16 @@ const inventorySchema = new mongoose.Schema({
     inventorycat: String,
     inventorytags: String,
     inventorydate: Date,
+    description_of_tech: String,
+    components: String,
+    schemtatics: String,
+    cost: String,
+    operation_and_maint: String,
+    technical_knowledge: String,
+    environmental_impact: String,
+    cultural_factors: String,
+    other_factors: String,
+    sources: String,
     sharedwith: Array,
 }, { timestamps: true });
 

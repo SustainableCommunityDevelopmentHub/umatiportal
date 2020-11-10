@@ -1,7 +1,8 @@
 extends layout
 
 block content
-  h1 Welcome #{user.profile.name}
+
+  h1 Welcome #{blogname}
   p Nov 6 2020.  Umati Portal is currently testing new website & project management and project tools.  This portal is designed to support SCDHub's mission "... to provide trustworthy development & training tools to facilitate project planning, design & execution. "  Find out more about Echo Water, and SCD Clinics 
     a(href='https://scdhub.org/clinic/curate/') here.  
     span Please 
@@ -25,14 +26,19 @@ block content
       h3 Resource Awareness
       p The human-ecological relationship is governed by how we use water. Water connects us to the land, food, energy, and one another.
     .amazing
-      h4 Proposal Writing
-      p SCD Hub curates a library of technical solutions to common wastewater and sewage, municipal solid waste, and drinking water supply challenges.
+      h4 Our software build
+      p SCD Hub is re-architectinig its library of technical solutions such that it can be managed collaboratively via this site. Common wastewater and sewage, municipal solid waste, and drinking water supply challenges are being .  
+      a(href="https://www.github.com/sustainablecommunitydevelopmenthub/umatiportal/archive/master.zip") download our code.
     .news
-      h4 A Meaningful Database
-      p designed to help
+      h4 Research Relvance 
+      p Umatiportal supports UNM Peace Engineering program's efforts to develop a better database for water system solutions. SCD Hub's  
+        a(href="https://www.scdhub.org/category/drinkingwater") Drinking water supply
+        span , 
+        a(href="https://www.scdhub.org/category/wws") Wastewater and Sewage
+        span , and 
+        a(href="https://www.scdhub.org/category/msw") Municipal Solid Waste
+        
     .cta
-      h1 SCD Clinics
-      p are gatherings to discuss appropriate technology and provide hands on learning opportunties.
   .row
     .col-md-10 
 
@@ -46,7 +52,8 @@ block content
       p By definition, umati is inlusive, transparent, efficient, locally relevant, and bridges many aspects of culture, prescedent, and appropriateness.  Our current research emphasis is the assessment of drinking water, wastewater, and municipal solid waste technologies.
     .col-md-6
       h2 Appropriate Technology
-      p Umati Portal's primary goal is to assist SCD Hub with the development of its knowledgebase and to assist more people in contrinuting useful information to that project, such that it may help in decision making in community projects.
+      p Umati Portal's primary goal is to assist SCD Hub with the development of its knowledgebase and to assist more people in contrinuting useful information to that project, such that it may help in decision making in community projects.  The SCD Clinic format for appropriate technology discussions can provide a regular hands on learning opportunity for underserved communities.  You can 
+        a(href="/clinic/getstarted") start an SCD Clinic yourself.
       p
       if (!user) 
         li.hideli

@@ -20,11 +20,10 @@ const expressStatusMonitor = require('express-status-monitor');
 const sass = require('node-sass-middleware');
 const cloudinary = require('cloudinary');
 const multer = require('multer');
+const GridFsStorage = require("multer-gridfs-storage");
 // const multerS3 = require('multer-s3');
-var svgCaptcha = require('svg-captcha');
-
 const upload = multer({ dest: path.join(__dirname, 'uploads') });
-
+var svgCaptcha = require('svg-captcha');
 
 
 /**
@@ -45,7 +44,6 @@ const researchController = require('./controllers/research');
 const groupdataController = require('./controllers/groupdata');
 const projectController = require('./controllers/project');
 const inventoryController = require('./controllers/inventory');
-const calController = require('./controllers/cal');
 const mediaController = require('./controllers/media');
 const memberController = require('./controllers/member');
 const locController = require('./controllers/loc');
@@ -99,6 +97,8 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
   cookie: { maxAge: 1209600000 }, // two weeks in milliseconds
   store: new MongoStore({
     url: process.env.MONGODB_URI,
@@ -147,7 +147,8 @@ app.use('/account/avatars', express.static(path.join(__dirname, 'node_modules/no
 
 
 /**
- * Primary app routes.
+ * Locally generated captcha  ( less APIs, more privacy )
+ *
  */
 
 app.get('/captcha', function (req, res) {
@@ -156,6 +157,12 @@ app.get('/captcha', function (req, res) {
 	res.type('svg');
 	res.status(200).send(captcha.data);
 });
+
+
+
+/**
+ * Primary app routes.
+ */
 
 app.get('/', homeController.index);
 app.get('/login', userController.getLogin);
@@ -168,6 +175,9 @@ app.post('/reset/:token', userController.postReset);
 app.get('/signup', userController.getSignup);
 app.get('/signupmult', userController.getMultSignup);
 app.get('/account/backup', userController.getBackup);
+app.get('/account/backup/csv/:options', userController.getBackupCsv);
+app.get('/account/backup/json/:options', userController.getBackupJson);
+app.get('/account/exporttocsv', userController.getExportToCsv);
 app.get('/account/confirmdelete', userController.getConfirmDelete);
 app.get('/signupgroup', userController.getGroupSignup);
 app.get('/account/supportedsignup', userController.getSupportedsignup);
@@ -178,11 +188,9 @@ app.get('/privacypolicy', userController.getPrivacy);
 app.get('/privacy', contactController.getPrivacy);
 app.get('/contactpage', userController.getContactpage);
 app.get('/contact', contactController.getContact);
-app.post('/contact', contactController.postContact);
+app.get('/clinic/get-started', contactController.getClinicGetStarted);
+app.get('/clinic/get-started2', contactController.getClinicGetStarted2);
 app.get('/roadmap', contactController.getRoadmap);
-app.get('/upload', apiController.getUpload);
-//app.get('/files', apiController.getListFiles);
-//app.get('/files/:name', apiController.getDownload);
 
 app.get('/account/verify', passportConfig.isAuthenticated, userController.getVerifyEmail);
 app.get('/account/verify/:token', passportConfig.isAuthenticated, userController.getVerifyEmailToken);
@@ -198,9 +206,6 @@ app.get('/account/signupproject', passportConfig.isAuthenticated, userController
 app.get('/signupproject', userController.getProjectSignupPublic);
 app.get('/account/signupresearch', passportConfig.isAuthenticated, userController.getResearchSignup);
 app.get('/account/signupproposal', passportConfig.isAuthenticated, userController.getProposalSignup);
-app.get('/signupresearch', userController.getResearchSignupPublic);
-app.get('/signupblog', userController.getBlogSignup);
-app.get('/account/signupblog', passportConfig.isAuthenticated, userController.getBlogSignup);
 
 app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
 app.get('/account/profileajax/:user/:item/:val', passportConfig.isAuthenticated, userController.getUpdateProfileAjax);
@@ -229,8 +234,6 @@ app.get('/account/groupsettings', passportConfig.isAuthenticated, userController
 app.post('/account/groupsettings', passportConfig.isAuthenticated, userController.postUpdateGroupsettings);
 app.get('/account/inventorysettings', passportConfig.isAuthenticated, userController.getInventorysettings);
 app.post('/account/inventorysettings', passportConfig.isAuthenticated, userController.postUpdateInventorysettings);
-app.get('/account/calsettings', passportConfig.isAuthenticated, userController.getCalsettings);
-app.post('/account/calsettings', passportConfig.isAuthenticated, userController.postUpdateCalsettings);
 
 app.get('/projects', userController.getProjects);
 app.get('/account/projectdata', passportConfig.isAuthenticated, projectController.getProjectdata);
@@ -264,6 +267,7 @@ app.get('/account/blog/:blogpost_id', passportConfig.isAuthenticated, blogContro
 app.get('/account/site/:blogpost_id', passportConfig.isAuthenticated, blogController.getUpdateSite);
 app.get('/blog/:name', blogController.getDisplayPublicBlog);
 app.get('/blog/:name/:posttitle', blogController.getDisplayPublicBlogPage);
+app.get('/api/css/:name', blogController.getPublicBlogCss);
 app.get('/profile/:name', userController.getDisplayPublicProfile);
 app.get('/account/createloc', passportConfig.isAuthenticated, locController.getCreateloc);
 app.post('/account/createloc', passportConfig.isAuthenticated, locController.postCreateloc);
@@ -292,14 +296,6 @@ app.get('/account/createdonation', passportConfig.isAuthenticated, inventoryCont
 app.post('/account/createdonation', passportConfig.isAuthenticated, inventoryController.postCreatedonation);
 app.get('/account/donation/:donation_id', passportConfig.isAuthenticated, inventoryController.getUpdateDonation);
 app.post('/account/donationedit', passportConfig.isAuthenticated, inventoryController.postUpdateDonation);
-app.get('/account/api/cal', passportConfig.isAuthenticated, calController.getCaljson);
-app.get('/account/cal', passportConfig.isAuthenticated, calController.getCal);
-
-app.post('/account/cal', passportConfig.isAuthenticated, calController.postCreateCalEntry);
-app.get('/account/cal/:calitem_id', passportConfig.isAuthenticated, calController.getUpdateCalEntry);
-app.post('/account/calentryupdate', passportConfig.isAuthenticated, calController.postUpdateCalEntry);
-app.get('/account/calentrycreate', passportConfig.isAuthenticated, calController.getCalEntry);
-app.post('/account/calentrycreate', passportConfig.isAuthenticated, calController.postCreateCalEntry);
 
 
 // add bigchaindb api connections here for verification relay
@@ -307,8 +303,6 @@ app.get('/account/createmember', passportConfig.isAuthenticated, memberControlle
 app.get('/account/payment', passportConfig.isAuthenticated, userController.getMember);
 app.post('/account/payment', passportConfig.isAuthenticated, userController.postMember);
 app.get('/account/requestpayment', passportConfig.isAuthenticated, userController.getRequestMember);
-
-app.post('/account/upload', passportConfig.isAuthenticated, blogController.postUpload);
 
 app.get('/account/jexcel', userController.getJexcel);
 app.get('/account/avatared', userController.getAvatared);
@@ -320,7 +314,7 @@ app.get('/games/si', userController.getSi);
  * API examples routes.
  */
 app.get('/api/umaticast', apiController.getUmaticast);
-//app.get('/api', apiController.getApi);
+app.get('/api', apiController.getApi);
 app.get('/api/lob', apiController.getLob);
 app.get('/api/upload', lusca({ csrf: true }), apiController.getFileUpload);
 app.post('/api/upload', upload.single('myFile'), lusca({ csrf: true }), apiController.postFileUpload);

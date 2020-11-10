@@ -1,0 +1,53 @@
+extends ../layout
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+
+
+    h3 Propose an SCD Clinic
+    p Community is inherently diverse.  An SCD Hub clinic need not be formally organized. Simply by expressing your own unique perspective on a design, planning, or cultural issue in your community, your words and reseach can influence entire project outcomes.
+
+    p Please think of how the information your clinic uncovers will be useful to others.    SCD Clinics are successful when the people participating gain a better undersanding.  Informed public discussion leads to better desision making powers.   As a US non profit organization, SCD Hub can provide a letter of support for your SCD Clinic, helpful when requesting free public meeting spaces, outreach & promotion, etc.
+
+
+    form(id='cinicsignup-form', method='POST', action='/signup', onsubmit='if(document.getElementById(\'agree\').checked) { return true; } else { alert(\'Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy\'); return false; }')
+
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='email') Email
+      .col-md-7
+        input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus, required)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='password') Password
+      .col-md-7
+        input.form-control(type='password', name='password', id='password', placeholder='Password', minlength='8', required)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='confirmPassword') Confirm Password
+      .col-md-7
+        input.form-control(type='password', name='confirmPassword', id='confirmPassword', placeholder='Confirm Password', minlength='8', required)
+
+
+    .form-group.row
+      .col-md-3 
+      .col-md-7
+        img(src='/captcha')
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='confirmPassword') Type captcha or refresh
+      .col-md-7
+          input.form-control(type='text', name='captcha', id='captcha')
+
+
+    .form-group.row
+      .col-md-3 
+      .col-md-7
+        input#agree(type='checkbox', name='checkbox', value='check')
+        |  I have read and agree to the
+        br
+        a(href='/terms') Terms and Conditions
+        |  and 
+        a(href='/privacy') Privacy Policy
+
+    .form-group.offset-sm-3.col-md-7.pl-2
+      button.btn.btn-success(type='submit')
+        i.fas.fa-user-plus.fa-sm
+        | Lets do this

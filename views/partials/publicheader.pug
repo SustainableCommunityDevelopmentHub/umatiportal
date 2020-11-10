@@ -1,9 +1,14 @@
+var blogname = req.params.name
 .navbar.navbar-light.fixed-top.navbar-expand-lg.bg-light
   .container
+    a.navbar-brand(href='/blog/' + blogname)
     img(src="/lion.png",border="0")  
-    h2 #{user.profile.name}'s Blog
+    h2 &nbsp;
+      a(href='/blog/' + blogname) #{blogname}'s 
+       span Blog
     a.navbar-brand(href='/')
-      | &nbsp; #{user.blogsettings.blogtitle}
+      | &nbsp; 
+      #{blogname}
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='.navbar-collapse')
       span.sr-only Toggle navigation
       span.navbar-toggler-icon

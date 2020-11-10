@@ -2,8 +2,11 @@ extends ../layout
 
 block content
   .pb-2.mt-2.mb-4.border-bottom
-  
-  span INVENTORY - 
+
+  if (user.usecase_techinventory === "checked")
+    span TECHNOLOGY ASSESSMENT - 
+  else
+    span INVENTORY - 
   a(href='/account/inventorysettings') Settings - 
   a(href='/account/createinventory') Add inventory item - 
   a(href='/account/createloc') New location - 
@@ -21,43 +24,37 @@ block content
            .card.bg-light
              .card-body.text-left
                h2 #{posts.inventorytitle} 
-               p.card-text.text-center - #{posts.location}
-               p.card-text.text-center - #{posts.inventorytags}
-               p.card-text.text-center - #{posts.inventorycat}
-               p.card-text.text-center - #{posts.price}
-               p.card-text.text-center - #{posts.post}
+
+               if (user.usecase_techinventory === "checked")
+
+                 if (typeof(posts.description_of_tech) !== 'undefined')
+                   p.card-text.text-center - #{posts.description_of_tech}
+                 if (typeof(posts.schematics) !== 'undefined')
+                   p.card-text.text-center - #{posts.schemtatics}
+                 if (typeof(posts.cost) !== 'undefined')
+                   p.card-text.text-center --- #{posts.cost}
+                 if (typeof(posts.operation_and_maint) !== 'undefined')
+                   p.card-text.text-center - #{posts.operation_and_maint}
+                 if (typeof(posts.technical_knowledge) !== 'undefined')
+                   p.card-text.text-center - #{posts.technical_knowledge}
+                 if (typeof(posts.environmental_impact) !== 'undefined')
+                   p.card-text.text-center - #{posts.environmental_impact}
+                 if (typeof(posts.cultural_factors) !== 'undefined')
+                   p.card-text.text-center - #{posts.cultural_factors}
+                 if (typeof(posts.other_factors) !== 'undefined')
+                   p.card-text.text-center - #{posts.other_factors}
+                 if (typeof(posts.sources) !== 'undefined')
+                   p.card-text.text-center - #{posts.sources}
+  
+               if (typeof(posts.post) !== 'undefined')
+                 p.card-text.text-center - #{posts.post}
+               if (typeof(posts.inventorytags) !== 'undefined')
+                 p.card-text.text-center - #{posts.inventorytags}
+               if (typeof(posts.price) !== 'undefined')
+                 p.card-text.text-center - #{posts.price}
                p.card-text.text-center
-                a.modallink(type="link", data-toggle="modal", data-target="#detailsModal") Details >>
-                 span &nbsp;
-                 span &nbsp;
-                a.link(type="link", href='/account/inventory/'+posts._id) Edit
+                 a.link(type="link", href='/account/inventory/'+posts._id) Edit
 
-                .modal.fade#detailsModal(tabindex="-1", role="dialog", aria-labelledby="detailsModalLabel", aria-hidden="true")
-                  .modal-dialog(role="document")
-                    .modal-content
-                      .modal-header(style="background-color:ltgrey")
-                        img(src="/umatimoto.gif",border="0")
-                        h2.modal-title#detailsModalLabel &nbsp; #{posts.name}
-                        button.close(type="button", data-dismiss="modal", aria-label="Close")
-                        span(aria-hidden="true") ×
-                      .modal-body
-
-                        if !user
-                          a.nav-link(href='/login') Login
-                          a.nav-link(href='/signup') Create Account
-                          p Please log in and check your group section.
-                        else
-                          span.strong Price $ #{posts.price}
-                          p Descripion #{posts.post}
-                          p.strong Status: #{posts.visibility}
-                          span.strong Tags: #{posts.inventorytags}
-                          span.strong &nbsp; Category: #{posts.inventorycat}
-
-                          p Location: #{posts.location}
-                          span Date: #{posts.inventorydate}
-
-                      .modal-footer
-                        a(type="link", href='/account/inventory/'+posts._id) Edit
 
    
   hr

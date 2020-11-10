@@ -4,8 +4,25 @@ block content
   .pb-2.mt-2.mb-4.border-bottom
 
     h2 Account Data Backup
+    p 
+    ul
+      li
+        a(href="/account/backup/csv") csv file
+    p 
+    ul
+      li
+        a(href="/account/backup/json") json file
 
 
-    h2 csv file data can be opened in a spreadsheet program like libreOffice 
+    hr
 
-    
+    p
+
+    h2 Using your exported json data
+
+    ul
+      li
+        a(href="https://mkyong.com/mongodb/mongodb-import-and-export-example/") mongoexport / mongimport cli technique
+      li 
+        a(href="https://docs.mongodb.com/compass/master/import-export") MongoDb Compass import method
+   

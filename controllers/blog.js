@@ -15,7 +15,7 @@ const randomBytesAsync = promisify(crypto.randomBytes);
 
 /**
  * GET /account/blog
- * Blog manager.
+ * 
  */
 exports.getBlogupdated = function (req, res, user) {
     
@@ -25,14 +25,23 @@ exports.getBlogupdated = function (req, res, user) {
 
 
 // display blog index page with list
-exports.getDisplayPublicBlog = (req, res, next) => {
+exports.getDisplayPublicBlog = (req, res, user) => {
 
   let blogname = req.params.name
+  if (blogname !== 'undefined')
+    User.find( { blogname: blogname } , function(err, user){
+      if (err) { return next(err); }
+    });
+
+
+
   Blog.find( { username: blogname } , function(err, blog) {  
 
     return res.render('account/blogdisplay', {
       title: 'Public blog',
-      blogs: blog
+      blogs: blog,
+      blogname: blogname,
+      thisuser: user
     });
   });
 };
@@ -41,10 +50,30 @@ exports.getDisplayPublicBlog = (req, res, next) => {
 exports.getDisplayPublicBlogPage = (req, res, next) => {
 
   let posttitle = req.params.posttitle
+  let blogname = req.params.name
   Blog.find( {posttitle: posttitle } , function(err, blog) {  
     return res.render('account/blogdisplaypage', {
       title: 'Public blog page',
-      blogs: blog
+      blogs: blog,
+      blogname: blogname
+    });
+  });
+};
+
+
+//
+// customizer for blog page display
+// 
+// display individualized css
+exports.getPublicBlogCss = (req, res, next) => {
+
+  let posttitle = req.params.posttitle
+  let blogname = req.params.name
+  Blog.find( {posttitle: posttitle } , function(err, blog) {  
+    return res.render('partials/publicblogcss', {
+      title: 'Public blog css',
+      blogs: blog,
+      blogname: blogname
     });
   });
 };
@@ -67,16 +96,6 @@ exports.getBlog = function (req, res, user) {
  */
 
 exports.postBlog = (req, res, next) => {
-  const validationErrors = [];
-  if (validator.isEmpty(req.body.blogpost)) validationErrors.push({ msg: 'Blog post cannot be blank.' });
-};
-
-
-/*
- * POST /account/upload
- * Sign in using email and password.
- */
-exports.postUpload = (req, res, next) => {
   const validationErrors = [];
   if (validator.isEmpty(req.body.blogpost)) validationErrors.push({ msg: 'Blog post cannot be blank.' });
 };

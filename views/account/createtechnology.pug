@@ -3,10 +3,8 @@ extends ../layout
 block content
   .pb-2.mt-2.mb-4.border-bottom
 
-  if (user.usecase_techinventory === "checked")
-    a(href='/account/inventory') INVENTORY - 
-  else
-    a(href='/account/inventory') TECHNOLOGY ASSESSMENT
+
+  a(href='/account/inventory') INVENTORY - 
   a(href='/account/inventorysettings') Settings - 
   a(href='/account/createloc') Add a Location
 
@@ -37,6 +35,7 @@ block content
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='loctitle') Location:
       .col-md-7
+
                            select#sentto.select.form-control.input-lg(for='sentto', name='sentto')
                              - var groupp = { id: user.group }
                              - var grouppp = { id: user.profile.name }
@@ -47,14 +46,6 @@ block content
 
 
     .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='description_of_tech') Desciption of Technology
-      .col-md-7
-        input.form-control(type='text', name='description_of_tech', id='description_of_tech')
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='schemtatics') Schemtatics
-      .col-md-7
-        input.form-control(type='text', name='schemtatics', id='schemtatics')
-    .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='postcat') Category
       .col-md-7
         input.form-control(type='text', name='postcat', id='postcat')
@@ -62,51 +53,6 @@ block content
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='posttags') Tags
       .col-md-7
         input.form-control(type='text', name='posttags', id='posttags')
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='cost') Cost
-      .col-md-7
-        input.form-control(type='text', name='cost', id='cost')
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='operation_and_maint') Operation and Maint.
-      .col-md-7
-        input.form-control(type='text', name='operation_and_maint', id='operation_and_maint')
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='technical_knowledge') Technical Knowledge
-      .col-md-7
-        input.form-control(type='text', name='technical_knowledge', id='technical_knowledge')
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='environmental_impact') Environmental Impact
-      .col-md-7
-        input.form-control(type='text', name='environmental_impact', id='environmental_impact')
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='other_factors') Other Factors
-      .col-md-7
-        input.form-control(type='text', name='other_factors', id=''other_factors)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-left(for='sources') Souces
-      .col-md-7
-        input.form-control(type='text', name='sources', id='sources')
-               if (user.usecase_sources === "checked")
-
-                 if (typeof(posts.description_of_tech) !== 'undefined')
-                   p.card-text.text-center - #{posts.description_of_tech}
-                 if (typeof(posts.schematics) !== 'undefined')
-                   p.card-text.text-center - #{posts.schemtatics}
-                 if (typeof(posts.cost) !== 'undefined')
-                   p.card-text.text-center --- #{posts.cost}
-                 if (typeof(posts.operation_and_maint) !== 'undefined')
-                   p.card-text.text-center - #{posts.operation_and_maint}
-                 if (typeof(posts.technical_knowledge) !== 'undefined')
-                   p.card-text.text-center - #{posts.technical_knowledge}
-                 if (typeof(posts.environmental_impact) !== 'undefined')
-                   p.card-text.text-center - #{posts.environmental_impact}
-                 if (typeof(posts.cultural_factors) !== 'undefined')
-                   p.card-text.text-center - #{posts.cultural_factors}
-                 if (typeof(posts.other_factors) !== 'undefined')
-                   p.card-text.text-center - #{posts.other_factors}
-                 if (typeof(posts.sources) !== 'undefined')
-                   p.card-text.text-center - #{posts.sources}
-
 
     
     .form-group.row

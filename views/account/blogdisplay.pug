@@ -1,15 +1,23 @@
 extends ../publiclayout
 
 block content
+
+  .row
+    .col
+    p Visit the 
+      a(href='/account/blog') blog admin
   .pb-2.mt-2.mb-4.border-bottom
 
+
+
+ 
 
     each post in blogs
 
       .col
         .row
           h2   
-            a(href='/blog/' + user.profile.name + '/' + post.posttitle) #{post.posttitle}
+          a(href='/blog/' + blogname + '/' + post.posttitle) #{post.posttitle}
    
         .row
 
