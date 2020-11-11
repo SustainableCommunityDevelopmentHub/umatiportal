@@ -22,6 +22,7 @@ public/css/main.css
 
 # API keys and secrets
 .env
+.env.production
 
 # Dependency directory
 node_modules
