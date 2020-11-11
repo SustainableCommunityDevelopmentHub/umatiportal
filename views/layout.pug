@@ -31,9 +31,14 @@ html
     block head
 
   body
-    include partials/header
+    if (typeof(user) !== 'undefined')
+      include partials/header
+    else
+      include partials/publicheader
+
 
     .container
+
       include partials/flash
       block content
 

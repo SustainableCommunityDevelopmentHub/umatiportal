@@ -67,12 +67,11 @@ exports.getDisplayPublicBlogPage = (req, res, next) => {
 // display individualized css
 exports.getPublicBlogCss = (req, res, next) => {
 
-  let posttitle = req.params.posttitle
   let blogname = req.params.name
-  Blog.find( {posttitle: posttitle } , function(err, blog) {  
+  User.find( {blogname: blogname } , function(err, user) {  
     return res.render('partials/publicblogcss', {
       title: 'Public blog css',
-      blogs: blog,
+      user: user,
       blogname: blogname
     });
   });

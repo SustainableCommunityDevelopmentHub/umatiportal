@@ -11,29 +11,29 @@
       span.navbar-toggler-icon
     .collapse.navbar-collapse
       ul.nav.navbar-nav
-        if (user.usecase_foodsecurity === "checked")
-
-          li.nav-item.dropdown 
-            a.nav-link.dropdown-toggle#navbarDropdown(href="#", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") Food security
-          li.nav-item.dropdown 
-            a.nav-link.dropdown-toggle#navbarDropdown(href="#", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") #{user.group}
-            .dropdown-menu(aria-labelledby="navbarDropdown")
-                a.dropdown-item(href="/account/createdonation") List a Donation
-                .dropdown-divider
-                a.dropdown-item(href="/account/requests") Requests
-                a.dropdown-item(href="/account/driver") Drivers
-                if (user.usecase_techinventory === "checked")  
-                  a.dropdown-item(href="/account/inventory") Technology
-                else  
-                  a.dropdown-item(href="/account/inventory") Inventory
-                a.dropdown-item(href="#") 
-                .dropdown-divider
-                a.dropdown-item(href="#") Request
-                a.dropdown-item(href="#") Offer
+        if (typeof(user) !== 'undefined')
+          if (user.usecase_foodsecurity === "checked")
+            li.nav-item.dropdown 
+              a.nav-link.dropdown-toggle#navbarDropdown(href="#", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") Food security
+            li.nav-item.dropdown 
+              a.nav-link.dropdown-toggle#navbarDropdown(href="#", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") #{user.group}
+              .dropdown-menu(aria-labelledby="navbarDropdown")
+                  a.dropdown-item(href="/account/createdonation") List a Donation
+                  .dropdown-divider
+                  a.dropdown-item(href="/account/requests") Requests
+                  a.dropdown-item(href="/account/driver") Drivers
+                  if (user.usecase_techinventory === "checked")  
+                    a.dropdown-item(href="/account/inventory") Technology
+                  else  
+                    a.dropdown-item(href="/account/inventory") Inventory
+                  a.dropdown-item(href="#") 
+                  .dropdown-divider
+                  a.dropdown-item(href="#") Request
+                  a.dropdown-item(href="#") Offer
       ul.nav.navbar-nav.ml-auto
         if !user
           li.nav-item(class=(title === 'Contact') ? 'active' : undefined)
-            a.nav-link(href='/contactpage') Contact
+              a.nav-link(href='/contactpage') Contact
           li.nav-item(class=(title === 'Login') ? 'active' : undefined)
             a.nav-link(href='/login') Login
           li.nav-item(class=(title === 'Create Account') ? 'active' : undefined)
@@ -68,8 +68,6 @@
                       a(href='/account/group') group
                     li
                       a(href='/account/research') research
-                    li
-                      a(href='/account/messages') messages
                       
                 .col-md-3
                   ul.dropdown-menu

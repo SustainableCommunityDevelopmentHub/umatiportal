@@ -81,32 +81,31 @@ block content
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='other_factors') Other Factors
       .col-md-7
-        input.form-control(type='text', name='other_factors', id=''other_factors)
+        input.form-control(type='text', name='other_factors', id='other_factors')
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='sources') Souces
       .col-md-7
         input.form-control(type='text', name='sources', id='sources')
-               if (user.usecase_sources === "checked")
+        if (user.usecase_sources === "checked")
 
-                 if (typeof(posts.description_of_tech) !== 'undefined')
-                   p.card-text.text-center - #{posts.description_of_tech}
-                 if (typeof(posts.schematics) !== 'undefined')
-                   p.card-text.text-center - #{posts.schemtatics}
-                 if (typeof(posts.cost) !== 'undefined')
-                   p.card-text.text-center --- #{posts.cost}
-                 if (typeof(posts.operation_and_maint) !== 'undefined')
-                   p.card-text.text-center - #{posts.operation_and_maint}
-                 if (typeof(posts.technical_knowledge) !== 'undefined')
-                   p.card-text.text-center - #{posts.technical_knowledge}
-                 if (typeof(posts.environmental_impact) !== 'undefined')
-                   p.card-text.text-center - #{posts.environmental_impact}
-                 if (typeof(posts.cultural_factors) !== 'undefined')
-                   p.card-text.text-center - #{posts.cultural_factors}
-                 if (typeof(posts.other_factors) !== 'undefined')
-                   p.card-text.text-center - #{posts.other_factors}
-                 if (typeof(posts.sources) !== 'undefined')
-                   p.card-text.text-center - #{posts.sources}
-
+          if (typeof(posts.description_of_tech) !== 'undefined')
+            p.card-text.text-center - #{posts.description_of_tech}
+          if (typeof(posts.schematics) !== 'undefined')
+            p.card-text.text-center - #{posts.schemtatics}
+          if (typeof(posts.cost) !== 'undefined')
+            p.card-text.text-center --- #{posts.cost}
+          if (typeof(posts.operation_and_maint) !== 'undefined')
+            p.card-text.text-center - #{posts.operation_and_maint}
+          if (typeof(posts.technical_knowledge) !== 'undefined')
+            p.card-text.text-center - #{posts.technical_knowledge}
+          if (typeof(posts.environmental_impact) !== 'undefined')
+            p.card-text.text-center - #{posts.environmental_impact}
+          if (typeof(posts.cultural_factors) !== 'undefined')
+            p.card-text.text-center - #{posts.cultural_factors}
+          if (typeof(posts.other_factors) !== 'undefined')
+            p.card-text.text-center - #{posts.other_factors}
+          if (typeof(posts.sources) !== 'undefined')
+            p.card-text.text-center - #{posts.sources}
 
     
     .form-group.row

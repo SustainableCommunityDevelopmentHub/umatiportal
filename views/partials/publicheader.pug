@@ -1,15 +1,65 @@
 .navbar.navbar-light.fixed-top.navbar-expand-lg.bg-light
   .container
-    a.navbar-brand(href='/blog/' + blogname)
-    img(src="/lion.png",border="0")  
-    h2 &nbsp;
-      a(href='/blog/' + blogname) #{blogname}'s 
-       span Blog
+    img(src="/lion.png",border="0")
     a.navbar-brand(href='/')
-      | &nbsp; 
-      #{blogname}
+
+      if (title === 'Public blog page' || title === 'Public blog' )
+        | &nbsp; UMATI PORTAL
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='.navbar-collapse')
       span.sr-only Toggle navigation
       span.navbar-toggler-icon
     .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        if !user
+          li.nav-item(class=(title === 'Contact') ? 'active' : undefined)
+            a.nav-link(href='/contactpage') Contact
+          li.nav-item(class=(title === 'Login') ? 'active' : undefined)
+            a.nav-link(href='/login') Login
+          li.nav-item(class=(title === 'Create Account') ? 'active' : undefined)
+            a.nav-link(href='/signup') Create Account
+        else
+
+          if (title === 'Settings')
+            li.button.btn.btn-outline-warning(type="button", data-toggle="modal", data-target="#foodsecModal") foodshed
+
+
+          li.dropdown(class=(title === 'Settings') ? 'active' : undefined).nav-item
+            a.dropdown-toggle.nav-link(href='#', data-toggle='dropdown')
+              if user.profile.picture
+                img(src=user.profile.picture)
+              else
+                img(src="https://avatars.dicebear.com/api/human/" + user.profile.name +".svg")
+              span= user.profile.name || user.email || user.id
+              i.caret
+            .dropdown-menu.multi-column
+              .row
+                .col-md-3
+                  ul.dropdown-menu
+                    li    
+                      a(href="/logout")
+                          img(src="/umati_creativefire_3birds.png", border="0", height="110", alt="Log out")
+
+                .col-md-3
+                  ul.dropdown-menu                  
+                    li
+                      a(href='/account/project') project
+                    li
+                      a(href='/account/group') group
+                    li
+                      a(href='/account/research') research
+                      
+                .col-md-3
+                  ul.dropdown-menu
+                    li
+                      a(href='/account/') config
+                    li
+                      if (user.usecase_techinventory === "checked")
+                        a(href='/account/inventory') technology
+                      else
+                        a(href='/account/inventory') inventory
+                    li
+                      a(href='/account/blog') blog
+                        img(src="/umatimoto.gif", height="30", width="30", border="0") 
+                    li 
+                      a(href='/logout') >> Logout
 
