@@ -28,10 +28,10 @@ exports.getBlogupdated = function (req, res, user) {
 exports.getDisplayPublicBlog = (req, res, user) => {
 
   let blogname = req.params.name
-  if (blogname !== 'undefined')
-    User.find( { blogname: blogname } , function(err, user){
-      if (err) { return next(err); }
-    });
+//  if (blogname !== 'undefined')
+  User.find( { blogname: blogname } , function(err, user){
+    if (err) { return next(err); }
+  });
 
 
 
