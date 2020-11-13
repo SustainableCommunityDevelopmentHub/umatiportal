@@ -126,7 +126,7 @@ exports.postCreatepost = (req, res, next) => {
     return res.redirect('/account/blog');
   }
 
-  var ip = crypt(req.headers['x-forwarded-for'] || req.connection.remoteAddress);
+  var ip =req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
   const blog = new Blog({
     userid: req.body.user, 
