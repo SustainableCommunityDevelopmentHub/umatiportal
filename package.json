@@ -66,7 +66,7 @@
     "lusca": "^1.6.1",
     "mailchecker": "^3.3.4",
     "moment": "^2.24.0",
-    "mongoose": "^5.8.9",
+    "mongoose": "^5.10.8",
     "morgan": "^1.9.1",
     "multer": "^1.4.2",
     "multer-gridfs-storage": "^4.2.0",
