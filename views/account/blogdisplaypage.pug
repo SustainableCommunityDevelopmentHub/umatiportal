@@ -19,7 +19,7 @@ block content
 
       blockquote #{post.subtext} 
       div(escaped="#{post.post}")
-      p.unescaped #{post.post}
+      p #{postmodded}
       p #{moment(post.createdAt).format('LT, MMM D, YYYY')}
 
   

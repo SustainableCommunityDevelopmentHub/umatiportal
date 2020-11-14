@@ -1,0 +1,103 @@
+extends layout
+
+block content
+  h1 Welcome
+  p Oct 20 2020.  Umati Portal is currently testing new website & project management and project tools.  This portal is designed to support SCDHub's mission of curating reil grassroots community level.  Find out more about SCD Clinics
+    a(href='https://scdhub.org/clinic/curate/') here. 
+    span Please 
+    a(href='/contact') let us know your thoughts 
+    span or email the editor at ecocommunity@protonmail.com 
+    span Please use these links for 
+    a(href='https://github.com/SustainableCommunityDevelopmentHub/umatiportal') bug reports 
+    span &  
+    a(href='https://github.com/SustainableCommunityDevelopmentHub/umatiportal') source code
+    span .
+ 
+  .home-hero
+    .feature
+      h3 Managing Shared Resources
+      p Umati portal provides proposal writing assistance 
+        span by maintaining 
+        span a technical solutions database for 
+        a(href='https://github.com/SustainableCommunityDevelopmentHub/umatiportal') Sustainable Community Development Hub
+
+    .special
+      h3 Resource Awareness
+      p The human-ecological relationship is governed by how we use water. Water connects us to the land, food, energy, and one another.
+    .amazing
+      h4 Proposal Writing
+      p SCD Hub curates a library of technical solutions to common wastewater and sewage, municipal solid waste, and drinking water supply challenges.
+    .news
+      h4 A Meaningful Database
+      p designed to help
+    .cta
+      h1 SCD Clinics
+      p are gatherings to discuss appropriate technology
+  .row
+    .col-md-10 
+
+  .row
+    .col-md-6 
+      p Welcome
+      ul
+        li.hideli
+          a(href='/roadmap') Umatiportal Roadmap & vision
+        li.hideli 
+          a(href='https://github.com/SustainableCommunityDevelopmentHub/umatiportal/archive/master.zip') Download our free software
+        li.hideli 
+          a(href='/signup') Create a free account
+      if (!user) 
+        li.hideli
+          a.button.btn.btn-primary.spam-button(href='/signupresearch') Document your research
+        li.hideli
+          a.button.btn.btn-secondary.spam-button(href='/signupproject') Track a project
+      if (user) 
+          a.button.btn.btn-secondary.spam-button(href='/account/signupproject') Start a project
+          a.button.btn.btn-primary.spam-button(href='/account/signupresearch') Do research
+    .col-md-6
+      p
+      h2 Learning and Mentoring Events
+      p Research is at the core of every good deciion, hence this platform is designed to facilitate better research practices.  Umati Portal is a playform to help participants form goals and mainain focus. Small groups or individuals interested in working on specific community development issues are encouraged to contribute to and review information to our 
+        a(href='/roadmap') SCD library.  By definition, umati is inlusive, transparent, efficient, locally relevant, and bridges many aspects of culture, prescedent, and appropriateness.  Our current research emphasis is the assessment of drinking water, wastewater, and municipal solid waste technologies.
+    .col-md-6
+      h2 Appropriate Technology
+      p Umati Portal's primary goal is to assist SCD Hub with the development of its knowledgebase and to assist more people in contrinuting useful information to that project, such that it may help in decision making in community projects.
+    .col-md-6
+      h2 Water systems
+      p As we learn more about water, we begin to see it as a living resource.  Water issues are complex and challenging.  Watershed planning begs the question.. "Can we increase watershed capacity? ie. re-foresting, erosion reduction, urban plantings, reduction of heat island effects.  Yes we can.
+
+      .row
+        .col-md-12
+      hr
+      h2 Photo Credits
+      p Smile and water photos by Alawai at 
+      p Abacus photo by Moonlightway at 
+
+      ul
+        li
+          a(href='https://morguefile.com/creative/Alawai') Alawai
+        li
+          a(href='https://morguefile.com/creative/Moonlightway') Moonlightway
+ 
+      .modal.fade#basicExampleModal(tabindex="-1", role="dialog", aria-labelledby="exampleModalLabel", aria-hidden="true")
+        .modal-dialog(role="document")
+          .modal-content
+            .modal-header(style="background-color:ltgrey")
+              img(src="/lion.png",border="0") 
+              h5.modal-title#exampleModalLabel &nbsp; Umati Group podcast channel 
+              button.close(type="button", data-dismiss="modal", aria-label="Close")
+                span(aria-hidden="true") ×
+            .modal-body
+
+              if !user
+                 a.nav-link(href='/login') Login
+                 a.nav-link(href='/signup') Create Account
+                 p Please log in and check your group section.
+              else
+                 p Welcome #{user.profile.name}
+                 if !user.project
+                   span Please ensure that you have a project or group defined in settings
+
+          .modal-footer
+            button.btn.btn-secondary(type="button", data-dismiss="modal") Close
+            button.btn.btn-primary(type="button") ok

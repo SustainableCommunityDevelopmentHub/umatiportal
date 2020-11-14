@@ -9,7 +9,10 @@ const validator = require('validator');
 const mailChecker = require('mailchecker');
 const Blog = require('../models/Blog');
 const User = require('../models/User');
-    
+const Entities = require('html-entities').XmlEntities;
+const entities = new Entities();
+
+
 const randomBytesAsync = promisify(crypto.randomBytes);
 
 
@@ -51,10 +54,13 @@ exports.getDisplayPublicBlogPage = (req, res, next) => {
 
   let posttitle = req.params.posttitle
   let blogname = req.params.name
+  console.log(entities.decode(blog.post)); 
+  var postmodded = entities.decode(blog.post); 
   Blog.find( {posttitle: posttitle } , function(err, blog) {  
     return res.render('account/blogdisplaypage', {
       title: 'Public blog page',
       blogs: blog,
+      postmodded: postmodded,
       blogname: blogname
     });
   });

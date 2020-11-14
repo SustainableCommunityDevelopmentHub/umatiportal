@@ -20,6 +20,21 @@ const randomBytesAsync = promisify(crypto.randomBytes);
  * Display calendar data.
 */
 
+// Display data for group admin person to review
+//
+exports.getGroupAdminPanel = function (req, res, next) {
+
+    Groupdata.find()
+        .sort([['name', 'ascending']])
+        .exec(function (err, group_data) {
+            if (err) { return next(err); }
+            // Successful, so rendecalsr.
+            res.render('account/groupadminpanel', { title: 'Group', groupdata: group_data });
+        })
+};
+
+
+
 
 // Display list of Member activity.
 exports.getGroupdata = function (req, res, next) {
