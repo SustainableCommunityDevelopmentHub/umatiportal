@@ -31,6 +31,7 @@
     "@ladjs/bootstrap-social": "^7.0.2",
     "@octokit/rest": "^16.38.1",
     "@sendgrid/mail": "^7.2.1",
+    "acorn": "^8.0.4",
     "aws-sdk": "^2.785.0",
     "axios": "^0.19.2",
     "bcrypt": "^5.0.0",

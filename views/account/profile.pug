@@ -237,6 +237,7 @@ block content
           | Delete my account
 
   .pb-2.mt-2.mb-4.border-bottom
+
     h3 Linked Accounts
   .form-group
     .offset-sm-3.col-md-7.pl-2
@@ -279,10 +280,17 @@ block content
       else
         p.mb-1: a(href='/auth/steam') Link your Steam account
     .offset-sm-3.col-md-7.pl-2
+      if user.twitch
+        p.mb-1: a.text-danger(href='/account/unlink/twitch') Unlink your Twitch account
+      else
+        p.mb-1: a(href='/auth/twitch') Link your Twitch account
+    .offset-sm-3.col-md-7.pl-2
       if user.quickbooks
         p.mb-1: a.text-danger(href='/account/unlink/quickbooks') Unlink your QuickBooks account
       else
         p.mb-1: a(href='/auth/quickbooks') Link your QuickBooks account
+
+
 
   .modal-footer
 
@@ -364,8 +372,6 @@ block content
                   input(type="checkbox")
                 span &nbsp &nbsp; &nbsp;
 
-        .modal-footer
-          button.btn.btn-secondary(type="button", data-dismiss="modal") Close
 
 
 
@@ -464,8 +470,6 @@ block content
                     a.nav-link.warehouse_vol.active(data-toggle="tab", href="/account/profileajax/" + user._id + "/warehouse_vol/comm/") communication
                   else
                     a.nav-link.warehouse_vol(data-toggle="tab", id="warehouse_vol_comm", href="/account/profileajax/" + user._id + "/warehouse_vol/comm/") communication
-
-
 
         .modal-footer
           button.btn.btn-secondary(type="button", data-dismiss="modal") Close
