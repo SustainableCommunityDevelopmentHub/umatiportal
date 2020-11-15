@@ -1407,9 +1407,9 @@ exports.getVerifyEmail = (req, res, next) => {
     });
     const mailOptions = {
       to: req.user.email,
-      from: 'hackathon@starter.com',
-      subject: 'Please verify your email address on Umati Bank self help group netork',
-      text: `Thank you for registering with umati bank website.\n\n
+      from: 'ecocommunity@protonmail.com',
+      subject: 'Please verify your email address at Umati Portal',
+      text: `Thank you for partipating in the Umatiportal community.\n\n
         This verify your email address please click on the following link, or paste this into your browser:\n\n
         http://${req.headers.host}/account/verify/${token}\n\n
         \n\n

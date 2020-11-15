@@ -18,8 +18,8 @@ block content
       p Tags: #{post.posttags} 
 
       blockquote #{post.subtext} 
-      div(escaped="#{post.post}")
-      p #{postmodded}
+
+      p #{post.post.replace('&lt;','<')}
       p #{moment(post.createdAt).format('LT, MMM D, YYYY')}
 
   

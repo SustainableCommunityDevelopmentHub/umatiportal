@@ -54,13 +54,16 @@ exports.getDisplayPublicBlogPage = (req, res, next) => {
 
   let posttitle = req.params.posttitle
   let blogname = req.params.name
-  console.log(entities.decode(blog.post)); 
-  var postmodded = entities.decode(blog.post); 
   Blog.find( {posttitle: posttitle } , function(err, blog) {  
+
+	    
+    console.log( entities.decode( blog.post )); 
+    var postmodded = entities.decode( blog.post ); 
+    console.log("postmodded log:" + postmodded ); 
+
     return res.render('account/blogdisplaypage', {
       title: 'Public blog page',
       blogs: blog,
-      postmodded: postmodded,
       blogname: blogname
     });
   });
