@@ -1,7 +1,7 @@
 {
-  "name": "Ahti Portal Sustainable Community Development App",
-  "short_name": "Ahti Peaceware",
-  "description": "Ahti is a project management peaceware portal designed to assist individuals and small groups with researching and providing relief",
+  "name": "Umati Portal Sustainable Community Development App",
+  "short_name": "Umatiportal",
+  "description": "Umati Portal is a project management tool to assist individuals and small groups with researching and working within sustainabe community development efforts.",
   "display": "standalone",
   "scope": "/",
   "icons": [{

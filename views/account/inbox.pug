@@ -1,0 +1,569 @@
+meta(charset='UTF-8')
+title Umati Portal Inbox
+meta(name='viewport', content='width=device-width')
+link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500')
+link(rel='stylesheet', href='https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css')
+link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')
+link(rel='stylesheet', href='/css/bootstrap4-fs-modal.min.css')
+link(rel='stylesheet', href='/css/inboxstyle.css')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js')
+//  partial:index.partial.html 
+aside#sidebar.nano
+  .nano-content
+    .logo-container
+      span.logo.glyphicon.glyphicon-envelope
+      | Umati
+    .logo-container-sm
+      span PORTAL
+    a.compose-button(href="/account/compose") Compose
+  
+    menu.menu-segment
+      ul
+        li.active
+          a(href='#')
+            | Inbox
+            span  (43)
+        li
+          a(href='#') Important
+        li
+          a(href='#') Sent
+        li
+          a(href='#') Drafts
+        li
+          a(href='#') Trash
+    .separator
+    .menu-segment
+      ul.labels
+        li.title
+          | Labels 
+          span.icon +
+        li
+          a(href='#')
+            | Dribbble 
+            span.ball.pink
+        li
+          a(href='#')
+            | Roommates 
+            span.ball.green
+        li
+          a(href='#')
+            | Bills 
+            span.ball.blue
+    .separator
+    .menu-segment
+      ul.chat
+        li.title
+          | Chat 
+          span.icon +
+        li
+          a(href='#')
+            span.ball.green
+            | Laura Turner
+        li
+          a(href='#')
+            span.ball.green
+            | Kevin Jones
+        li
+          a(href='#')
+            span.ball.blue
+            | John King
+        li
+          a(href='#')
+            span.ball.blue
+            | Jenny Parker
+        li
+          a(href='#')
+            span.ball.blue
+            | Paul Green
+        li
+          a.italic-link(href='#') See offline list
+    .bottom-padding
+main#main
+  .overlay
+  header.header
+    .search-box
+      input(placeholder='Search...')
+      span.icon.glyphicon.glyphicon-search
+    h1.page-title
+      a.sidebar-toggle-btn.trigger-toggle-sidebar
+        span.line
+        span.line
+        span.line
+        span.line.line-angle1
+        span.line.line-angle2
+      | Inbox
+      a
+        span.icon.glyphicon.glyphicon-chevron-down
+  .action-bar
+    ul
+      li
+        a.icon.circle-icon.glyphicon.glyphicon-chevron-down
+      li
+        a.icon.circle-icon.glyphicon.glyphicon-refresh
+      li
+        a.icon.circle-icon.glyphicon.glyphicon-share-alt
+      li
+        a.icon.circle-icon.red.glyphicon.glyphicon-remove
+      li
+        a.icon.circle-icon.red.glyphicon.glyphicon-flag
+  #main-nano-wrapper.nano
+    .nano-content
+      ul.message-list
+        li.unread
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk1(type='checkbox')
+              label.toggle(for='chk1')
+            p.title Lucas Kriebel (via Twitter)
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Lucas Kriebel (@LucasKriebel) has sent you a direct message on Twitter!  –  
+              span.teaser @LucasKriebel - Very cool :) Nicklas, You have a new direct message.
+            .date 11:49 am
+        li.green-dot.unread
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk2(type='checkbox')
+              label.toggle(for='chk2')
+            p.title Conceptboard
+            .star-star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Please complete your Conceptboard signup  –  
+              span.teaser You recently created a Conceptboard account, but you have not yet confirmed your email. Your email is used for notifications about board activity, invites, as well as account related tasks (like password retrieval).
+            .date 11:45 am
+        li
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk3(type='checkbox')
+              label.toggle(for='chk3')
+            p.title Randy, me (5)
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Last pic over my village  –  
+              span.teaser Yeah i'd like that! Do you remember the video you showed me of your train ride between Colombo and Kandy? The one with the mountain view? I would love to see that one again!
+            .date 5:01 am
+        li.blue-dot
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk4(type='checkbox')
+              label.toggle(for='chk4')
+            p.title Andrew Zimmer
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Mochila Beta: Subscription Confirmed  –  
+              span.teaser You've been confirmed! Welcome to the ruling class of the inbox. For your records, here is a copy of the information you submitted to us...
+            .date Mar 8
+        li.unread
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk5(type='checkbox')
+              label.toggle(for='chk5')
+            p.title Infinity HR
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Sveriges Hetaste sommarjobb  –  
+              span.teaser Hej Nicklas Sandell! Vi vill bjuda in dig till "First tour 2014", ett rekryteringsevent som erbjuder jobb på 16 semesterorter i Sverige.
+            .date Mar 8
+        li
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk6(type='checkbox')
+              label.toggle(for='chk6')
+            p.title Web Support Dennis
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Re: New mail settings  –  
+              span.teaser Will you answer him asap?
+            .date Mar 7
+        li
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk7(type='checkbox')
+              label.toggle(for='chk7')
+            p.title me, Peter (2)
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Off on Thursday  –  
+              span.teaser Eff that place, you might as well stay here with us instead! Sent from my iPhone 4 > 4 mar 2014 at 5:55 pm
+            .date Mar 4
+        li.orange-dot
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk8(type='checkbox')
+              label.toggle(for='chk8')
+            p.title Medium
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | This Week's Top Stories  –  
+              span.teaser Our top pick for you on Medium this week The Man Who Destroyed America’s Ego
+            .date Feb 28
+        li.blue-dot
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk9(type='checkbox')
+              label.toggle(for='chk9')
+            p.title Death to Stock
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Montly High-Res Photos  –  
+              span.teaser To create this month's pack, we hosted a party with local musician Jared Mahone here in Columbus, Ohio.
+            .date Feb 28
+        li
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk10(type='checkbox')
+              label.toggle(for='chk10')
+            p.title Revibe
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Weekend on Revibe  –  
+              span.teaser Today's Friday and we thought maybe you want some music inspiration for the weekend. Here are some trending tracks and playlists we think you should give a listen!
+            .date Feb 27
+        li
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk11(type='checkbox')
+              label.toggle(for='chk11')
+            p.title Erik, me (5)
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Regarding our meeting  –  
+              span.teaser That's great, see you on Thursday!
+            .date Feb 24
+        li
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk12(type='checkbox')
+              label.toggle(for='chk12')
+            p.title KanbanFlow
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Task assigned: Clone ARP's website  –  
+              span.teaser You have been assigned a task by Alex@Work on the board Web.
+            .date Feb 24
+        li.blue-dot
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk13(type='checkbox')
+              label.toggle(for='chk13')
+            p.title Tobias Berggren
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Let's go fishing!  –  
+              span.teaser Hey, You wanna join me and Fred at the lake tomorrow? It'll be awesome.
+            .date Feb 23
+        li
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk14(type='checkbox')
+              label.toggle(for='chk14')
+            p.title Charukaw, me (7)
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Hey man  –  
+              span.teaser Nah man sorry i don't. Should i get it?
+            .date Feb 23
+        li.unread
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk15(type='checkbox')
+              label.toggle(for='chk15')
+            p.title me, Peter (5)
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Home again!  –  
+              span.teaser That's just perfect! See you tomorrow.
+            .date Feb 21
+        li.green-dot
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk16(type='checkbox')
+              label.toggle(for='chk16')
+            p.title Stack Exchange
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | 1 new items in your Stackexchange inbox  –  
+              span.teaser The following items were added to your Stack Exchange global inbox since you last checked it.
+            .date Feb 21
+        li
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk17(type='checkbox')
+              label.toggle(for='chk17')
+            p.title Google Drive Team
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | You can now use your storage in Google Drive  –  
+              span.teaser Hey Nicklas Sandell! Thank you for purchasing extra storage space in Google Drive.
+            .date Feb 20
+        li.unread
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk18(type='checkbox')
+              label.toggle(for='chk18')
+            p.title me, Susanna (11)
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Train/Bus  –  
+              span.teaser Yes ok, great! I'm not stuck in Stockholm anymore, we're making progress.
+            .date Feb 19
+        li
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk19(type='checkbox')
+              label.toggle(for='chk19')
+            p.title Peter, me (3)
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Hello  –  
+              span.teaser Trip home from Colombo has been arranged, then Jenna will come get me from Stockholm. :)
+            .date Mar. 6
+        li
+          .col.col-1
+            span.dot
+            .checkbox-wrapper
+              input#chk20(type='checkbox')
+              label.toggle(for='chk20')
+            p.title me, Susanna (7)
+            span.star-toggle.glyphicon.glyphicon-star-empty
+          .col.col-2
+            .subject
+              | Since you asked... and i'm inconceivably bored at the train station  –  
+              span.teaser Alright thanks. I'll have to re-book that somehow, i'll get back to you.
+            .date Mar. 6
+      a.load-more-link(href='#') Show more messages
+#message
+  .header
+    h1.page-title
+      a.icon.circle-icon.glyphicon.glyphicon-chevron-left.trigger-message-close
+      | Process
+      span.grey (6)
+    p
+      | From 
+      a(href='#') You
+      |  to 
+      a(href='#') Scott Waite
+      | , started on 
+      a(href='#') March 2, 2014
+      |  at 2:14 pm est.
+  #message-nano-wrapper.nano
+    .nano-content
+      ul.message-container
+        li.sent
+          .details
+            .left
+              | You
+
+              .arrow
+              | Scott
+
+            .right March 6, 2014, 20:08 pm
+          .message
+            p | The every winged bring, whose life. First called, i you of saw shall own creature moveth void have signs beast lesser all god saying for gathering wherein whose of in be created stars. Them whales upon life divide earth own.
+            p | Creature firmament so give replenish The saw man creeping, man said forth from that. Fruitful multiply lights air. Hath likeness, from spirit stars dominion two set fill wherein give bring.
+            p | Gathering is. Lesser Set fruit subdue blessed let. Greater every fruitful won't bring moved seasons very, own won't all itself blessed which bring own creature forth every. Called sixth light.
+          .tool-box
+            a.circle-icon.small.glyphicon.glyphicon-share-alt(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-remove(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-flag(href='#')
+        li.received
+          .details
+            .left
+              | Scott
+
+              .arrow.orange
+              | You
+
+            .right March 6, 2014, 20:08 pm
+          .message
+            p | The every winged bring, whose life. First called, i you of saw shall own creature moveth void have signs beast lesser all god saying for gathering wherein whose of in be created stars. Them whales upon life divide earth own.
+            p | Creature firmament so give replenish The saw man creeping, man said forth from that. Fruitful multiply lights air. Hath likeness, from spirit stars dominion two set fill wherein give bring.
+            p | Gathering is. Lesser Set fruit subdue blessed let. Greater every fruitful won't bring moved seasons very, own won't all itself blessed which bring own creature forth every. Called sixth light.
+          .tool-box
+            a.circle-icon.small.glyphicon.glyphicon-share-alt(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-remove(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-flag(href='#')
+        li.received
+          .details
+            .left
+              | Scott
+
+              .arrow.orange
+              | You
+
+            .right March 6, 2014, 20:08 pm
+          .message
+            p | The every winged bring, whose life. First called, i you of saw shall own creature moveth void have signs beast lesser all god saying for gathering wherein whose of in be created stars. Them whales upon life divide earth own.
+            p | Creature firmament so give replenish The saw man creeping, man said forth from that. Fruitful multiply lights air. Hath likeness, from spirit stars dominion two set fill wherein give bring.
+            p | Gathering is. Lesser Set fruit subdue blessed let. Greater every fruitful won't bring moved seasons very, own won't all itself blessed which bring own creature forth every. Called sixth light.
+          .tool-box
+            a.circle-icon.small.glyphicon.glyphicon-share-alt(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-remove(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-flag(href='#')
+        li.received
+          .details
+            .left
+              | Scott
+
+              .arrow.orange
+              | You
+
+            .right March 6, 2014, 20:08 pm
+          .message
+            p | The every winged bring, whose life. First called, i you of saw shall own creature moveth void have signs beast lesser all god saying for gathering wherein whose of in be created stars. Them whales upon life divide earth own.
+            p | Creature firmament so give replenish The saw man creeping, man said forth from that. Fruitful multiply lights air. Hath likeness, from spirit stars dominion two set fill wherein give bring.
+            p | Gathering is. Lesser Set fruit subdue blessed let. Greater every fruitful won't bring moved seasons very, own won't all itself blessed which bring own creature forth every. Called sixth light.
+          .tool-box
+            a.circle-icon.small.glyphicon.glyphicon-share-alt(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-remove(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-flag(href='#')
+        li.received
+          .details
+            .left
+              | Scott
+
+              .arrow.orange
+              | You
+
+            .right March 6, 2014, 20:08 pm
+          .message
+            p | The every winged bring, whose life. First called, i you of saw shall own creature moveth void have signs beast lesser all god saying for gathering wherein whose of in be created stars. Them whales upon life divide earth own.
+            p | Creature firmament so give replenish The saw man creeping, man said forth from that. Fruitful multiply lights air. Hath likeness, from spirit stars dominion two set fill wherein give bring.
+            p | Gathering is. Lesser Set fruit subdue blessed let. Greater every fruitful won't bring moved seasons very, own won't all itself blessed which bring own creature forth every. Called sixth light.
+          .tool-box
+            a.circle-icon.small.glyphicon.glyphicon-share-alt(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-remove(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-flag(href='#')
+        li.received
+          .details
+            .left
+              | Scott
+
+              .arrow.orange
+              | You
+
+            .right March 6, 2014, 20:08 pm
+          .message
+            p | The every winged bring, whose life. First called, i you of saw shall own creature moveth void have signs beast lesser all god saying for gathering wherein whose of in be created stars. Them whales upon life divide earth own.
+            p | Creature firmament so give replenish The saw man creeping, man said forth from that. Fruitful multiply lights air. Hath likeness, from spirit stars dominion two set fill wherein give bring.
+            p | Gathering is. Lesser Set fruit subdue blessed let. Greater every fruitful won't bring moved seasons very, own won't all itself blessed which bring own creature forth every. Called sixth light.
+          .tool-box
+            a.circle-icon.small.glyphicon.glyphicon-share-alt(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-remove(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-flag(href='#')
+        li.received
+          .details
+            .left
+              | Scott
+
+              .arrow.orange
+              | You
+
+            .right March 6, 2014, 20:08 pm
+          .message
+            p | The every winged bring, whose life. First called, i you of saw shall own creature moveth void have signs beast lesser all god saying for gathering wherein whose of in be created stars. Them whales upon life divide earth own.
+            p | Creature firmament so give replenish The saw man creeping, man said forth from that. Fruitful multiply lights air. Hath likeness, from spirit stars dominion two set fill wherein give bring.
+            p | Gathering is. Lesser Set fruit subdue blessed let. Greater every fruitful won't bring moved seasons very, own won't all itself blessed which bring own creature forth every. Called sixth light.
+          .tool-box
+            a.circle-icon.small.glyphicon.glyphicon-share-alt(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-remove(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-flag(href='#')
+        li.sent
+          .details
+            .left
+              | You
+
+              .arrow
+              | Scott
+
+            .right March 6, 2014, 20:08 pm
+          .message
+            p | The every winged bring, whose life. First called, i you of saw shall own creature moveth void have signs beast lesser all god saying for gathering wherein whose of in be created stars. Them whales upon life divide earth own.
+            p | Creature firmament so give replenish The saw man creeping, man said forth from that. Fruitful multiply lights air. Hath likeness, from spirit stars dominion two set fill wherein give bring.
+            p | Gathering is. Lesser Set fruit subdue blessed let. Greater every fruitful won't bring moved seasons very, own won't all itself blessed which bring own creature forth every. Called sixth light.
+          .tool-box
+            a.circle-icon.small.glyphicon.glyphicon-share-alt(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-remove(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-flag(href='#')
+        li.received
+          .details
+            .left
+              | Scott
+
+              .arrow.orange
+              | You
+
+            .right March 6, 2014, 20:08 pm
+          .message
+            p | The every winged bring, whose life. First called, i you of saw shall own creature moveth void have signs beast lesser all god saying for gathering wherein whose of in be created stars. Them whales upon life divide earth own.
+            p | Creature firmament so give replenish The saw man creeping, man said forth from that. Fruitful multiply lights air. Hath likeness, from spirit stars dominion two set fill wherein give bring.
+            p | Gathering is. Lesser Set fruit subdue blessed let. Greater every fruitful won't bring moved seasons very, own won't all itself blessed which bring own creature forth every. Called sixth light.
+          .tool-box
+            a.circle-icon.small.glyphicon.glyphicon-share-alt(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-remove(href='#')
+            a.circle-icon.small.red-hover.glyphicon.glyphicon-flag(href='#')
+
+
+//  Modal 
+  .modal.fade#basicExampleModal(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5.modal-title#exampleModalLabel Modal title
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .modal-body.
+        
+        span word up!! ...
+        
+      .modal-footer
+        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+        button.btn.btn-primary(type='button') Save changes
+
+
+
+
+
+//  partial 
+script(src="//code.jquery.com/jquery-3.5.1.min.js")
+    script window.jQuery || document.write('<script src="js/vendor/jquery-3.5.1.min.js"><\/script>')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+script(src='/js/inboxscript.js')
