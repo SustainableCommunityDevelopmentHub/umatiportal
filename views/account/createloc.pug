@@ -23,6 +23,27 @@ block content
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='post') Description
       .col-md-7
         textarea.form-control( name="post", rows="6", cols="66", autocomplete='post' ) #{user.business.post}
+
+
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-left(for='map') Map
+
+      fieldset.gllpLatlonPicker
+        .gllpMap
+        br
+        input.gllpLatitude(type='hidden')
+        input.gllpLongitude(type='hidden')
+        input.gllpZoom(type='hidden')
+        hr
+        | 
+      Name of Position: 
+        input.gllpLocationName(type='text', size='42/')
+        br
+        | 
+      Elevation: 
+        input.gllpElevation(type='text', size='12/')
+        | m
+
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-left(for='lat') Lat, long
       .col-md-3

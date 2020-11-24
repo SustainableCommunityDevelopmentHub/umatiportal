@@ -46,6 +46,7 @@ const groupdataController = require('./controllers/groupdata');
 const projectController = require('./controllers/project');
 const inventoryController = require('./controllers/inventory');
 const mediaController = require('./controllers/media');
+const messagesController = require('./controllers/messages');
 const memberController = require('./controllers/member');
 const locController = require('./controllers/loc');
 const donationController = require('./controllers/donation');
@@ -176,7 +177,12 @@ app.post('/reset/:token', userController.postReset);
 app.get('/signup', userController.getSignup);
 app.get('/signupmult', userController.getMultSignup);
 
-// Ian- this is the backup stuff i was working on -g
+
+// Internal messaging system
+app.get('/account/messages', passportConfig.isAuthenticated, messagesController.getMessages);
+app.get('/account/inbox', passportConfig.isAuthenticated, messagesController.getInbox);
+app.get('/account/compose', passportConfig.isAuthenticated, messagesController.getCompose);
+
 app.get('/account/backup', userController.getBackup);
 app.get('/account/backup/csv/:options', userController.getBackupCsv);
 app.get('/account/backup/json/:options', userController.getBackupJson);
