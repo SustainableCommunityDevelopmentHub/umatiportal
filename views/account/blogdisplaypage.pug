@@ -3,8 +3,10 @@ extends ../publiclayout
 block content
   .pb-2.mt-2.mb-4.border-bottom
 
-    h3 
-      #{blogname}     
+
+    h2 
+      |
+      a(href='/blog/' + blogname ) #{blognameuc} BLOG
 
     each post in blogs
 

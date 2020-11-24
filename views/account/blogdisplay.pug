@@ -9,7 +9,9 @@ block content
   .pb-2.mt-2.mb-4.border-bottom
 
 
-
+    h2
+      |
+      a(href='/blog/' + blogname ) #{blognameuc} BLOG
  
 
     each post in blogs
@@ -25,7 +27,7 @@ block content
       p Tags: #{post.posttags} 
 
       blockquote #{post.subtext} 
-      p #{content}
+      p #{post.post}
       p #{moment(post.createdAt).format('LT, MMM D, YYYY')}
 
       hr

@@ -31,6 +31,7 @@ exports.getBlogupdated = function (req, res, user) {
 exports.getDisplayPublicBlog = (req, res, user) => {
 
   let blogname = req.params.name
+  let blognameuc = req.params.name.toUpperCase()
 //  if (blogname !== 'undefined')
   User.find( { blogname: blogname } , function(err, user){
     if (err) { return next(err); }
@@ -44,6 +45,7 @@ exports.getDisplayPublicBlog = (req, res, user) => {
       title: 'Public blog',
       blogs: blog,
       blogname: blogname,
+      blognameuc: blognameuc,
       thisuser: user
     });
   });
@@ -54,6 +56,7 @@ exports.getDisplayPublicBlogPage = (req, res, next) => {
 
   let posttitle = req.params.posttitle
   let blogname = req.params.name
+  let blognameuc = req.params.name.toUpperCase()
   Blog.find( {posttitle: posttitle } , function(err, blog) {  
 
 	    
@@ -65,6 +68,7 @@ exports.getDisplayPublicBlogPage = (req, res, next) => {
       title: 'Public blog page',
       blogs: blog,
       blogname: blogname,
+      blognameuc: blognameuc,
       content: blog.post
     });
   });
