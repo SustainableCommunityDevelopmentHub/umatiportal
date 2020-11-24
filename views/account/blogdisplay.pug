@@ -25,6 +25,7 @@ block content
       p Tags: #{post.posttags} 
 
       blockquote #{post.subtext} 
+      p #{content}
       p #{moment(post.createdAt).format('LT, MMM D, YYYY')}
 
       hr

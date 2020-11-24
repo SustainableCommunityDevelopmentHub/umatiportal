@@ -64,7 +64,8 @@ exports.getDisplayPublicBlogPage = (req, res, next) => {
     return res.render('account/blogdisplaypage', {
       title: 'Public blog page',
       blogs: blog,
-      blogname: blogname
+      blogname: blogname,
+      content: blog.post
     });
   });
 };

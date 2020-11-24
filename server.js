@@ -23,7 +23,7 @@ const multer = require('multer');
 const GridFsStorage = require("multer-gridfs-storage");
 // const multerS3 = require('multer-s3');
 const upload = multer({ dest: path.join(__dirname, 'uploads') });
-var svgCaptcha = require('svg-captcha');
+var svgCaptcha = require('svg-captcha-express');
 
 
 /**
@@ -31,6 +31,7 @@ var svgCaptcha = require('svg-captcha');
  */
 
 dotenv.config({ path: '.env.production' });
+
 
 
 /**
