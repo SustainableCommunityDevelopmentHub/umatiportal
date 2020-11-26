@@ -3,7 +3,7 @@ extends layout
 block content
 
   h1 Welcome #{blogname}
-  p Nov 6 2020.  Umati Portal is currently testing new website & project management and project tools.  This portal is designed to support SCDHub's mission "... to provide trustworthy development & training tools to facilitate project planning, design & execution. "  Find out more about Echo Water, and SCD Clinics 
+  p Nov 26 2020.  Umati Portal is currently testing new website & project management and project tools.  Our goal is to support SCDHub's mission "... to provide trustworthy development & training tools to facilitate project planning, design & execution." 
     a(href='https://scdhub.org/clinic/curate/') here.  
     span Please 
     a(href='/contact') let us know your thoughts 
@@ -15,6 +15,7 @@ block content
     span .
  
   .home-hero
+
     .feature
       h3 Managing Shared Resources
       p Umati portal provides proposal writing assistance 
@@ -26,32 +27,45 @@ block content
       h3 Resource Awareness
       p The human-ecological relationship is governed by how we use water. Water connects us to the land, food, energy, and one another.
     .amazing
-      h4 Our software build
-      p SCD Hub is re-architectinig its library of technical solutions such that it can be managed collaboratively via this site. Common wastewater and sewage, municipal solid waste, and drinking water supply challenges are being .  
-      a(href="https://www.github.com/sustainablecommunitydevelopmenthub/umatiportal/archive/master.zip") download our code.
+      h3 Free Software
+      p Free as in freedom. 
+          a(href="https://www.github.com/sustainablecommunitydevelopmenthub/umatiportal/archive/master.zip") Download 
     .news
       h2 Water   
-      p Join us in creating a world class library of water engineering solutions.
+      p Join us in creating a world class library of water engineering solutions. Umati portal uses a javascript software stack via node-mongodb-express, Common wastewater and sewage, municipal solid waste, and drinking water supply challenges are being .  
     .cta
+    .drinkingwater
+      h2 Drinking Water   
+    .wastewater
+      h2 Wastewater & Sewage   
+    .solidwaste
+      h2 Municipal Solid Waste  
+
   .row
-    .col-md-10 
+    .col-md-12
+      p
+        b Current SCD Clinic: 
+        span (IT & Automation) in association with UNM Peace Engineering's ECHO Water Project
 
   .row
     .col-md-6
       p
-      h2 Research
-      p Researching projects together helps groups form goals and develop focus. Community development issues are organized in 
-        a(href='/roadmap') SCD Hub's educational video library database.
+      h2 Toward a better understanding of engineering systems
+      p Since we all depend upon civil infrastructure, we have a moral responsibility to one another to help ensure that it does not fail. 
 
-      p By definition, umati is inlusive, transparent, efficient, locally relevant, and bridges many aspects of culture, prescedent, and appropriateness.  Our current research emphasis is the assessment of drinking water, wastewater, and municipal solid waste technologies.
+      p By definition, umati is inlusive, transparent, efficient, locally relevant, and bridges many aspects of culture, prescedent, and appropriateness.  Our current research emphasis is the assessment of drinking water, wastewater, and municipal solid waste technologies. 
     .col-md-6
+      p
       h2 Appropriate Technology
-      p Umati Portal's primary goal is to assist SCD Hub with the development of its knowledgebase and to assist more people in contrinuting useful information to that project, such that it may help in decision making in community projects.  The SCD Clinic format for appropriate technology discussions can provide a regular hands on learning opportunity for underserved communities.  You can 
+      p Umati Portal's primary goal is to assist SCD Hub with the development of its knowledgebase and to assist more people in contrinuting useful information to that project, such that it may help in decision making in community projects.  The SCD Clinic format for appropriate technology discussions can provide a regular hands on learning opportunity for underserved communities. 
         a(href="/clinic/getstarted") start an SCD Clinic yourself.
       p
       if (!user) 
         li.hideli
           a.button.btn.btn-primary.spam-button(href='/signup') Get Started
+    .col-md-6
+      h2 Using our software
+      p Umati Portal is a flexible open source software package which can be downloaded and changed to fit your own needs.  We maintain this live site both as a demo, training tool for group, and to support the ongoing work of SCD Hub's design clinics, mentoring program, management, communications & transparency for partner community projects worldwide.  
     .col-md-6
       h2 Water systems
       p As we learn more about water, we begin to see it as a living resource.  Water issues are complex and challenging.  Watershed planning begs the question.. "Can we increase watershed capacity? ie. re-foresting, erosion reduction, urban plantings, reduction of heat island effects.  Yes we can.

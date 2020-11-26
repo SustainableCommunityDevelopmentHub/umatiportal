@@ -148,6 +148,11 @@ app.use('/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawes
 app.use('/account/avatars', express.static(path.join(__dirname, 'node_modules/node_modules/avatars-utils/dist'), { maxAge: 31557600000 }));
 
 
+app.set('view engine', 'html');
+app.get('/map', locController.getLocOsm);
+app.set('view engine', 'pug');
+
+
 /**
  * Locally generated captcha  ( less APIs, more privacy )
  *

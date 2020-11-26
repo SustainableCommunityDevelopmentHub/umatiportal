@@ -313,7 +313,7 @@ input:checked + .slider:before {
 .news {
   background-image: linear-gradient(rgba(123,14,34,0), rgba(0,0,0,0.8)),url(/tiger.jpg);
   color: #fff;
-  height: 280px;
+  height: 264px;
 }
 
 div.news p {
@@ -321,6 +321,31 @@ div.news p {
   color: #fff;
   font-weight: bold;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.drinkingwater {
+  background-image: linear-gradient(rgba(123,14,34,0), rgba(0,0,0,0.8)),url(/images/drinkingwatersign.gif);
+  color: #fff;
+  height: 264px;
+}
+
+div.drinkingwater p {
+  margin: 10px;
+  color: #fff;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.wastewater {
+  background-image: linear-gradient(rgba(123,14,34,0), rgba(0,0,0,0.8)),url(/images/sewage.gif);
+  color: #fff;
+  height: 264px;
+}
+
+.solidwaste {
+  background-image: linear-gradient(rgba(123,14,34,0), rgba(0,0,0,0.8)),url(/images/sewage.gif);
+  color: #fff;
+  height: 264px;
 }
 
 .special {

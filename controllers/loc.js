@@ -27,12 +27,12 @@ exports.getLocupdated = function (req, res, user) {
 };
 
 
-exports.getLoc = function (req, res, user) {
+exports.getLocOsm = function (req, res, user) {
     
     Loc.find()
         .exec(function (err, loc_data) {          
             // Successful, so ..
-            res.render('account/loc', { title: 'Location', locs: loc_data });
+            res.render('account/locosm', { title: 'Location via OSM', locs: loc_data });
         })
 };
 
@@ -47,15 +47,15 @@ exports.getLocation = function (req, res, user) {
 
 
 
-/** 
 exports.getLoc = (req, res) => {
 
   const locs = Loc.list;
   res.render('account/loc', {
-    title: 'Loc manager'
+    title: 'Loction manager'
   });
 };
 
+/** 
  * POST /loc
  * Sign in using email and password.
  */
