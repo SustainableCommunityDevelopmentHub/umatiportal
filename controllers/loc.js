@@ -26,9 +26,18 @@ exports.getLocupdated = function (req, res, user) {
             res.render('account/locupdated', { title: 'Loc updated'});
 };
 
+exports.getHumanrights = function (req, res, blog) {
+ 
+    Loc.find()
+        .exec(function (err, loc_data) {          
+            // Successful, so ..
+            res.render('humanrights', { title: 'Human Rights Portal', locs: loc_data });
+        })
+};
 
-exports.getLocOsm = function (req, res, user) {
-    
+
+exports.getLocOpenstreetmap = function (req, res, user) {
+ 
     Loc.find()
         .exec(function (err, loc_data) {          
             // Successful, so ..

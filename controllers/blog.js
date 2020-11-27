@@ -20,6 +20,17 @@ const randomBytesAsync = promisify(crypto.randomBytes);
  * GET /account/blog
  * 
  */
+
+exports.getHumanrights = function (req, res, blog) {
+
+    Blog.find()
+        .exec(function (err, blog_data) { 
+            // Successful, so ..
+            res.render('humanrights', { title: 'Human Rights Portal', blog: blog_data });
+        })
+};
+
+
 exports.getBlogupdated = function (req, res, user) {
     
             // Successful, so rendecalsr.

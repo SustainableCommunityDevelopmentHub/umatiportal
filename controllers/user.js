@@ -32,7 +32,7 @@ exports.getExportToCsv = (req, res, next) => {
     var dataArray;
     Blog.find().lean().exec({}, function(err, blogdata) {
         if (err) res.send(err);
-        
+
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/csv');
         res.setHeader("Content-Disposition", 'attachment; filename='+filename);
@@ -406,10 +406,10 @@ exports.getBackupJson = (req, res) => {
         }
       });
 
-    } 
+    }
 
- 
-  
+
+
   });
 };
 
@@ -426,7 +426,7 @@ exports.getBackup = (req, res) => {
 };
 
 exports.getLink = function (req, res, next) {
-  usernameparam = req.params.username;
+  username = req.params.username;
   res.render('link')
   };
 
@@ -733,7 +733,7 @@ exports.postUpdateLocsettings = (req, res, next) => {
 
 /**
  * GET /account/bloghomepage
- *  Specific to blog components 
+ *  Specific to blog components
  * Blog homepage content manager
  */
 exports.getBloghomepage = (req, res) => {
@@ -961,7 +961,7 @@ exports.getGroupsettings = (req, res) => {
 
 
 /**
- * POST /account/groupsettings 
+ * POST /account/groupsettings
  * Update blog settings.
  */
 exports.postUpdateGroupsettings = (req, res, next) => {
@@ -1002,7 +1002,7 @@ exports.getProjectsettings = (req, res) => {
 };
 
 /**
- * POST /account/projectsettings 
+ * POST /account/projectsettings
  * Update project settings.
  */
 exports.postUpdateProjectsettings = (req, res, next) => {
@@ -1047,7 +1047,7 @@ exports.getResearchsettings = (req, res) => {
 
 
 /**
- * POST /account/researchsettings 
+ * POST /account/researchsettings
  * Update research settings.
  */
 exports.postUpdateResearchsettings = (req, res, next) => {
@@ -1146,7 +1146,7 @@ exports.postUpdateProfile = (req, res, next) => {
 };
 
 
-/** 
+/**
  *  userController.getUpdateProfileAjax
  * GET /account/profileajax
  * Update entry based on params in the url string
