@@ -150,7 +150,6 @@ app.use('/account/avatars', express.static(path.join(__dirname, 'node_modules/no
 
 app.set('view engine', 'html');
 app.get('/map', locController.getLocOpenstreetmap);
-app.get('/humanrights', locController.getLocHumanrights);
 app.set('view engine', 'pug');
 
 

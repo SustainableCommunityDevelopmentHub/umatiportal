@@ -73,7 +73,6 @@ block content
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_books/" checked)
             else
               input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/need_books/")
-
             |  Books
 
     .form-group.row
@@ -94,6 +93,86 @@ block content
             |  Dog Food
 
 
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='need') What can you offer?
+      .col-md-7
+        .btn-group(data-toggle="buttons")
+          label.btn.btn-outline-primary
+            if (user.offer_buildingsupplies === "checked")
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_buildingsupplies/" checked)
+            else
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_buildingsupplies/") 
+            |  Building supplies
+
+          label.btn.btn-outline-primary
+            if (user.offer_compost === "checked")
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_compost/" checked)
+            else
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_compost/")
+            |  Compost
+
+          label.btn.btn-outline-primary
+            if (user.offer_compostpickup === "checked")
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_compostpickup/" checked)
+            else
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_compostpickup/")
+            |  Compost pickup
+
+          label.btn.btn-outline-primary
+            if (user.offer_householditems === "checked")
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_householditems/" checked)
+            else
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_householditems/")
+            |  Household Items
+
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='need2')
+      .col-md-7
+        .btn-group(data-toggle="buttons")
+          label.btn.btn-outline-primary
+            if (user.offer_tools === "checked")
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_tools/" checked)
+            else
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_tools/")
+            |  Tools
+
+          label.btn.btn-outline-primary
+            if (user.offer_clothing === "checked")
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_clothing/" checked)
+            else
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_clothing/")
+            |  Clothing
+
+          label.btn.btn-outline-primary
+            if (user.offer_plants === "checked")
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_plants/" checked)
+            else
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_plants/")
+            |  Plants
+
+          label.btn.btn-outline-primary
+            if (user.offer_books === "checked")
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_books/" checked)
+            else
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_books/")
+            |  Books
+
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='specificitem')
+      .col-md-7
+        .btn-group(data-toggle="buttons")
+          label.btn.btn-outline-primary
+            if (user.offer_catfood === "checked")
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_catfood/" checked)
+            else
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_catfood/")
+            |  Cat Food
+          label.btn.btn-outline-primary
+            if (user.offer_dogfood === "checked")
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_dogfood/" checked)
+            else
+              input.notifyreq(type="checkbox", autocomplete="off", href="/account/profileajax/" + user._id + "/offer_dogfood/")
+            |  Dog Food
 
 
 
