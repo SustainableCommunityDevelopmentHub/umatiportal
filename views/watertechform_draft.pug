@@ -1,0 +1,578 @@
+#js-app
+script(src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.20.0/polyfill.js')
+script(src='https://unpkg.com/react@16/umd/react.development.js')
+script(src='https://unpkg.com/react-dom@16/umd/react-dom.development.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.2/prop-types.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0/redux.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/react-redux/5.0.7/react-redux.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/redux-form/7.4.2/redux-form.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/classnames/2.2.5/dedupe.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/react-router/3.2.1/ReactRouter.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/react-router-redux/4.0.8/ReactRouterRedux.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/redux-saga/0.16.0/redux-saga.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/react-dropzone/5.1.0/index.js')
+script(src='https://codepen.io/clindsey/pen/LbyNre.js')
+//  svg-icon-1.0.0 
+script.
+  
+  const professionsConfig = ({
+    alpha: {
+      label: 'Alpha',
+      value: 'alpha',
+      specializations: {
+        alpha: {
+          label: 'Alpha',
+          value: 'alpha',
+          roles: {
+            alpha: {
+              label: 'Alpha',
+              value: 'alpha',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            bravo: {
+              label: 'Bravo',
+              value: 'bravo',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            charlie: {
+              label: 'Charlie',
+              value: 'charlie',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            }
+          }
+        },
+        bravo: {
+          label: 'Bravo',
+          value: 'bravo',
+          roles: {
+            alpha: {
+              label: 'Alpha',
+              value: 'alpha',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            bravo: {
+              label: 'Bravo',
+              value: 'bravo',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            charlie: {
+              label: 'Charlie',
+              value: 'charlie',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            }
+          }
+        },
+        charlie: {
+          label: 'Charlie',
+          value: 'charlie',
+          roles: {
+            alpha: {
+              label: 'Alpha',
+              value: 'alpha',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            bravo: {
+              label: 'Bravo',
+              value: 'bravo',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            charlie: {
+              label: 'Charlie',
+              value: 'charlie',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    bravo: {
+      label: 'Bravo',
+      value: 'bravo',
+      specializations: {
+        alpha: {
+          label: 'Alpha',
+          value: 'alpha',
+          roles: {
+            alpha: {
+              label: 'Alpha',
+              value: 'alpha',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            bravo: {
+              label: 'Bravo',
+              value: 'bravo',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            charlie: {
+              label: 'Charlie',
+              value: 'charlie',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            }
+          }
+        },
+        bravo: {
+          label: 'Bravo',
+          value: 'bravo',
+          roles: {
+            alpha: {
+              label: 'Alpha',
+              value: 'alpha',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            bravo: {
+              label: 'Bravo',
+              value: 'bravo',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            charlie: {
+              label: 'Charlie',
+              value: 'charlie',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            }
+          }
+        },
+        charlie: {
+          label: 'Charlie',
+          value: 'charlie',
+          roles: {
+            alpha: {
+              label: 'Alpha',
+              value: 'alpha',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            bravo: {
+              label: 'Bravo',
+              value: 'bravo',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            charlie: {
+              label: 'Charlie',
+              value: 'charlie',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    charlie: {
+      label: 'Charlie',
+      value: 'charlie',
+      specializations: {
+        alpha: {
+          label: 'Alpha',
+          value: 'alpha',
+          roles: {
+            alpha: {
+              label: 'Alpha',
+              value: 'alpha',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            bravo: {
+              label: 'Bravo',
+              value: 'bravo',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            charlie: {
+              label: 'Charlie',
+              value: 'charlie',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            }
+          }
+        },
+        bravo: {
+          label: 'Bravo',
+          value: 'bravo',
+          roles: {
+            alpha: {
+              label: 'Alpha',
+              value: 'alpha',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            bravo: {
+              label: 'Bravo',
+              value: 'bravo',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            charlie: {
+              label: 'Charlie',
+              value: 'charlie',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            }
+          }
+        },
+        charlie: {
+          label: 'Charlie',
+          value: 'charlie',
+          roles: {
+            alpha: {
+              label: 'Alpha',
+              value: 'alpha',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            bravo: {
+              label: 'Bravo',
+              value: 'bravo',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            },
+            charlie: {
+              label: 'Charlie',
+              value: 'charlie',
+              concentrations: {
+                alpha: {
+                  label: 'Alpha',
+                  value: 'alpha'
+                },
+                bravo: {
+                  label: 'Bravo',
+                  value: 'bravo'
+                },
+                charlie: {
+                  label: 'Charlie',
+                  value: 'charlie'
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  })
+  

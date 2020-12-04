@@ -1,0 +1,244 @@
+// begin colors
+$brand-secondary: #0698bd;
+$brand-red: #e90c27;
+$brand-green: #4ab043;
+$brand-yellow: #ffd305;
+$brand-black: #4a4a4a;
+$brand-gray: #9b9b9b;
+$brand-lighter-gray: #b0b0b0;
+$brand-disabled-gray: #d0d0d0;
+$brand-border-gray: #e0e0e0;
+$brand-success: #5cb85c;
+$brand-info: #5bc0de; // stylelint-disable-line no-indistinguishable-colors
+$brand-warning: #f0ad4e;
+$brand-inverse: $gray-dark;
+$brand-danger: #d9534f;
+$brand-primary: darken(#428bca, 6.5%);
+$brand-primary-muted: lighten($brand-primary, 10%);
+// end colors
+
+html {
+  color: $text-base-color;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 14px;
+
+  @include mq($from: tablet) {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin-top: $inuit-global-spacing-unit;
+  margin-bottom: $inuit-global-spacing-unit;
+}
+
+// begin FormField
+.c-form-field {
+  margin-bottom: $inuit-global-spacing-unit;
+}
+
+.c-form-field--error {
+
+  .c-form-field__control {
+    border-bottom: solid 1px $border-color;
+  }
+
+  .c-form-field__hint {
+    color: $brand-danger;
+  }
+}
+
+.c-form-field__hint {
+  font-size: 0.75rem;
+  color: $text-muted-color;
+  font-weight: 300;
+  min-height: $inuit-global-spacing-unit;
+}
+
+.c-form-field__img {
+  height: 1.375rem; // 22px
+  margin-right: 0;
+  text-align: center;
+  width: 2.125rem; // 34px
+
+  > img {
+    margin: 0 auto;
+    height: 1.375rem; // 22px
+  }
+}
+
+.c-form-field__control {
+  border-bottom: solid 1px $border-color;
+}
+
+.c-form-field__input {
+  -webkit-backface-visibility: hidden;
+  border: none;
+  color: $text-base-color;
+  font-family: inherit;
+  font-weight: 300;
+  padding: 0;
+  width: 100%;
+}
+// end FormField
+
+// begin FormButton
+.c-form-button {
+  border: solid 1px $white;
+  border-radius: $control-radius;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  font: inherit;
+  font-weight: 600;
+  margin: $inuit-global-spacing-unit-small 0;
+  padding: round($inuit-global-spacing-unit-small * 0.5) $inuit-global-spacing-unit;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.c-form-button--primary {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+
+  &.c-form-button--disabled,
+  &:disabled {
+    background-color: $brand-primary-muted;
+    border-color: $brand-primary-muted;
+  }
+
+  &.c-form-button--inverse {
+    background-color: $white;
+    color: $brand-primary;
+    border-color: $brand-primary;
+  }
+}
+
+.c-form-button--block {
+  width: 100%;
+}
+
+.c-form-button--destructive {
+  background-color: $brand-danger;
+  border-color: $brand-danger;
+}
+// end FormButton
+
+// begin FormRadio
+.c-form-radio__label {
+  border-radius: $control-radius;
+  border: solid 1px $border-color;
+  color: $text-muted-color;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  overflow-x: hidden;
+  padding: $inuit-global-spacing-unit-tiny;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.c-form-radio__item {
+  margin-bottom: $inuit-global-spacing-unit-tiny;
+  text-align: center;
+}
+
+.c-form-radio__field:checked + label {
+  border-color: $brand-primary;
+  color: $brand-primary;
+}
+
+.c-form-radio--error {
+
+  .c-form-radio__hint {
+    color: $brand-danger;
+  }
+}
+
+.c-form-radio__hint {
+  color: $text-muted-color;
+  font-size: 0.75rem;
+  min-height: 2rem;
+}
+// end FormRadio
+
+.u-red {
+  color: $brand-red;
+}
+
+// begin Typography
+.c-h1 {
+  font-size: 2rem;
+}
+
+.c-h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.c-h3 {
+  font-size: 1.25rem;
+}
+
+.c-h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.c-h5 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.c-text-strong {
+  color: $brand-secondary;
+}
+
+.c-text-strong--inverse {
+  color: $white;
+}
+
+.c-text-strong--stronger {
+  font-weight: 600;
+  color: $text-base-color;
+}
+
+.c-text-strong--super-strong {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.c-text-small {
+  font-size: 0.875rem;
+}
+
+.c-text-small--muted {
+  color: $brand-gray;
+}
+
+.c-text-small--strong {
+  color: $brand-secondary;
+}
+
+.c-text-small--stronger {
+  font-weight: 600;
+}
+// end Typography
+
+.c-form-progress__item {
+  margin-right: 16px;
+  color: $brand-gray;
+}
+
+.c-form-progress__item--complete {
+  color: $brand-green;
+}
+
+.c-form-progress__item--active {
+  color: $brand-black;
+  font-weight: 600;
+}

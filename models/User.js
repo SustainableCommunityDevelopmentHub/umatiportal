@@ -69,6 +69,7 @@ const userSchema = new mongoose.Schema({
   offer_books: String,
   offer_plants: String,
   offer_catfood: String,
+  offer_dogfood: String,
 
   snapchat: String,
   facebook: String,
