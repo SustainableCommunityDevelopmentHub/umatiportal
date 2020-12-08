@@ -10,8 +10,10 @@ html
     link(rel='manifest', href='/manifest.webmanifest')
     link(rel='shortcut icon', href='/favicon.png')
     link(rel='stylesheet', href='/css/main.css')
-    if (title === 'Group status') 
-        link(rel='stylesheet', href='https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css' + user._id )
+    if (title === 'Group status' || title ===  'User status') 
+        link(rel='stylesheet', href='https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css')
+        link(rel='stylesheet', href='https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap4.min.css')
+
     if (title === 'Public blog' || title === 'Public blog page' ) 
         link(rel='stylesheet', href='/api/css/' + user._id )
     if (title === 'Edit site page' ) 
@@ -74,15 +76,38 @@ html
             minDimensions:[10,10],
             tableOverflow:true,
          }
-         $('#spreadsheet').jexcel(options);)
+         $('#spreadsheet').jexcel(options);
 
     if (title === 'Location')
         // this is not being used.  Goal here is to use open streetmap
         link(rel="stylesheet", href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css")
         script(src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js")
 
-    if (title === 'Group status') 
+    if (title === 'Group status' || title === 'User status') 
         script(src='https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js')
+
+    if (title === 'Group status') 
+       script.
+          $('#example').DataTable( { 
+              responsive: {
+                details: {
+                    renderer: function ( api, rowIdx, columns ) {
+                        var data = $.map( columns, function ( col, i ) {
+                            return col.hidden ?
+                                '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
+                                    '<td>'+col.title+':'+'</td> '+
+                                    '<td>'+col.data+'</td>'+
+                                '</tr>' :
+                                '';
+                        } ).join('');
+ 
+                        return data ?
+                            $('<table/>').append( data ) :
+                            false;
+                    }
+                }
+              }
+           });
 
     if (title === 'forWard')
         script(src='/js/bcp.min.js')
