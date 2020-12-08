@@ -10,8 +10,10 @@ html
     link(rel='manifest', href='/manifest.webmanifest')
     link(rel='shortcut icon', href='/favicon.png')
     link(rel='stylesheet', href='/css/main.css')
+    if (title === 'Group status') 
+        link(rel='stylesheet', href='https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css' + user._id )
     if (title === 'Public blog' || title === 'Public blog page' ) 
-        link(rel='stylesheet', href='/api/css?' + user._id )
+        link(rel='stylesheet', href='/api/css/' + user._id )
     if (title === 'Edit site page' ) 
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css')
         link(rel='stylesheet', href='https://uicdn.toast.com/editor/latest/toastui-editor.min.css')
@@ -78,6 +80,9 @@ html
         // this is not being used.  Goal here is to use open streetmap
         link(rel="stylesheet", href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css")
         script(src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js")
+
+    if (title === 'Group status') 
+        script(src='https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js')
 
     if (title === 'forWard')
         script(src='/js/bcp.min.js')

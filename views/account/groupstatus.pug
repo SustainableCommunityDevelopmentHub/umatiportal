@@ -1,0 +1,66 @@
+extends ../layout
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+
+  include ../partials/profilehead.pug
+
+  h3 Group admin panel
+ 
+  br
+  br
+
+  .container-fluid
+      if ( user.profile.group === "forward" )
+
+        h4 #{user.group} Group Activity:
+
+        table.table.table-hover
+
+      table.table-hover#example.display(style='width:100%')
+        thead
+          tr
+            th Name
+            th Email
+          tr
+            th Need:
+            th Foodbox
+            th Compost
+            th Compost pickup
+            th Household items
+            th Tools
+            th Clothing
+            th Books
+            th Plants
+            th Catfood
+            th Dogood
+          tr
+            th Offer:
+
+          each useritem in groupdata
+            tr
+              th #{useritem.profile.name}
+              th #{useritem.email}
+            tr
+              th
+              th #{useritem.need_foodbox}
+              th #{useritem.need_compost}
+              th #{useritem.need_compostpickup}
+              th #{useritem.need_householditems}
+              th #{useritem.need_tools}
+              th #{useritem.need_clothing}
+              th #{useritem.need_books}
+              th #{useritem.need_plants}
+              th #{useritem.need_catfood}
+              th #{useritem.need_dogfood}
+            tr
+              th
+              th #{useritem.offer_foodbox}
+              th #{useritem.offer_compost}
+              th #{useritem.offer_compostpickup}
+              th #{useritem.offer_householditems}
+              th #{useritem.offer_tools}
+              th #{useritem.offer_clothing}
+              th #{useritem.offer_books}
+              th #{useritem.offer_plants}
+              th #{useritem.offer_catfood}
