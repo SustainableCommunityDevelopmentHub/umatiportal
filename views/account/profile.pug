@@ -9,8 +9,15 @@ block content
 
   form(action='/account/actionprofile', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
-    h4 Resource Panel:
-
+    .form-group.row
+      h4 
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='things')
+      .col-md-7
+        if ( user.profile.role === "admin" )
+          br
+          a(href="/account/groupadminpanel") Administrate  
+          span #{user.group}. 
+    h4 Resources Panel:
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right(for='need') What are your needs?
       .col-md-7
@@ -552,3 +559,4 @@ block content
 
         .modal-footer
           button.btn.btn-secondary(type="button", data-dismiss="modal") Close
+

@@ -1,0 +1,68 @@
+extends ../layout
+
+block content
+  .pb-2.mt-2.mb-4.border-bottom
+
+  include ../partials/profilehead.pug
+
+  h3 Group admin panel
+ 
+  br
+  br
+
+  .container-fluid
+      if ( user.profile.group === "forward" )
+
+        h4 #{user.group} Group Status:
+
+
+      .row
+      .col-sm-12.col-md-6
+        .dataTables_length#example_length
+        
+      .col-sm-12.col-md-6
+        #example_filter.dataTables_filter
+
+        table#example.display.nowrap.dataTable.no-footer.dtr-inline.collapsed.datatable-striped.table-bordered(style='width:100%',role='grid',aria-describedby='example-info')
+          thead
+            tr(role='row')
+              th.sorting_asc(tabindex='0', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Name: activate to sort column descending') Name
+              th.sorting_asc(tabindex='1', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Email: activate to sort column descending') Email
+              th.sorting_asc(tabindex='2', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Foodbox: activate to sort column descending') Foodbox
+              th.sorting(tabindex='3', aria-controls='example', rowspan='1', colspan='1', style='width: 131px;', aria-label='Compost: activate to sort column ascending') Compost
+              th.sorting(tabindex='4', aria-controls='example', rowspan='1', colspan='1', style='width: 287px;', aria-label='Compost Pickup: activate to sort column ascending') Compost Pickup
+              th.sorting(tabindex='5', aria-controls='example', rowspan='1', colspan='1', style='width: 140px;', aria-label='Tools: activate to sort column ascending') Tools
+              th.sorting(tabindex='6', aria-controls='example', rowspan='1', colspan='1', style='width: 0px;', aria-label='Clothing: activate to sort column ascending') Clothing
+              th.sorting(tabindex='7', aria-controls='example', rowspan='1', colspan='1', style='width: 0px;', aria-label='Books: activate to sort column ascending') Books
+              th.sorting(tabindex='8', aria-controls='example', rowspan='1', colspan='1', style='width: 0px;', aria-label='Plants: activate to sort column ascending') Plants
+              th.sorting(tabindex='9', aria-controls='example', rowspan='1', colspan='1', style='width: 0px; display: none;', aria-label='Catfood: activate to sort column ascending') Catfood
+              th.sorting(tabindex='10', aria-controls='example', rowspan='1', colspan='1', style='width: 0px; display: none;', aria-label='Dogfood: activate to sort column ascending') Dogfood
+          tbody
+
+            each useritem in groupdata
+              tr
+                td.dtr-control #{useritem.profile.name}
+                td #{useritem.email}
+                td #{useritem.need_foodbox}
+                td #{useritem.need_compost}
+                td #{useritem.need_compostpickup}
+                td #{useritem.need_householditems}
+                td #{useritem.need_tools}
+                td #{useritem.need_clothing}
+                td #{useritem.need_books}
+                td #{useritem.need_plants}
+                td #{useritem.need_catfood}
+                td #{useritem.need_dogfood}
+              tr
+                td
+                td
+                td #{useritem.offer_foodbox}
+                td #{useritem.offer_compost}
+                td #{useritem.offer_compostpickup}
+                td #{useritem.offer_householditems}
+                td #{useritem.offer_tools}
+                td #{useritem.offer_clothing}
+                td #{useritem.offer_books}
+                td #{useritem.offer_plants}
+                td #{useritem.offer_catfood}
+                td #{useritem.offer_dogfood}

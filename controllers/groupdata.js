@@ -22,18 +22,75 @@ const randomBytesAsync = promisify(crypto.randomBytes);
 
 // Display data for group admin person to review
 //
-exports.getGroupAdminPanel = function (req, res, next) {
+exports.getGroupAdminPanel = function (req, res, user) {
 
+    var thisgroup = user.group
+    User.find({ 'group': 'forward' }, 'profile.name need_dogfood need_plants need_compost need_catfood need_tools need_buildingsupplies need_compostpickup need_books need_householditems offer_clothing offer_plants offer_books offer_compost offer_compostpickup offer_householditems offer_tools offer_dogfood item_offered item_requested usecase_foodsecurity', function (err, groupdata ) {
+      if (err) return handleError(err); 
+      res.render('account/groupadminpanel', { title: 'Group', groupdata: groupdata });
+    })
+};
+
+
+exports.getGroupStatus = function (req, res, user) {
+
+  User.find({}, function(err, users) { 
+    var userMap = {}; 
+    users.forEach(function(user) { 
+      userMap[user._id] = user; 
+    }); 
+      res.render('account/groupstatus', { title: 'Group status', groupdata: userMap });
+  // res.send(userMap); 
+  }); 
+};
+
+exports.getUserlist = function (req, res, user) {
+
+  User.find({}, function(err, users) { 
+    var userMap = {}; 
+    users.forEach(function(user) { 
+      userMap[user._id] = user; 
+    }); 
+      res.render('account/userlist', { title: 'Group status', groupdata: userMap });
+  // res.send(userMap); 
+  }); 
+};
+
+exports.getUserstatus = function (req, res, user) {
+
+  User.find({}, function(err, users) { 
+    var userMap = {}; 
+    users.forEach(function(user) { 
+      userMap[user._id] = user; 
+    }); 
+      res.render('account/userstatus', { title: 'Group status', groupdata: userMap });
+  // res.send(userMap); 
+  }); 
+};
+
+exports.getUserjson = function (req, res, user) {
+
+  User.find({}, function(err, users) { 
+    var userMap = {}; 
+    users.forEach(function(user) { 
+      userMap[user._id] = user; 
+    }); 
+   res.send(userMap); 
+  }); 
+};
+
+
+/**
     Groupdata.find()
         .sort([['name', 'ascending']])
         .exec(function (err, group_data) {
             if (err) { return next(err); }
-            // Successful, so rendecalsr.
+            // Successful, so render page
             res.render('account/groupadminpanel', { title: 'Group', groupdata: group_data });
         })
 };
 
-
+**/
 
 
 // Display list of Member activity.
@@ -79,6 +136,9 @@ exports.getPosEntry = (req, res) => {
     title: 'Edit point of sale entry'
   });
 };
+
+
+
 
 /**
  * GET /createpost

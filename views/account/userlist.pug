@@ -5,7 +5,7 @@ block content
 
   include ../partials/profilehead.pug
 
-  h3 Group admin panel
+  h3 Group admin panelo
  
   br
   br
@@ -19,12 +19,9 @@ block content
 
       .col
         p got here
-      each useritem in user
+      each useritem in groupdata
         .col
           .row
             h2
-              span 1 
               #{useritem.email}
-
       p got here
-#    a(href='/blog/' + profile.name + '/' + useritem.profile.name ) #{useritem.profile.name}

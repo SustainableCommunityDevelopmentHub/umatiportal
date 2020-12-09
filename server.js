@@ -265,6 +265,9 @@ app.post('/account/createproject', passportConfig.isAuthenticated, projectContro
 
 app.get('/account/groupdatasheet1', passportConfig.isAuthenticated, groupdataController.getGroupdatasheet1);
 app.get('/account/groupadminpanel', passportConfig.isAuthenticated, groupdataController.getGroupAdminPanel);
+app.get('/account/groupstatus', passportConfig.isAuthenticated, groupdataController.getGroupStatus);
+app.get('/account/userlist', passportConfig.isAuthenticated, groupdataController.getUserlist);
+app.get('/account/userjson', passportConfig.isAuthenticated, groupdataController.getUserjson);
 app.get('/account/group', passportConfig.isAuthenticated, groupdataController.getGroupdata);
 app.post('/account/group', passportConfig.isAuthenticated, groupdataController.postGroupdata);
 app.get('/account/creategroupnote', passportConfig.isAuthenticated, groupdataController.getCreategroupnote);
