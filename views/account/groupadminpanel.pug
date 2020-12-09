@@ -14,7 +14,7 @@ block content
     .row-fluid
       .span3
       if ( user.profile.role === "admin" )
-        h4 #{user.group} Group Activity:
+        h4 #{user.group} Admin:
 
 
       .col
@@ -23,8 +23,6 @@ block content
         .col
           .row
             h2
-              span 1 
-              #{useritem.email}
+              span 123 
 
       p got here
-#    a(href='/blog/' + profile.name + '/' + useritem.profile.name ) #{useritem.profile.name}

@@ -5,15 +5,15 @@ block content
 
   include ../partials/profilehead.pug
 
-  h3 Group admin panel
+  h3 Group Status
  
   br
   br
 
   .container-fluid
-      if ( user.profile.group === "forward" )
+      if ( user.profile.role === "admin" )
 
-        h4 #{user.group} Group Status:
+        h4 You are admin for #{user.group}
 
 
       .row
@@ -54,7 +54,7 @@ block content
                 td #{useritem.need_catfood}
                 td #{useritem.need_dogfood}
               tr
-                td
+                td #{useritem.group}
                 td
                 td #{useritem.offer_foodbox}
                 td #{useritem.offer_compost}

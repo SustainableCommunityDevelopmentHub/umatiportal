@@ -25,7 +25,7 @@ const randomBytesAsync = promisify(crypto.randomBytes);
 exports.getGroupAdminPanel = function (req, res, user) {
 
     var thisgroup = user.group
-    User.find({ 'group': 'forward' }, 'profile.name need_dogfood need_plants need_compost need_catfood need_tools need_buildingsupplies need_compostpickup need_books need_householditems offer_clothing offer_plants offer_books offer_compost offer_compostpickup offer_householditems offer_tools offer_dogfood item_offered item_requested usecase_foodsecurity', function (err, groupdata ) {
+    User.find({ 'group': thisgroup }, 'profile.name need_dogfood need_plants need_compost need_catfood need_tools need_buildingsupplies need_compostpickup need_books need_householditems offer_clothing offer_plants offer_books offer_compost offer_compostpickup offer_householditems offer_tools offer_dogfood item_offered item_requested usecase_foodsecurity', function (err, groupdata ) {
       if (err) return handleError(err); 
       res.render('account/groupadminpanel', { title: 'Group', groupdata: groupdata });
     })
@@ -34,6 +34,7 @@ exports.getGroupAdminPanel = function (req, res, user) {
 
 exports.getGroupStatus = function (req, res, user) {
 
+  console.log( "mygroup: " + user.group ); 
   User.find({}, function(err, users) { 
     var userMap = {}; 
     users.forEach(function(user) { 
@@ -58,7 +59,9 @@ exports.getUserlist = function (req, res, user) {
 
 exports.getUserstatus = function (req, res, user) {
 
-  User.find({}, function(err, users) { 
+
+  User.find({}, function(err, users) {
+
     var userMap = {}; 
     users.forEach(function(user) { 
       userMap[user._id] = user; 

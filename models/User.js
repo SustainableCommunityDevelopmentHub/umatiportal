@@ -93,7 +93,6 @@ const userSchema = new mongoose.Schema({
     country: String,
     postalcode: String,
     website: String,
-    group: String,
     pickupneed: String,
     story: String,
     business: String,
