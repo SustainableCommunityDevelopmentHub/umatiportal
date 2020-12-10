@@ -1,7 +1,7 @@
 {
   "name": "umatiportal-app",
   "version": "0.9.11a",
-  "description": "Community Networking App",
+  "description": "Community Resources Manager and Technology Assessment App",
   "repository": {
     "type": "git",
     "url": "https://github.com/sustainablecommunitydevelopmenthub/umatiportal.git"

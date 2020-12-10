@@ -329,6 +329,10 @@ div.news p {
   height: 264px;
 }
 
+.drinkingwater:hover { cursor:pointer; }
+.wastewater:hover { cursor:pointer; }
+.solidwaste:hover { cursor:pointer; }
+
 div.drinkingwater p {
   margin: 10px;
   color: #fff;
@@ -337,13 +341,13 @@ div.drinkingwater p {
 }
 
 .wastewater {
-  background-image: linear-gradient(rgba(123,14,34,0), rgba(0,0,0,0.8)),url(/images/sewage.gif);
+  background-image: linear-gradient(rgba(123,14,34,0), rgba(0,0,0,0.8)),url(/images/pipe00.gif);
   color: #fff;
   height: 264px;
 }
 
 .solidwaste {
-  background-image: linear-gradient(rgba(123,14,34,0), rgba(0,0,0,0.8)),url(/images/sewage.gif);
+  background-image: linear-gradient(rgba(123,14,34,0), rgba(0,0,0,0.8)),url(/images/solidwaste.gif);
   color: #fff;
   height: 264px;
 }

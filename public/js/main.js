@@ -12,6 +12,19 @@ $(document).ready(() => {
         });
     });
 
+    $(".solidwaste").on('click', function(){
+     window.location = "/cat/solidwaste/";    
+    });
+
+    $(".drinkingwater").on('click', function(){
+     window.location = "/cat/drinking-water/";    
+    });
+
+    $(".wastewater").on('click', function(){
+     window.location = "/cat/wastewater/";    
+    });
+
+
     $('#invite').on('click', function () {
         var Status = $(this).val();
         $.ajax({
