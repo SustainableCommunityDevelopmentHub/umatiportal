@@ -27,16 +27,16 @@ block content
           thead
             tr(role='row')
               th.sorting_asc(tabindex='0', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Name: activate to sort column descending') Name
-              th.sorting_asc(tabindex='1', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Email: activate to sort column descending') Email
-              th.sorting_asc(tabindex='2', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Foodbox: activate to sort column descending') Foodbox
+              th.sorting(tabindex='0', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Name: activate to sort column descending') Name
+              th.sorting(tabindex='2', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Foodbox: activate to sort column descending') Foodbox
               th.sorting(tabindex='3', aria-controls='example', rowspan='1', colspan='1', style='width: 131px;', aria-label='Compost: activate to sort column ascending') Compost
               th.sorting(tabindex='4', aria-controls='example', rowspan='1', colspan='1', style='width: 287px;', aria-label='Compost Pickup: activate to sort column ascending') Compost Pickup
               th.sorting(tabindex='5', aria-controls='example', rowspan='1', colspan='1', style='width: 140px;', aria-label='Tools: activate to sort column ascending') Tools
               th.sorting(tabindex='6', aria-controls='example', rowspan='1', colspan='1', style='width: 0px;', aria-label='Clothing: activate to sort column ascending') Clothing
               th.sorting(tabindex='7', aria-controls='example', rowspan='1', colspan='1', style='width: 0px;', aria-label='Books: activate to sort column ascending') Books
               th.sorting(tabindex='8', aria-controls='example', rowspan='1', colspan='1', style='width: 0px;', aria-label='Plants: activate to sort column ascending') Plants
-              th.sorting(tabindex='9', aria-controls='example', rowspan='1', colspan='1', style='width: 0px; display: none;', aria-label='Catfood: activate to sort column ascending') Catfood
-              th.sorting(tabindex='10', aria-controls='example', rowspan='1', colspan='1', style='width: 0px; display: none;', aria-label='Dogfood: activate to sort column ascending') Dogfood
+              th.sorting(tabindex='0', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Catfood: activate to sort column descending') Catfood
+              th.sorting(tabindex='1', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Dogfood: activate to sort column descending') Dogfood
           tbody
 
             each useritem in groupdata
