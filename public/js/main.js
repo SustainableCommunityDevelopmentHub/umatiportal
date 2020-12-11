@@ -13,15 +13,15 @@ $(document).ready(() => {
     });
 
     $(".solidwaste").on('click', function(){
-     window.location = "/cat/solidwaste/";    
+     window.location = "https://scdhub.org/cat/municipal-solid-waste-storage/";    
     });
 
     $(".drinkingwater").on('click', function(){
-     window.location = "/cat/drinking-water/";    
+     window.location = "https://scdhub.org/cat/water-sources/";    
     });
 
     $(".wastewater").on('click', function(){
-     window.location = "/cat/wastewater/";    
+     window.location = "https://scdhub.org/cat/wastewater-collection/";    
     });
 
 
