@@ -15,6 +15,21 @@ block content
 
         h4 You are admin for #{user.group}
 
+        p
+              a(href='#') Name 
+              a(href='#') Group 
+              a(href='#') Email 
+              a(href='#') Foodbox 
+              a(href='#') Compost 
+              a(href='#') Compost Pickup 
+              a(href='#') Tools 
+              a(href='#') Clothing 
+              a(href='#') Books 
+              a(href='#') Plants  
+              a(href='#') Catfood 
+
+
+
 
       .row
       .col-sm-12.col-md-6
@@ -27,7 +42,8 @@ block content
           thead
             tr(role='row')
               th.sorting_asc(tabindex='0', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Name: activate to sort column descending') Name
-              th.sorting(tabindex='0', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Name: activate to sort column descending') Name
+              th.sorting(tabindex='0', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Name: activate to sort column descending') Group
+              th.sorting(tabindex='0', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Name: activate to sort column descending') Email
               th.sorting(tabindex='2', aria-controls='example', rowspan='1', colspan='1', style='width: 132px;', aria-sort='ascending', aria-label='Foodbox: activate to sort column descending') Foodbox
               th.sorting(tabindex='3', aria-controls='example', rowspan='1', colspan='1', style='width: 131px;', aria-label='Compost: activate to sort column ascending') Compost
               th.sorting(tabindex='4', aria-controls='example', rowspan='1', colspan='1', style='width: 287px;', aria-label='Compost Pickup: activate to sort column ascending') Compost Pickup
@@ -40,29 +56,31 @@ block content
           tbody
 
             each useritem in groupdata
-              tr
-                td.dtr-control #{useritem.profile.name}
-                td #{useritem.email}
-                td #{useritem.need_foodbox}
-                td #{useritem.need_compost}
-                td #{useritem.need_compostpickup}
-                td #{useritem.need_householditems}
-                td #{useritem.need_tools}
-                td #{useritem.need_clothing}
-                td #{useritem.need_books}
-                td #{useritem.need_plants}
-                td #{useritem.need_catfood}
-                td #{useritem.need_dogfood}
-              tr
-                td #{useritem.group}
-                td
-                td #{useritem.offer_foodbox}
-                td #{useritem.offer_compost}
-                td #{useritem.offer_compostpickup}
-                td #{useritem.offer_householditems}
-                td #{useritem.offer_tools}
-                td #{useritem.offer_clothing}
-                td #{useritem.offer_books}
-                td #{useritem.offer_plants}
-                td #{useritem.offer_catfood}
-                td #{useritem.offer_dogfood}
+              if useritem.group === user.group
+                tr
+                  td.dtr-control #{useritem.profile.name}
+                  td #{useritem.group}
+                  td #{useritem.email}
+                  td #{useritem.need_foodbox}
+                  td #{useritem.need_compost}
+                  td #{useritem.need_compostpickup}
+                  td #{useritem.need_householditems}
+                  td #{useritem.need_tools}
+                  td #{useritem.need_clothing}
+                  td #{useritem.need_books}
+                  td #{useritem.need_plants}
+                  td #{useritem.need_catfood}
+                  td #{useritem.need_dogfood}
+                tr
+                  td #{useritem.group}
+                  td
+                  td #{useritem.offer_foodbox}
+                  td #{useritem.offer_compost}
+                  td #{useritem.offer_compostpickup}
+                  td #{useritem.offer_householditems}
+                  td #{useritem.offer_tools}
+                  td #{useritem.offer_clothing}
+                  td #{useritem.offer_books}
+                  td #{useritem.offer_plants}
+                  td #{useritem.offer_catfood}
+                  td #{useritem.offer_dogfood}

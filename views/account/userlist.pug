@@ -1,4 +1,18 @@
 extends ../layout
+link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+link(rel='stylesheet', href='http://cdn.datatables.net/plug-ins/a5734b29083/integration/bootstrap/3/dataTables.bootstrap.css')
+link(rel='stylesheet', href='http://cdn.datatables.net/responsive/1.0.2/css/dataTables.responsive.css')
+
+style.
+  body {
+              font-size: 140%;
+          }
+  
+          table.dataTable th,
+          table.dataTable td {
+              white-space: nowrap;
+          }
+
 
 block content
   .pb-2.mt-2.mb-4.border-bottom
@@ -25,3 +39,32 @@ block content
             h2
               #{useritem.email}
       p got here
+
+  
+.panel.panel-primary(style='margin: 51px; padding: 0;')
+  .panel-heading
+    h3.panel-title Panel title
+  .panel-body(style='padding: 0;')
+    table#example.table.table-striped.table-hover.dt-responsive(cellspacing='0', width='100%')
+      thead
+        tr
+          th Name
+          th Position
+          th Office
+          th Extn.
+          th Start date
+          th Salary
+script(src='//code.jquery.com/jquery-1.11.1.min.js')
+script(type='text/javascript', language='javascript', src='//cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js')
+script(type='text/javascript', language='javascript', src='//cdn.datatables.net/responsive/1.0.2/js/dataTables.responsive.js')
+script(type='text/javascript', language='javascript', src='//cdn.datatables.net/plug-ins/a5734b29083/integration/bootstrap/3/dataTables.bootstrap.js')
+script.
+  
+  $(document).ready(function () {
+          $('#example')
+                  .dataTable({
+                      "responsive": true,
+                      "ajax": 'data.json'
+                  });
+      });
+  

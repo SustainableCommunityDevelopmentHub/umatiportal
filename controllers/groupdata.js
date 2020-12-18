@@ -53,7 +53,6 @@ exports.getUserlist = function (req, res, user) {
       userMap[user._id] = user; 
     }); 
       res.render('account/userlist', { title: 'Group status', groupdata: userMap });
-  // res.send(userMap); 
   }); 
 };
 
