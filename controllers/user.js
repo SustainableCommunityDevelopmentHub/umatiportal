@@ -41,9 +41,16 @@ exports.getExportToCsv = (req, res, next) => {
  };
 
 
-exports.getContactpage = (req, res) => {
+exports.getContact = (req, res) => {
   res.render('contact', {
     title: 'Contact page'
+  });
+};
+
+
+exports.getContactPage = (req, res) => {
+  res.render('/account/contactpage', {
+    title: 'Contact'
   });
 };
 

@@ -15,14 +15,13 @@ const randomBytesAsync = promisify(crypto.randomBytes);
 
 
 // Display contacts
-exports.getContact = function (req, res, next) {
+exports.getContactPage = function (req, res, next) {
 
     Contact.find()
         .sort([['date', 'ascending']])
-        .exec(function (err, contact_data) {
+        .exec(function (err, contact) {
             if (err) { return next(err); }
-            // Successful, so rendecalsr.
-            res.render('account/contacts', { title: 'Contacts page', memdata: contact_data });
+            res.render('account/contactpage', { title: 'Contact', contact: contact });
         })
 };
 

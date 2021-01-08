@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0; }
+
+button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: #00bfa5;
+  border: 0;
+  font-weight: 400;
+  border-radius: 3px;
+  color: white;
+  font-size: 14px;
+  padding: 0.2em 0.6em;
+  transition: background-color 0.25s; }
+  button:hover {
+    background-color: #00a68f;
+    cursor: pointer; }
+  button:disabled {
+    background-color: #cccccc; }
+    button:disabled:hover {
+      background-color: #cccccc;
+      cursor: not-allowed; }
+  button:focus {
+    outline: none; }
+
+a {
+  color: #00bfa5; }
+  a:hover {
+    color: #00a68f; }
+
+input[type="text"] {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  padding: 0.25em;
+  border: 1px solid #cccccc; }
+  input[type="text"]:focus {
+    border-color: #00bfa5;
+    outline: none; }
+
+.notLoadedWrapper {
+  width: 300px;
+  margin: 100px auto 0; }
+  .notLoadedWrapper > ._1chooseFile {
+    height: 100px;
+    box-shadow: 0 0 5px #cccccc;
+    position: relative;
+    display: flex;
+    border: 3px dashed #555555; }
+    .notLoadedWrapper > ._1chooseFile > ._2hiddenInput {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer; }
+    .notLoadedWrapper > ._1chooseFile > ._2text {
+      margin: auto;
+      font-size: 40px;
+      color: #555555; }
+  .notLoadedWrapper > ._1alternativeOption {
+    display: block;
+    text-align: right;
+    margin-top: 5px; }
+
+#reactRoot {
+  display: flex; }
+
+.pageMain {
+  margin: 0 auto;
+  display: inline-flex;
+  flex-direction: row; }
+  .pageMain > ._1leftSection {
+    margin: 0 auto; }
+    .pageMain > ._1leftSection > ._2noMeals {
+      font-size: 25px;
+      margin: 0.25em 0; }
+    .pageMain > ._1leftSection > ._2meal {
+      margin-bottom: 20px;
+      text-align: center; }
+      .pageMain > ._1leftSection > ._2meal > ._3title {
+        font-size: 35px;
+        font-weight: 400;
+        display: block;
+        margin-bottom: 0.25em; }
+      .pageMain > ._1leftSection > ._2meal > ._3foods {
+        border-collapse: collapse;
+        width: 100%; }
+        .pageMain > ._1leftSection > ._2meal > ._3foods td,
+        .pageMain > ._1leftSection > ._2meal > ._3foods th {
+          padding: 0.25em 0.35em;
+          text-align: center;
+          white-space: nowrap; }
+        .pageMain > ._1leftSection > ._2meal > ._3foods th {
+          border-bottom: 1px solid #aaaaaa; }
+        .pageMain > ._1leftSection > ._2meal > ._3foods ._3foods_name {
+          width: 200px;
+          text-align: left; }
+          .pageMain > ._1leftSection > ._2meal > ._3foods ._3foods_name > ._4select {
+            width: 100%; }
+        .pageMain > ._1leftSection > ._2meal > ._3foods ._3foods_amount.-td > ._4input {
+          font-size: 18px;
+          width: 50px;
+          text-align: right;
+          border: 0;
+          border-bottom: 1px solid #aaaaaa;
+          outline: none;
+          vertical-align: middle;
+          margin-right: 0.1em;
+          padding: 0 2px; }
+      .pageMain > ._1leftSection > ._2meal > ._3addFood {
+        margin-top: 10px;
+        font-size: 18px; }
+    .pageMain > ._1leftSection > ._2addFood > ._3heading {
+      margin-bottom: 0.25em; }
+    .pageMain > ._1leftSection > ._2addFood > ._3flex {
+      display: flex;
+      flex-direction: row; }
+      .pageMain > ._1leftSection > ._2addFood > ._3flex > ._4name {
+        flex: 1;
+        font-size: 16px;
+        padding: 0.25em; }
+      .pageMain > ._1leftSection > ._2addFood > ._3flex > ._4insertAt {
+        flex: 0 auto;
+        margin-left: 10px;
+        font-size: 16px; }
+      .pageMain > ._1leftSection > ._2addFood > ._3flex > ._4submit {
+        flex: 0 auto;
+        margin-left: 10px; }
+    .pageMain > ._1leftSection > ._2actionButtons {
+      margin-top: 20px;
+      text-align: center; }
+      .pageMain > ._1leftSection > ._2actionButtons > ._3button {
+        font-size: 25px;
+        font-weight: 300;
+        margin: 0 5px; }
+    .pageMain > ._1leftSection > ._2totalMacrosWrapper > ._3heading {
+      border-bottom: 1px solid #cccccc;
+      font-size: 40px;
+      font-weight: 300;
+      margin-bottom: 0.5em;
+      text-align: center; }
+    .pageMain > ._1leftSection > ._2totalMacrosWrapper > ._3totalMacros {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 20px 0; }
+      .pageMain > ._1leftSection > ._2totalMacrosWrapper > ._3totalMacros > ._4component {
+        margin: 0 10px; }
+        .pageMain > ._1leftSection > ._2totalMacrosWrapper > ._3totalMacros > ._4component > ._5number {
+          display: block;
+          font-size: 50px;
+          text-align: center;
+          font-weight: 300;
+          line-height: 1;
+          margin-bottom: 0.15em; }
+        .pageMain > ._1leftSection > ._2totalMacrosWrapper > ._3totalMacros > ._4component > ._5description {
+          text-align: center;
+          display: block;
+          font-size: 18px;
+          color: #888888; }
+  .pageMain > ._1foodsList {
+    margin-left: 50px;
+    flex: 0 auto;
+    background-color: white; }
+    .pageMain > ._1foodsList > ._2heading {
+      border-bottom: 1px solid #cccccc;
+      font-size: 40px;
+      font-weight: 300;
+      margin-bottom: 0.5em;
+      text-align: center; }
+    .pageMain > ._1foodsList > ._2noFoods {
+      font-size: 25px;
+      margin: 0.25em 0; }
+    .pageMain > ._1foodsList > ._2table {
+      border-collapse: collapse;
+      width: 100%; }
+      .pageMain > ._1foodsList > ._2table th {
+        border-bottom: 1px solid #aaaaaa; }
+      .pageMain > ._1foodsList > ._2table td,
+      .pageMain > ._1foodsList > ._2table th {
+        padding: 0.25em;
+        text-align: center;
+        white-space: nowrap; }
+      .pageMain > ._1foodsList > ._2table th:first-child {
+        text-align: right;
+        padding-right: 10px; }
+      .pageMain > ._1foodsList > ._2table td:first-child {
+        border-right: 1px solid #aaaaaa;
+        text-align: right;
+        padding-right: 10px; }
+    .pageMain > ._1foodsList > ._2addEditFood > ._3heading {
+      margin: 0.75em 0 0.25em;
+      text-align: center;
+      font-size: 30px; }
+    .pageMain > ._1foodsList > ._2addEditFood > ._3label {
+      display: block;
+      font-weight: 400;
+      font-size: 16px;
+      margin-bottom: 0.25em; }
+    .pageMain > ._1foodsList > ._2addEditFood > ._3input {
+      display: block;
+      width: 100%;
+      font-size: 16px;
+      margin-bottom: 0.5em; }
+  .pageMain > ._1summaryPopup {
+    position: fixed;
+    z-index: 2;
+    width: auto;
+    height: auto;
+    background-color: white;
+    padding: 20px 50px 20px 20px;
+    box-shadow: 0 0 5px #555;
+    border-radius: 5px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+    .pageMain > ._1summaryPopup > ._2close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      transform: rotate(-45deg);
+      transform-origin: 15px 15px;
+      cursor: pointer; }
+      .pageMain > ._1summaryPopup > ._2close:after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 30px;
+        top: 0;
+        right: 15px;
+        background-color: #555555; }
+      .pageMain > ._1summaryPopup > ._2close:before {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 1px;
+        top: 15px;
+        right: 0;
+        background-color: #555555; }
+    .pageMain > ._1summaryPopup > ._2content > h2 {
+      margin: 0.5em 0 0.25em; }
+      .pageMain > ._1summaryPopup > ._2content > h2:first-child {
+        margin-top: 0; }
+    .pageMain > ._1summaryPopup > ._2content > span {
+      display: block;
+      margin: 0.25em 0; }
