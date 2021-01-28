@@ -293,6 +293,16 @@ exports.getTwitter = async (req, res, next) => {
 };
 
 /**
+ * POST /api/technology_assessment
+ * Post a tweet.
+ */
+exports.postTechnologyAssessment = (req, res, next) => {
+  const validationErrors = [];
+  if (validator.isEmpty(req.body.project_name)) validationErrors.push({ msg: 'Assessment title cannot be empty' });
+
+};
+
+/**
  * POST /api/twitter
  * Post a tweet.
  */

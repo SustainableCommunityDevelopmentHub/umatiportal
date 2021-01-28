@@ -332,6 +332,7 @@ app.get('/games/si', userController.getSi);
  * API examples routes.
  */
 app.get('/api/umaticast', apiController.getUmaticast);
+app.post('/api/technology_assessment', apiController.postTechnologyAssessment);
 app.get('/api', apiController.getApi);
 app.get('/api/lob', apiController.getLob);
 app.get('/api/upload', lusca({ csrf: true }), apiController.getFileUpload);
