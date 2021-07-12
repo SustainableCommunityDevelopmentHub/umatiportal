@@ -205,6 +205,7 @@ app.get('/contact', userController.getContact);
 app.get('/clinic/get-started', contactController.getClinicGetStarted);
 app.get('/clinic/get-started2', contactController.getClinicGetStarted2);
 app.get('/roadmap', contactController.getRoadmap);
+app.get('/case-study', contactController.getCasestudies);
 
 app.get('/account/verify', passportConfig.isAuthenticated, userController.getVerifyEmail);
 app.get('/account/verify/:token', passportConfig.isAuthenticated, userController.getVerifyEmailToken);

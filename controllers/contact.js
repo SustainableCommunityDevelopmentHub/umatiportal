@@ -53,6 +53,18 @@ exports.getRoadmap = (req, res) => {
 
 
 /**
+ * GET /case-studies
+ * case studies page.
+ */
+exports.getCasestudies = (req, res) => {
+  res.render('case-study', {
+    title: 'Case Study'
+  });
+};
+
+
+
+/**
  * GET /account/createcontact
  * Signup page.
  */

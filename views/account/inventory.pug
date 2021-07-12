@@ -20,7 +20,7 @@ block content
 
   .card-columns
     each posts in data
-       if posts.visibility != "none" 
+       if posts.visibility != "none"  && posts.author != "none"
            .card.bg-light
              .card-body.text-left
                h2 #{posts.inventorytitle} 
