@@ -44,6 +44,7 @@ const fileController = require('./controllers/file');
 const researchController = require('./controllers/research');
 const groupdataController = require('./controllers/groupdata');
 const projectController = require('./controllers/project');
+const projectinfoController = require('./controllers/projectinfo');
 const inventoryController = require('./controllers/inventory');
 const mediaController = require('./controllers/media');
 const messagesController = require('./controllers/messages');
@@ -217,6 +218,7 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 app.get('/business/:name', userController.getPublicBusinessPage);
 app.get('/group/:name', userController.getPublicGroupPage);
 app.get('/project/:name', userController.getPublicProjectPage);
+app.get('/projectinfo/:name', userController.getPublicProjectInfoPage);
 app.get('/account/signupproject', passportConfig.isAuthenticated, userController.getProjectSignup);
 app.get('/signupproject', userController.getProjectSignupPublic);
 app.get('/account/signupresearch', passportConfig.isAuthenticated, userController.getResearchSignup);
@@ -243,6 +245,7 @@ app.get('/account/bloghomepage', passportConfig.isAuthenticated, userController.
 app.post('/account/blogsettings', passportConfig.isAuthenticated, userController.postUpdateBlogsettings);
 app.get('/account/projectsettings', passportConfig.isAuthenticated, userController.getProjectsettings);
 app.post('/account/projectsettings', passportConfig.isAuthenticated, userController.postUpdateProjectsettings);
+app.post('/account/projectinfosettings', passportConfig.isAuthenticated, userController.postUpdateProjectinfosettings);
 app.get('/account/researchsettings', passportConfig.isAuthenticated, userController.getResearchsettings);
 app.post('/account/researchsettings', passportConfig.isAuthenticated, userController.postUpdateResearchsettings);
 app.get('/account/groupsettings', passportConfig.isAuthenticated, userController.getGroupsettings);
@@ -263,6 +266,13 @@ app.post('/account/createprojectnote', passportConfig.isAuthenticated, projectCo
 
 app.get('/account/createsubproject', passportConfig.isAuthenticated, projectController.getCreateprojectdata);
 app.post('/account/createproject', passportConfig.isAuthenticated, projectController.postCreateprojectdata);
+
+app.get('/projectinfo', userController.getProjectinfo);
+app.get('/account/projectinfo', passportConfig.isAuthenticated, projectinfoController.getProjectinfo);
+app.get('/account/projectinfo', passportConfig.isAuthenticated, projectinfoController.getProjectinfo);
+app.post('/account/projectinfo', passportConfig.isAuthenticated, projectinfoController.postProjectinfo);
+app.get('/account/createprojectinfo', passportConfig.isAuthenticated, projectinfoController.getCreateprojectinfo);
+app.post('/account/createprojectinfo', passportConfig.isAuthenticated, projectinfoController.postCreateprojectinfo);
 
 app.get('/account/groupdatasheet1', passportConfig.isAuthenticated, groupdataController.getGroupdatasheet1);
 app.get('/account/groupadminpanel', passportConfig.isAuthenticated, groupdataController.getGroupAdminPanel);

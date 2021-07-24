@@ -8,6 +8,7 @@ const _ = require('lodash');
 const validator = require('validator');
 const mailChecker = require('mailchecker');
 const Projectdata = require('../models/Project');
+const Projectinfo = require('../models/Projectinfo');
 const User = require('../models/User');
 
 
@@ -45,6 +46,17 @@ exports.getProjects = function (req, res, next) {
 };
 
 
+// Display projectinfo page
+exports.getProjectinfo = function (req, res, next) {
+
+    Projectinfo.find()
+        .sort([['name', 'ascending']])
+        .exec(function (err, project_info) {
+            if (err) { return next(err); }
+            res.render('account/projectinfo', { title: 'Project Info', projectinfo: project_info });
+        })
+};
+
 
 
 
@@ -62,7 +74,7 @@ exports.getProjectdata = function (req, res, next) {
 
 
 /*
-* POST /cal
+* POST project data
 * Sign in using email and password.
 */
 exports.postProjectdata = (req, res, next) => {
@@ -73,8 +85,7 @@ exports.postProjectdata = (req, res, next) => {
 
 
 /**
- * GET /createpost
- * Signup page.
+ * GET 
  */
 exports.getPosEntry = (req, res) => {
   res.render('account/posentryedit', {
@@ -84,7 +95,6 @@ exports.getPosEntry = (req, res) => {
 
 /**
  * GET /createprojectnote
- * Signup page.
  */
 exports.getCreateprojectnote = (req, res) => {
   res.render('account/createprojectnote', {
@@ -94,7 +104,6 @@ exports.getCreateprojectnote = (req, res) => {
 
 /**
  * GET /createproject
- * Signup page.
  */
 exports.getCreateprojectdata = (req, res) => {
   res.render('account/createproject', {
@@ -104,7 +113,6 @@ exports.getCreateprojectdata = (req, res) => {
 
 /**
  * GET /createpost
- * Signup page.
  */
 exports.getCreatesubprojectdata = (req, res) => {
   res.render('account/createsubproject', {
@@ -114,7 +122,6 @@ exports.getCreatesubprojectdata = (req, res) => {
 
 /**
  * GET /createpost
- * Signup page.
  */
 exports.getCreateprojectnote = (req, res) => {
   res.render('account/createprojectnote', {
@@ -125,7 +132,6 @@ exports.getCreateprojectnote = (req, res) => {
 
 /**
  * POST  postCreateprojectnote
- * Create a new local account.
  */
 exports.postCreateprojectnote = (req, res, next) => {
   const validationErrors = [];

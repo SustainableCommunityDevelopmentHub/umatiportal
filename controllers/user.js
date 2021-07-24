@@ -554,6 +554,13 @@ exports.getProjects = (req, res) => {
   });
 };
 
+exports.getProjectinfo = (req, res) => {
+  res.render('projectinfo', {
+    title: 'Project Info'
+  });
+};
+
+
 
 exports.getPong = (req, res) => {
   res.render('games/pong', {
