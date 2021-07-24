@@ -88,7 +88,7 @@
     "passport-snapchat": "^1.0.0",
     "path": "^0.12.7",
     "popper.js": "^1.16.1",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "request": "^2.88.2",
     "svg-captcha": "^1.4.0",
     "svg-captcha-express": "^1.0.8",
