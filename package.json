@@ -95,7 +95,7 @@
     "tumblr.js": "^2.0.2",
     "twit": "^2.2.11",
     "uuid": "^8.3.2",
-    "validator": "^12.2.0",
+    "validator": "^13.7.0",
     "yum": "^0.1.1"
   },
   "devDependencies": {
