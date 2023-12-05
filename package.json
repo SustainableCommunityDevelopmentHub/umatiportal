@@ -30,7 +30,7 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@ladjs/bootstrap-social": "^7.0.2",
     "@octokit/rest": "^16.43.2",
-    "@sendgrid/mail": "^7.4.5",
+    "@sendgrid/mail": "^8.0.0",
     "acorn": "^8.0.4",
     "aws-sdk": "^2.944.0",
     "axios": "^0.21.1",
