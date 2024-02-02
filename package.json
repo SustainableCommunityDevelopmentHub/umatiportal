@@ -23,7 +23,7 @@
     "lint": "eslint \"**/*.js\""
   },
   "dependencies": {
-    "@dicebear/avatars": "^4.6.9",
+    "@dicebear/avatars": "^4.10.8",
     "@dicebear/avatars-code-sprites": "^4.2.5",
     "@dicebear/avatars-initials-sprites": "^4.6.9",
     "@dicebear/avatars-male-sprites": "^4.6.9",
