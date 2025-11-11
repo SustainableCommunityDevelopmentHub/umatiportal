@@ -42,7 +42,7 @@
     "chart.js": "^2.9.4",
     "cheerio": "^1.0.0-rc.10",
     "clockwork": "^0.1.4",
-    "cloudinary": "^1.26.2",
+    "cloudinary": "^2.7.0",
     "co": "^4.6.0",
     "compression": "^1.7.4",
     "connect-mongo": "^3.2.0",
